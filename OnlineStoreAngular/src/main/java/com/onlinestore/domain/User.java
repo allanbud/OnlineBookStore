@@ -1,7 +1,7 @@
 package com.onlinestore.domain;
 
-import com.onlinestore.domain.security.Authority;
-import com.onlinestore.domain.security.UserRole;
+
+import com.onlinestore.domain.security.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
