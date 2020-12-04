@@ -18,7 +18,13 @@ public class Role implements Serializable {
 
     private Set<UserRole> userRoles = new HashSet<>();
 
+   //default constructor
     public Role(){}
+
+
+
+   // getters and setters
+
 
     public int getRoleId() {
         return roleId;
