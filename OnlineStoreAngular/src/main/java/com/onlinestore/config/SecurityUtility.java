@@ -20,6 +20,7 @@ public class SecurityUtility {
 	
 	@Bean
 //SALT is a "seed" for encoder and should be protected carefully
+//pick randomly from 18 chars convert to string, return a string
 	public static String randomPassword() {
 		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		StringBuilder salt = new StringBuilder();

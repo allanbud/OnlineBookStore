@@ -16,7 +16,7 @@ public class UserSecurityService implements UserDetailsService{
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserSecurityService.class);
 
-//"Layer" between com.onlinestore.domain.security class and DB, check out ORM object-relational mapping
+//"Layer" between security class and DB, check out ORM object-relational mapping
 	@Autowired 
 	private UserRepository userRepository;
 	

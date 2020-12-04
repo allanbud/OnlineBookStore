@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private Environment env;
 	
 	@Autowired
-//TODO define class
+//DONE define class
 	private UserSecurityService userSecurityService;
 	
 	private BCryptPasswordEncoder passwordEncoder() {
@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return SecurityUtility.passwordEncoder();
 	}
 
-//what should be publicly available? sepparate from com.onlinestore.domain.security
+//what should be publicly available? separate from security
 	private static final String[] PUBLIC_MATCHERS = {
 			"/css/**",
 			"/js/**",
@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-				http.csrf(). //cross-line request forgery JUST need it
+				http.csrf(). //cross-line request forgery JUST need it disable
 				disable().
 
 				cors().

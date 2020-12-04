@@ -26,6 +26,7 @@ public class UserRole implements Serializable {
     }
 //https://app.diagrams.net/#G1Eb_mPG24lnWh58-uXw0SynsVLG-7to7v
 //role can have many users and user many roles
+//EAGER or LAZY?
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
