@@ -1,5 +1,6 @@
 package com.onlinestore.config;
 
+import com.onlinestore.service.UserSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -21,11 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserSecurityService userSecurityService;
 	
 	private BCryptPasswordEncoder passwordEncoder() {
-//TODO define SecurityUtility
+//DONE define SecurityUtility
 		return SecurityUtility.passwordEncoder();
 	}
 
-//what should be publicly available? sepparate from security
+//what should be publicly available? sepparate from com.onlinestore.domain.security
 	private static final String[] PUBLIC_MATCHERS = {
 			"/css/**",
 			"/js/**",

@@ -1,5 +1,7 @@
 package com.onlinestore.domain.security;
 
+import com.onlinestore.domain.User;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,10 +19,10 @@ public class UserRole implements Serializable {
 //default empty
     public UserRole () {}
 
-//TODO create class User
+//DONE create class User
     public UserRole (User user, Role role) {
         this.user = user;
-        this.user = role;
+        this.role = role;
     }
 //https://app.diagrams.net/#G1Eb_mPG24lnWh58-uXw0SynsVLG-7to7v
 //role can have many users and user many roles
@@ -29,6 +31,32 @@ public class UserRole implements Serializable {
     private User user;
 
 //any role and any user connect to one UserRole
-    @ManyToOne
-    private Role role;
+@ManyToOne(fetch = FetchType.EAGER)
+private Role role;
+
+    public long getUserRoleId() {
+        return userRoleId;
+    }
+
+    public void setUserRoleId(long userRoleId) {
+        this.userRoleId = userRoleId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+
 }
