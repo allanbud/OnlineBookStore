@@ -1,9 +1,9 @@
 
-
-java:S1488!"_Immediately return this expression instead of assigning it to the temporary variable "saltStr".(º¥Î‚øÿÿÿÿ8Û±Şéâ.
-5
-java:S2140"Use "nextInt()" instead.(ææñÛ8Û±Şéâ.
+;
+java:S2119"Save and re-use this "Random".(–áÍÈ8Û±Şéâ.
 U
 java:S1118":Add a private constructor to hide the implicit public one.(ñç—şÿÿÿÿ
-;
-java:S2119"Save and re-use this "Random".(–áÍÈ8Û±Şéâ.
+
+java:S1488""_Immediately return this expression instead of assigning it to the temporary variable "saltStr".(º¥Î‚øÿÿÿÿ8Û±Şéâ.
+5
+java:S2140"Use "nextInt()" instead.(ææñÛ8Û±Şéâ.

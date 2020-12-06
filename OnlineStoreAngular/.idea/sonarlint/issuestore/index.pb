@@ -21,3 +21,15 @@ n
 >src/main/java/com/onlinestore/service/UserSecurityService.java,1\d\1d49b727bcb4be37691538c0dbd3793ca65a1775
 ^
 .src/main/java/com/onlinestore/domain/User.java,7\b\7b455ad3ca51bfd3f9a7c8680f99adc6d30c4a02
+Y
+)src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284
+f
+6src/main/java/com/onlinestore/service/UserService.java,5\a\5a1c6bc87aa4c506b6e3c22a0a168199a39f16af
+j
+:src/main/java/com/onlinestore/service/UserServiceImpl.java,2\5\25323239252a9e031d34baed512d97c836ad2788
+l
+<src/main/java/com/onlinestore/repository/RoleRepository.java,2\b\2be21ce9d4fc71ee63a7f42cd15844c28f449e71
+k
+;src/main/java/com/onlinestore/config/HttpSessionConfig.java,a\4\a486043bfd49343cd42d40e29db2cd780d83f1ea
+g
+7src/main/java/com/onlinestore/config/RequestFilter.java,6\0\602c189d6437902cca6464f82007ec453bf72272

@@ -1,0 +1,9 @@
+<mat-toolbar>
+  <span>Admin Portal</span>
+	<span class="example-spacer"></span>
+	<button mat-raised-button [hidden]="!loggedIn">View Product List</button>
+	<button mat-raised-button [hidden]="!loggedIn">Add a product</button>
+	<button mat-raised-button [hidden]="!loggedIn">Logout</button>
+</mat-toolbar>
+
+<button mat-raised-button class="mat-warn" (click)="toggleDisplay()">Toggle</button>
