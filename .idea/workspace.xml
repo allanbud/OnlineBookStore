@@ -1,8 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0d821347-e00f-4046-9f8b-4590a7cba99a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin-portal/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/components/navigation-bar/navigation-bar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/components/navigation-bar/navigation-bar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/components/navigation-bar/navigation-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/components/navigation-bar/navigation-bar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/components/navigation-bar/navigation-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/components/navigation-bar/navigation-bar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/app/services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/app/services/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-portal/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-portal/src/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lLJWIT7zZPzt3OUA3tgswZ5fOM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/Angular 2 Complete E-Commerce App Course - Java,Spring,MySQL/04 Admin-Portal - Part 1/code" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.33793104" />
+    <property name="ts.external.directory.path" value="C:\JAVA Projects\SDA\FinalProject\online-store\src\admin-portal\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructuralSearchPlugin">
+    <searchConfiguration name="Unnamed" created="1607370730124" text="commer" recursive="false" caseInsensitive="false" type="HTML" scope_type="PROJECT" scope_descriptor="" history="1">
+      <constraint name="__context__" within="" contains="" />
+    </searchConfiguration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d821347-e00f-4046-9f8b-4590a7cba99a" name="Default Changelist" comment="" />
+      <created>1607370467937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607370467937</updated>
+      <workItem from="1607370469368" duration="299000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1854" y="350" width="943" height="350" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1607370730100">
+      <screen x="1366" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1854" y="350" width="943" height="350" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1607370730100" />
+    <state x="2106" y="279" key="FileChooserDialogImpl" timestamp="1607370768036">
+      <screen x="1366" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2106" y="279" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1607370768036" />
+    <state x="2033" y="258" width="585" height="534" key="find.popup" timestamp="1607370668629">
+      <screen x="1366" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2033" y="258" width="585" height="534" key="find.popup/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1607370668629" />
   </component>
 </project>

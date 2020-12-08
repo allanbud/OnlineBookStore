@@ -13,6 +13,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginComponent } from './components/login/login.component';
 
 import {LoginService} from './services/login.service';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,11 +28,14 @@ import {LoginService} from './services/login.service';
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
-	MatButtonModule,
-    BrowserAnimationsModule
+    MatButtonModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-	  
 	  LoginService
   ],
   bootstrap: [AppComponent]
