@@ -8,8 +8,8 @@ import {LoginService} from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  private credential = {'username':'', 'password' : ''};
-  private loggedIn = false;
+  public credential = {'username':'', 'password' : ''};
+  public loggedIn = false;
 
   constructor(private loginService: LoginService) { }
 
@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
         console.log(res);
         localStorage.setItem("xAuthToken", JSON.stringify(res));
         this.loggedIn = true;
-        location.reload();
       },
       error => {
         console.log(error);
@@ -28,6 +27,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginService.checkSession().subscribe(
+      res => {
+        this.loggedIn=true;
+      },
+      error => {
+        this.loggedIn=false;
+      }
+    );
   }
 
 }
