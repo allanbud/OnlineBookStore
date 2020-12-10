@@ -35,10 +35,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/checkSession")
 	public ResponseEntity checkSession() {
-
-
 		checkSession().toString();
-
 		return new ResponseEntity("This is Active Session!", HttpStatus.OK);
 	}
 }
