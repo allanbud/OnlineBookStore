@@ -15,25 +15,29 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
-      res => {
-        console.log(res);
-        localStorage.setItem("xAuthToken", JSON.stringify(res));
+      response => {
+        localStorage.setItem("xAuthToken", JSON.stringify(response));
         this.loggedIn = true;
+        //TODO delete
+        console.log("onSubmit setItem " + localStorage.getItem('xAuthToken'));
+        console.log("onSubmit JSON " + JSON.stringify(response));
       },
       error => {
-        console.log(error);
-      }
+        console.log("onSubmit error:" + error);
+     }
     );
   }
 
   ngOnInit() {
     this.loginService.checkSession().subscribe(
-      res => {
+      response => {
         this.loggedIn=true;
-      },
-      error => {
+        console.log("Life cicle OKEY");
+     },
+   error => {
         this.loggedIn=false;
-      }
+        console.log("Life cicle error: " + error);
+       }
     );
   }
 

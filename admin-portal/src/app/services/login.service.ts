@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+
 
 @Injectable()
 export class LoginService {
@@ -7,35 +8,39 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   sendCredential(username: string, password: string) {
-    let url = "http://localhost:8080/token";
-    let encodedCredentials = btoa(username+":"+password);
-    let basicHeader = "Basic "+encodedCredentials;
-    let headers = new HttpHeaders  ({
+    const url = 'http://localhost:8080/token';
+    const encodedCredentials = btoa(username + ':' + password);
+    const basicHeader = 'Basic ' + encodedCredentials;
+    const headers = new HttpHeaders  ({
       'Content-Type' : 'application/x-www-form-urlencoded',
-      'Authorization' : basicHeader
+      Authorization : basicHeader
     });
 
-    return this.http.get(url, {headers: headers});
+    return this.http.get(url, {headers});
 
   }
 
   checkSession() {
-    let url = "http://localhost:8080/checkSession";
-
-    let headers = new HttpHeaders ({
-      'x-auth-token' : <string>localStorage.getItem("xAuthToken")
+    const url = 'http://localhost:8080/checkSession';
+    const xToken = localStorage.getItem('xAuthToken');
+    const basicHeader = 'Basic ' + localStorage.getItem('credentials');
+    const headers = new HttpHeaders({
+      'x-auth-token' : xToken,
+      'Authorization' : basicHeader
     });
-
+    //TODO delete
+    console.log("checkSession Token: " + xToken);
+    console.log("checkSession Authorization: " + basicHeader);
     return this.http.get(url, {headers: headers});
   }
 
   logout() {
-    let url = "http://localhost:8080/user/logout";
+    const url = 'http://localhost:8080/user/logout';
 
-    let headers = new HttpHeaders ({
+    const headers = new HttpHeaders  ({
       'x-auth-token' : localStorage.getItem('xAuthToken')
     });
 
-    return this.http.post(url, '', {headers: headers});
+    return this.http.post(url, '', {headers});
   }
 }

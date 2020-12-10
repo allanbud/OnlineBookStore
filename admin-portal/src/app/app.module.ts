@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,9 @@ import {LoginService} from './services/login.service';
 import {FormsModule} from '@angular/forms';
 
 import { HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 import {MatInputModule} from '@angular/material/input';
@@ -34,6 +37,8 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   imports: [
     BrowserModule,
+
+    BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
