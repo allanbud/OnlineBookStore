@@ -15,8 +15,8 @@ export class LoginService {
       'Content-Type' : 'application/x-www-form-urlencoded',
       Authorization : basicHeader
     });
-
-    return this.http.get(url, {headers});
+    console.log("sendCredential Authorization: " + basicHeader);
+    return this.http.get(url, {headers: headers});
 
   }
 
@@ -25,7 +25,7 @@ export class LoginService {
     const xToken = localStorage.getItem('xAuthToken');
     const basicHeader = 'Basic ' + localStorage.getItem('credentials');
     const headers = new HttpHeaders({
-      'x-auth-token' : xToken,
+      'x-auth-token' : xToken || '{}',
       'Authorization' : basicHeader
     });
     //TODO delete
@@ -36,11 +36,11 @@ export class LoginService {
 
   logout() {
     const url = 'http://localhost:8080/user/logout';
-
+    const xToken = localStorage.getItem('xAuthToken');
     const headers = new HttpHeaders  ({
-      'x-auth-token' : localStorage.getItem('xAuthToken')
+      'x-auth-token' : xToken || '{}'
     });
 
-    return this.http.post(url, '', {headers});
+    return this.http.post(url, '', {headers: headers});
   }
 }

@@ -3,7 +3,7 @@
 	<span class="example-spacer"></span>
 	<button mat-raised-button [hidden]="!loggedIn">View Product List</button>
 	<button mat-raised-button [hidden]="!loggedIn">Add a product</button>
-	<button mat-raised-button [hidden]="!loggedIn">Logout</button>
+	<button mat-raised-button [hidden]="!loggedIn" (click)="logout()">Logout</button>
 </mat-toolbar>
 
 

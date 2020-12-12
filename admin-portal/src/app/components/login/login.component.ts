@@ -18,13 +18,16 @@ export class LoginComponent implements OnInit {
       response => {
         localStorage.setItem("xAuthToken", JSON.stringify(response));
         this.loggedIn = true;
+        location.reload();
+        const encodedCredentials = btoa(this.credential.username + ':' + this.credential.password);
+        localStorage.setItem('credentials', encodedCredentials);
         //TODO delete
         console.log("onSubmit setItem " + localStorage.getItem('xAuthToken'));
         console.log("onSubmit JSON " + JSON.stringify(response));
       },
       error => {
         console.log("onSubmit error:" + error);
-     }
+      }
     );
   }
 
@@ -33,11 +36,11 @@ export class LoginComponent implements OnInit {
       response => {
         this.loggedIn=true;
         console.log("Life cicle OKEY");
-     },
-   error => {
+      },
+      error => {
         this.loggedIn=false;
         console.log("Life cicle error: " + error);
-       }
+      }
     );
   }
 

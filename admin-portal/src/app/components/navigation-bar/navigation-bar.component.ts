@@ -16,11 +16,15 @@ export class NavigationBarComponent implements OnInit {
   toggleDisplay() {
 	  this.loggedIn= !this.loggedIn;
   }
-//TODO
+
  logout() {
     this.loginService.logout().subscribe(
       response => {
+        //TODO delete
+        localStorage.clear();
         location.reload();
+        console.log("Navigation Bar localStorage: " + localStorage.getItem('xAuthToken'));
+        console.log("Navigation Bar Login State: " + this.loggedIn);
       },
       error => {
         console.log(error);
@@ -32,6 +36,7 @@ export class NavigationBarComponent implements OnInit {
     this.loginService.checkSession().subscribe(
       response => {
         this.loggedIn=true;
+        console.log("Navigation Bar OnInit: " + this.loggedIn);
       },
       error => {
         this.loggedIn=false;
