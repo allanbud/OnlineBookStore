@@ -30,12 +30,10 @@ public class LoginController {
 		System.out.println("Session ID: " + session.getId());
 		return Collections.singletonMap("token", session.getId());
 	}
-
-	//method GET default
-	@RequestMapping(value = "/checkSession")
+//TODO Handler dispatch failed; nested exception is java.lang.StackOverflowError
+	@RequestMapping(value = "/checkSession", method = RequestMethod.GET)
 	public ResponseEntity checkSession() {
 		checkSession().toString();
-        System.out.println("Session ID: " + session.getId());
 		return new ResponseEntity("This is Active Session!", HttpStatus.OK);
 	}
 

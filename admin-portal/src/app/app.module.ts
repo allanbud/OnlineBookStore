@@ -27,13 +27,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
-    LoginComponent
+    LoginComponent,
+    AddNewProductComponent
   ],
   imports: [
     BrowserModule,

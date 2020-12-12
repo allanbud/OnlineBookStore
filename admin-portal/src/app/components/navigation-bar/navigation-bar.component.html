@@ -2,7 +2,7 @@
   <span>Admin Portal</span>
 	<span class="example-spacer"></span>
 	<button mat-raised-button [hidden]="!loggedIn">View Product List</button>
-	<button mat-raised-button [hidden]="!loggedIn">Add a product</button>
+	<button mat-raised-button [hidden]="!loggedIn" routerLink="/addNewProduct">Add a product</button>
 	<button mat-raised-button [hidden]="!loggedIn" (click)="logout()">Logout</button>
 </mat-toolbar>
 
