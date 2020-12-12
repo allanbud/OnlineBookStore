@@ -28,6 +28,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
+import {MatOptionModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AddNewProductComponent } from './components/add-new-product/add-new-pro
     routing,
     MatGridListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatOptionModule
   ],
   providers: [
 	  LoginService
