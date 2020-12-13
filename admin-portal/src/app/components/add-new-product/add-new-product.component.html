@@ -19,7 +19,7 @@
                 <mat-label>Product Description</mat-label>
                 <input matInput id= "productDescription" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="newProduct.productDescription" placeholder="Description">
                 <br><br>
-                Image
+                Image &nbsp;
                   <input id="tile" type="file" id="bookImage" name="bookImage" (change)="uploadImageService.fileChangeEvent($event)">
               </mat-form-field>
             </mat-grid-tile>
@@ -54,9 +54,8 @@
               </mat-form-field>
                       <mat-slide-toggle
                         class="example-margin"
-                        [color]="color"
-                        [checked]="checked"
-                        [disabled]="disabled"
+                        id="active"
+                        [checked]=true
                         [ngModelOptions]="{standalone: true}"
                         [(ngModel)]="newProduct.active">
                         Active
@@ -95,7 +94,8 @@
 
       <mat-grid-list cols="1" rowHeight="10:1">
         <mat-grid-tile>
-          <button mat-raised-button type="submit">Add product</button>
+          <button class="mat-primary" mat-raised-button type="submit">Add product</button>
+          <button class="mat-warn" mat-raised-button routerLink="/">Cancel</button>
         </mat-grid-tile>
       </mat-grid-list>
 

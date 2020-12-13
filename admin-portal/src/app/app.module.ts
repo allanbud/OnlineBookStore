@@ -14,6 +14,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { LoginComponent } from './components/login/login.component';
 
 import {LoginService} from './services/login.service';
+import {AddProductService} from './services/add-product-service.service';
+
 
 import {FormsModule} from '@angular/forms';
 
@@ -54,7 +56,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatOptionModule
   ],
   providers: [
-	  LoginService
+	  LoginService,
+    AddProductService
   ],
   bootstrap: [AppComponent]
 })
