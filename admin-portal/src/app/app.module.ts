@@ -29,6 +29,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import {MatOptionModule} from '@angular/material/core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import {MatOptionModule} from '@angular/material/core';
   ],
   imports: [
     BrowserModule,
-
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,

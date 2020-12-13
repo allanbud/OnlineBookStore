@@ -8,5 +8,4 @@ export class Product {
   public active: boolean;
   public productType: string;
   public productAuthor: string;
-
 }
