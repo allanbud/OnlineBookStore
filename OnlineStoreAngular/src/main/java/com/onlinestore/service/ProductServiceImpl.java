@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-//TODO check if required    @Autowired
+    @Autowired
     private ProductRepository productRepository;
 
     //find all product
