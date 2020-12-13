@@ -3,7 +3,7 @@
         <h3 style="margin-top: 30px;">Enter New Product Information <span style="font-size:small"><br>* is a required field</span></h3>
 
 
-        <form class="example-form">
+        <form (ngSubmit)="onSubmit()">
 
           <mat-grid-list cols="3" rowHeight="5:1">
             <mat-grid-tile>
@@ -20,7 +20,7 @@
                 <input matInput id= "productDescription" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="newProduct.productDescription" placeholder="Description">
                 <br><br>
                 Image &nbsp;
-                  <input id="tile" type="file" id="bookImage" name="bookImage" (change)="uploadImageService.fileChangeEvent($event)">
+                  <!input id="tile" type="file" id="bookImage" name="bookImage" (change)="uploadImageService.fileChangeEvent($event)">
               </mat-form-field>
             </mat-grid-tile>
 
@@ -89,8 +89,7 @@
             </mat-grid-tile>
 
           </mat-grid-list>
-        </form>
-  </div>
+
 
       <mat-grid-list cols="1" rowHeight="10:1">
         <mat-grid-tile>
@@ -98,6 +97,10 @@
           <button class="mat-warn" mat-raised-button routerLink="/">Cancel</button>
         </mat-grid-tile>
       </mat-grid-list>
+   </form>
+ </div>
+
+
 
       <div class="row" [hidden]="!productAdded">
         <h3>Product added successfully!</h3>

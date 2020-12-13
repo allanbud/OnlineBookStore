@@ -4,6 +4,7 @@ import com.onlinestore.domain.Product;
 import com.onlinestore.repository.ProductRepository;
 
 
+import com.onlinestore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
-    @Autowired
+//TODO check if required    @Autowired
     private ProductRepository productRepository;
 
     //find all product
-    public List<Product> findAll() {
+    public List<Product> findAllProduct() {
         //casting
         List<Product> productList = (List<Product>) productRepository.findAll();
 
