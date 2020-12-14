@@ -70,7 +70,7 @@ You can also provide a bean of the type
 ConfigureRedisAction
 
 to configure Redis programmatically.
- */
+*/
 
 	@Bean
 	ConfigureRedisAction configureRedisAction() {

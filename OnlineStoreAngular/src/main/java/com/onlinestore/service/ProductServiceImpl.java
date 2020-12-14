@@ -2,9 +2,6 @@ package com.onlinestore.service;
 
 import com.onlinestore.domain.Product;
 import com.onlinestore.repository.ProductRepository;
-
-
-import com.onlinestore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +10,6 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-
     @Autowired
     private ProductRepository productRepository;
 

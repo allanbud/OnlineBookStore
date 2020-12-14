@@ -5,23 +5,26 @@ import com.onlinestore.domain.User;
 import com.onlinestore.domain.security.Role;
 import com.onlinestore.domain.security.UserRole;
 import com.onlinestore.service.UserService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
 
-//TODO to have recods in the tables temporarely use
+//TODO to have records in the tables temporarely use
 //CommandLineRunner is a simple Spring Boot interface with a run method.
 // Spring Boot will automatically call the run method of all beans implementing
 //this interface after the application context has been loaded.
 
 
 @SpringBootApplication
-//adding implementing to implement table filling
+//implement table filling
 public class OnlinestoreAngularApplication implements CommandLineRunner {
 
     @Autowired

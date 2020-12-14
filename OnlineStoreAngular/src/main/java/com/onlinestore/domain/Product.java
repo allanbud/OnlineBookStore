@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+@Entity
 public class Product implements Serializable {
     private static final long serialVersionUID=456784L;
 

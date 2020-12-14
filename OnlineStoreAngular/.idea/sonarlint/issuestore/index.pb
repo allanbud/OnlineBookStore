@@ -29,7 +29,11 @@ l
 <src/main/java/com/onlinestore/repository/RoleRepository.java,2\b\2be21ce9d4fc71ee63a7f42cd15844c28f449e71
 k
 ;src/main/java/com/onlinestore/config/HttpSessionConfig.java,a\4\a486043bfd49343cd42d40e29db2cd780d83f1ea
-g
-7src/main/java/com/onlinestore/config/RequestFilter.java,6\0\602c189d6437902cca6464f82007ec453bf72272
 n
 >src/main/java/com/onlinestore/Controllers/LoginController.java,d\f\df90a3a2523123ce9f48819ace163a9cc77e259c
+a
+1src/main/java/com/onlinestore/domain/Product.java,4\5\45bca1d0995a84618fff7309708701dc3d23e137
+m
+=src/main/java/com/onlinestore/service/ProductServiceImpl.java,7\f\7f58ae85ef702389522b27abc8c1b9a4114f793e
+o
+?src/main/java/com/onlinestore/repository/ProductRepository.java,a\8\a8120e8948de7af78a5c3081a14f86ad7084804b
