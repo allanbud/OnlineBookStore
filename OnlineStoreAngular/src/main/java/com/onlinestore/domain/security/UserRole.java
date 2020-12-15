@@ -3,13 +3,10 @@ package com.onlinestore.domain.security;
 import com.onlinestore.domain.User;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name="user_role")
-public class UserRole implements Serializable {
-//https://stackoverflow.com/questions/285793/what-is-a-serialversionuid-and-why-should-i-use-it
-    private static final long serialVersionUID = 890345L;
+public class UserRole {
 
 //primary key
     @Id

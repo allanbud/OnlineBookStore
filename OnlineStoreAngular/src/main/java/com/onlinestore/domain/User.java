@@ -8,16 +8,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class User implements UserDetails, Serializable{
+public class User implements UserDetails{
 
-	private static final long serialVersionUID = 902783495L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="Id", nullable=false, updatable = false)

@@ -37,3 +37,7 @@ m
 =src/main/java/com/onlinestore/service/ProductServiceImpl.java,7\f\7f58ae85ef702389522b27abc8c1b9a4114f793e
 o
 ?src/main/java/com/onlinestore/repository/ProductRepository.java,a\8\a8120e8948de7af78a5c3081a14f86ad7084804b
+Y
+)src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284
+U
+%target/classes/application.properties,b\b\bb173f9557479135e0f1bcd9c6c5f7b4ae5f77e8

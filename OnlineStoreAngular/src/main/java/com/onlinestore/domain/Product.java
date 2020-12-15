@@ -3,10 +3,8 @@ package com.onlinestore.domain;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.io.Serializable;
 @Entity
-public class Product implements Serializable {
-    private static final long serialVersionUID=456784L;
+public class Product {
 
 
     @Id
@@ -28,10 +26,6 @@ public class Product implements Serializable {
     //store image on server (could be cloud but not today) instead of DB
     @Transient
     private MultipartFile productImage;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Long getId() {
         return id;
