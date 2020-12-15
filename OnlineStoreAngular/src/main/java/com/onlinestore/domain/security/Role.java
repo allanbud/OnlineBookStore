@@ -4,10 +4,11 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+//@Entity comes from JPA and gonna persist this class into DB as a table
 @Entity
 public class Role {
 
-    @Id
+    @Id//primary key
     private int roleId;
 
     private String name;

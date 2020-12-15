@@ -12,12 +12,26 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * public interface UserDetails
+ * extends Serializable
+ * Provides core user information.
+ * Implementations are not used directly by Spring Security for security purposes.
+ * They simply store user information which is later encapsulated into Authentication objects.
+ * This allows non-security related user information (such as email addresses, telephone numbers etc)
+ * to be stored in a convenient location.
+ *
+ * Concrete implementations must take particular care to ensure the non-null contract detailed for
+ * each method is enforced. See User for a reference implementation (which you might like to extend or
+ * use in your code).
+ */
 @Entity
 public class User implements UserDetails{
 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+//to get fixed id. Once inserted, it cannot be changed
 	@Column(name="Id", nullable=false, updatable = false)
 	private Long id;
 	
@@ -29,9 +43,18 @@ public class User implements UserDetails{
 	private String email;
 	private String phone;
 	private boolean enabled = true;
-	
+
+/**from other side it goes @ManyToOne, so this side goes @OneToMany
+@ManyToOne(fetch = FetchType.EAGER)
+private Role role;
+
+so this side goes @OneToMany
+*/
+
+
 	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonIgnore
+
+	//TODO infinite loop?
 	private Set<UserRole> userRoles = new HashSet<>();
 
 	public Long getId() {
@@ -104,15 +127,28 @@ public class User implements UserDetails{
 		this.userRoles = userRoles;
 	}
 
+	/**
+	 * define new authority hashset
+	 *
+	 * take defined userRoles line58
+	 *
+	 * userRoles is a Set then take each one of them
+	 * tempUserRole as an instance of userRole in the userRole set
+	*/
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
+//Authority class line 26, takes String as authority which is a roleName .getName()
+//authorty with roleName is added to Set and gets returned
 		Set<GrantedAuthority> authorities = new HashSet<>();
-		userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
-		
+		userRoles.forEach(tempUserRole -> authorities.add(new Authority(tempUserRole.getRole().getName())));
+
 		return authorities;
 	}
-//not used
+
+
+
+
+	//not used
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
