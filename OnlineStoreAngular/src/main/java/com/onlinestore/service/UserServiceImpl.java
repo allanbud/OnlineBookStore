@@ -26,16 +26,19 @@ public class UserServiceImpl implements UserService{
 	private RoleRepository roleRepository;
 
 
-//send data as a one packege. Transactual send data when all is ready and commited
-//in case of error (system ot connection down) data sending will rolled back and started over again
-//https://dzone.com/articles/how-does-spring-transactional
+/**send data as a one packege. Transactual send data when all is ready and commited
+in case of error (system ot connection down) data sending will be rolled back and started over again
+
+
+	https://dzone.com/articles/how-does-spring-transactional
+*/
 	@Transactional
 	public User createUser(User user, Set<UserRole> userRoles) {
 //find the corresponding user
 		User localUser = userRepository.findByUsername(user.getUsername());
 		
 		if(localUser != null) {
-			LOG.info("User with username {} already exist. Nothing will be done. ", user.getUsername());
+			LOG.info("User with username {} already exist.", user.getUsername());
 		} else {
 //if there is no user go through all the roles and save to the DB
 			for (UserRole ur : userRoles) {

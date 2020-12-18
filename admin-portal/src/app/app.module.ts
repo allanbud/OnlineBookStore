@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import {LoginService} from './services/login.service';
 import {AddProductService} from './services/add-product-service.service';
+import {ImageUploadService} from './services/image-upload.service';
 
 
 import {FormsModule} from '@angular/forms';
@@ -57,7 +58,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   ],
   providers: [
 	  LoginService,
-    AddProductService
+    AddProductService,
+    ImageUploadService
   ],
   bootstrap: [AppComponent]
 })

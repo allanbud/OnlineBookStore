@@ -41,3 +41,7 @@ Y
 )src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284
 U
 %target/classes/application.properties,b\b\bb173f9557479135e0f1bcd9c6c5f7b4ae5f77e8
+i
+9src/main/java/com/onlinestore/service/ProductService.java,0\e\0ed818c9392b067a95b15c808bdb11b9ba2b38af
+p
+@src/main/java/com/onlinestore/Controllers/ProductController.java,3\3\334237d6c27e62037fdcc2de5eef135fb1149191

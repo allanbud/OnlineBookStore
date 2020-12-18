@@ -3,8 +3,13 @@ package com.onlinestore.domain;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
 @Entity
-public class Product {
+//Error: org.springframework.data.redis.serializer.SerializationException: Cannot serialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.onlinestore.domain.security.UserRole
+//DONE added Serializable
+public class Product implements Serializable {
+    private static final long serialVersionUID=47574843L;
 
 
     @Id
@@ -18,7 +23,7 @@ public class Product {
     private String productType;
     private String productAuthor;
 
-    //use text to overcome VARCHAR 255 charecter limit
+    //use text to overcome VARCHAR 255 character limit
     @Column(columnDefinition="text")
     private String productDescription;
     private int inStockNumber;

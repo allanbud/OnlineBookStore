@@ -1,18 +1,24 @@
 package com.onlinestore.domain.security;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 //@Entity comes from JPA and gonna persist this class into DB as a table
 @Entity
-public class Role {
+
+//Error: org.springframework.data.redis.serializer.SerializationException: Cannot serialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.onlinestore.domain.security.UserRole
+
+public class Role implements Serializable {
+    private static final long serialVersionUID = 83355634L;
 
     @Id//primary key
     private int roleId;
 
     private String name;
 
+    @Transient
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
 

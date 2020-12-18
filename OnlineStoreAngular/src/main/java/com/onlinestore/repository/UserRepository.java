@@ -8,7 +8,7 @@ import java.util.List;
 //find by this. return list of users
 public interface UserRepository extends CrudRepository<User, Long> //Long(class) is a primary key (id in User class) type
 {
-//Spring should understand Username as a part of findByUsername and do search automatically
+//Spring should understand findBy and Username as a part of findByUsername and do search automatically
 //username in User class
 	User findByUsername(String username);
 	User findByEmail(String email);

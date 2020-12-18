@@ -16,17 +16,17 @@ import org.springframework.session.web.http.HttpSessionStrategy;
 
 @Configuration
 @EnableWebSecurity
+//https://docs.spring.io/spring-security/site/docs/4.2.15.RELEASE/apidocs/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.html
+//code comes from example on this documantation page
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private Environment env;
 	
 	@Autowired
-//DONE define class
 	private UserSecurityService userSecurityService;
 	
 	private BCryptPasswordEncoder passwordEncoder() {
-//DONE define SecurityUtility
 		return SecurityUtility.passwordEncoder();
 	}
 
@@ -55,7 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				anyRequest().
 				authenticated();
 	}
-	
+
+//userDetailsService(userSecurityService) instead of .inMemoryAuthentication(userSecurityService)
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());

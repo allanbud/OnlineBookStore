@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,8 +26,13 @@ import java.util.Set;
  * each method is enforced. See User for a reference implementation (which you might like to extend or
  * use in your code).
  */
+
+//Error: org.springframework.data.redis.serializer.SerializationException: Cannot serialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.onlinestore.domain.security.UserRole
+
 @Entity
-public class User implements UserDetails{
+public class User implements UserDetails, Serializable {
+
+	private static final long serialVersionUID = 848483930L;
 
 
 	@Id
@@ -50,8 +56,7 @@ private Role role;
 
 so this side goes @OneToMany
 */
-
-
+	@Transient
 	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 
 	//TODO infinite loop?
@@ -138,7 +143,7 @@ so this side goes @OneToMany
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 //Authority class line 26, takes String as authority which is a roleName .getName()
-//authorty with roleName is added to Set and gets returned
+//authorty with roleName is added to Set and get returned
 		Set<GrantedAuthority> authorities = new HashSet<>();
 		userRoles.forEach(tempUserRole -> authorities.add(new Authority(tempUserRole.getRole().getName())));
 

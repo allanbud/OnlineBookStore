@@ -11,6 +11,7 @@ import java.util.Random;
 public class SecurityUtility {
 
 //SALT is a "seed" for encoder and should be protected carefully
+//better to store SALT on the disk to be safe
 	private static final String SALT = "Curentec";
 	
 	@Bean
