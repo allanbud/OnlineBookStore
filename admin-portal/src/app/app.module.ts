@@ -8,19 +8,21 @@ import 'hammerjs';
 
 import { routing } from './app.routing';
 
-
-
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-import { LoginComponent } from './components/login/login.component';
-
 import {LoginService} from './services/login.service';
 import {AddProductService} from './services/add-product-service.service';
 import {ImageUploadService} from './services/image-upload.service';
 import {GetProductListService} from './services/get-product-list.service';
+import {GetProductService} from './services/get-product.service';
+
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 
 import {FormsModule} from '@angular/forms';
-
 import { HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,10 +33,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     NavigationBarComponent,
     LoginComponent,
     AddNewProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
+    MatListModule,
     routing,
     MatGridListModule,
     HttpClientModule,
@@ -63,7 +66,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 	  LoginService,
     AddProductService,
     ImageUploadService,
-    GetProductListService
+    GetProductListService,
+    GetProductService
   ],
   bootstrap: [AppComponent]
 })

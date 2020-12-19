@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './components/login/login.component';
 import {AddNewProductComponent} from './components/add-new-product/add-new-product.component';
 import {ProductListComponent} from './components/product-list/product-list.component';
+import {ViewProductComponent} from './components/view-product/view-product.component';
 
 const appRoutes: Routes = [
 	{
@@ -23,7 +24,12 @@ const appRoutes: Routes = [
   {
     path: 'productList',
     component: ProductListComponent
+  },
+  {
+    path: 'viewProduct/:id',
+    component: ViewProductComponent
   }
+
 ];
 
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);

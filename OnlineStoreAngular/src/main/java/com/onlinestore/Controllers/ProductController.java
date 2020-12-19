@@ -15,6 +15,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Iterator;
+import java.util.List;
 
 @RestController
     @RequestMapping("/product")
@@ -42,7 +43,7 @@ import java.util.Iterator;
 
 
                 byte[] bytes = multipartFile.getBytes();
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/image/product/"+fileName)));
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/product/"+fileName)));
                 stream.write(bytes);
                 stream.close();
 
@@ -52,5 +53,26 @@ import java.util.Iterator;
                 return new ResponseEntity("Image Uploaded  failed!", HttpStatus.BAD_REQUEST);
             }
         }
+
+        @RequestMapping("/productList")
+        public List<Product> getProductList() {
+            return productService.findAllProduct();
+        }
+
+        @RequestMapping(value="/update", method=RequestMethod.POST)
+        public Product updateProductPost(@RequestBody Product product) {
+            return productService.saveProduct(product);
+        }
+
+        @RequestMapping("/{id}")
+        public Product getProduct(@PathVariable("id") Long id){
+            Product product = productService.findOneProduct(id);
+            return product;
+    }
+
+
+
+
+
 }
 
