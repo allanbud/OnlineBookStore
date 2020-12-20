@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   public checked: boolean;
   public productList: Product[];
   public allChecked: boolean;
+  //checked product placed in this array
   public removeProductList: Product[] = new Array();
 
   constructor(
@@ -61,7 +62,48 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
+//TODO To make a checkbox indeterminated
+  updateSelected(checked: boolean) {
+    if(checked) {
+      //create checked flag
+      this.allChecked = true;
+      //copy an array to this removeProductList withou coping refference address (use slice)
+      this.removeProductList=this.productList.slice();
+    } else {
+      this.allChecked=false;
+      this.removeProductList=[];
+    }
+  }
 
+
+  updateRemoveProductList(checked : boolean, product :  Product) {
+    if(checked) {
+      this.removeProductList.push(product);
+    } else { //splice = remove
+      this.removeProductList.splice(this.removeProductList.indexOf(product), 1);
+    }
+  }
+
+  removeSelectedProducts() {
+    let dialogRef = this.dialog.open(DialogResult);
+    dialogRef.afterClosed().subscribe(
+      result => {
+        console.log(result);
+        if(result=="yes") {
+          for (let product of this.removeProductList) {
+            this.removeProductService.sendProduct(product.id).subscribe(
+              response => {
+
+              },
+              error => {
+              }
+            );
+          }
+          location.reload();
+        }
+      }
+    );
+  }
 
   ngOnInit() {
     this.getProductList();

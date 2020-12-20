@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
@@ -89,10 +90,12 @@ import java.util.List;
     @RequestMapping(value="/remove", method=RequestMethod.POST)
     public ResponseEntity remove(
             @RequestBody String id
-    ) {
+    )throws IOException {
 //TODO Request processing failed; nested exception is org.springframework.dao.EmptyResultDataAccessException: No class com.onlinestore.domain.Product entity with id 11 exists
         System.out.println("id to remove: " + id);
         productService.removeOneProduct(Long.parseLong(id));
+        String fileName = id+".png";
+        Files.delete(Paths.get("src/main/resources/static/image/product/" + fileName));
 
         return new ResponseEntity("Successfully Removed!", HttpStatus.OK);
     }

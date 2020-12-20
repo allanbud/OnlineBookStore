@@ -4,7 +4,7 @@
       <thead>
       <tr>
         <th>
-          <!input type="checkbox" (change)="updateSelected($event.target.checked)" />
+          <input type="checkbox"  (change)="updateSelected($event.target.checked)" />
         </th>
         <th>Title</th>
         <th>Type</th>
@@ -19,7 +19,8 @@
       <tr *ngFor = "let product of productList">
         <td>
           <input hidden="hidden" name="id" />
-          <!input type="checkbox" [checked]="allChecked" (change)="updateRemoveproductList($event.target.checked, product)" />
+          <input type="checkbox" [checked]="allChecked"
+                 (change)="updateRemoveProductList($event.target.checked, product)" />
         </td>
         <td><a (click)="onSelect(product)" style="cursor:pointer">
             {{product.productTitle}}</a></td>
@@ -30,11 +31,11 @@
         <td>{{product.active}}</td>
         <td>
           <input hidden="hidden" name="id" />
-          <!button mat-button (click)="openDialog(product)" value="delete"><!span class="fa fa-times"><!/span> delete<!/button>
+          <button mat-button (click)="openDialog(product)" value="delete"><span class="fa fa-times"></span> delete</button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <!button mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected<!/button>
+  <button mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
 </div>
