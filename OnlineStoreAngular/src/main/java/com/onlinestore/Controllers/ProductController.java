@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
 
@@ -54,11 +56,44 @@ import java.util.List;
             }
         }
 
-        @RequestMapping("/productList")
+//TODO not really updating image
+    @RequestMapping(value="/update/image", method=RequestMethod.POST)
+    public ResponseEntity updateImage(
+            @RequestParam("id") Long id,
+            HttpServletResponse response, HttpServletRequest request
+    ){
+        try {
+            Product product = productService.findOneProduct(id);
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+            Iterator<String> it = multipartRequest.getFileNames();
+            MultipartFile multipartFile = multipartRequest.getFile(it.next());
+            String fileName = id+".png";
+
+            //Because new file with same name cannot be created
+            Files.delete(Paths.get("src/main/resources/static/image/product/"+fileName));
+
+            byte[] bytes = multipartFile.getBytes();
+            BufferedOutputStream stream = new BufferedOutputStream(
+                    new FileOutputStream(new File("src/main/resources/static/image/product/"+fileName)));
+            stream.write(bytes);
+            stream.close();
+
+            return new ResponseEntity("Image" + fileName + ".png Updated Successfully!", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity("Image Update failed!", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+
+
+    @RequestMapping("/productList")
         public List<Product> getProductList() {
             return productService.findAllProduct();
         }
 
+        //Hibernate looks by id if the product exist and then choose create new or edit existing
         @RequestMapping(value="/update", method=RequestMethod.POST)
         public Product updateProductPost(@RequestBody Product product) {
             return productService.saveProduct(product);

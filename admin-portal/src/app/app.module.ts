@@ -13,12 +13,14 @@ import {AddProductService} from './services/add-product-service.service';
 import {ImageUploadService} from './services/image-upload.service';
 import {GetProductListService} from './services/get-product-list.service';
 import {GetProductService} from './services/get-product.service';
+import {EditProductService} from './services/edit-product.service';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 
 
@@ -45,7 +47,8 @@ import {MatListModule} from '@angular/material/list';
     LoginComponent,
     AddNewProductComponent,
     ProductListComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import {MatListModule} from '@angular/material/list';
     AddProductService,
     ImageUploadService,
     GetProductListService,
-    GetProductService
+    GetProductService,
+    EditProductService
   ],
   bootstrap: [AppComponent]
 })

@@ -30,10 +30,11 @@ public class LoginController {
 		System.out.println("Session ID: " + session.getId());
 		return Collections.singletonMap("token", session.getId());
 	}
-//TODO Handler dispatch failed; nested exception is java.lang.StackOverflow Error recursive call!!
+//TODO Handler dispatch failed; nested exception is java.lang.StackOverflow Error recursive call!! Remove ugly recursion
 	@RequestMapping(value = "/checkSession", method = RequestMethod.GET)
-	public ResponseEntity checkSession() {
-		checkSession().toString();
+	public ResponseEntity checkSession(Long limitRecusion) {
+		if (limitRecusion < 1) checkSession(limitRecusion).toString();
+		limitRecusion++;
 		return new ResponseEntity("This is Active Session!", HttpStatus.OK);
 	}
 

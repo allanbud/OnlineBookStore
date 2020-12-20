@@ -4,6 +4,7 @@ import {LoginComponent} from './components/login/login.component';
 import {AddNewProductComponent} from './components/add-new-product/add-new-product.component';
 import {ProductListComponent} from './components/product-list/product-list.component';
 import {ViewProductComponent} from './components/view-product/view-product.component';
+import {EditProductComponent} from './components/edit-product/edit-product.component';
 
 const appRoutes: Routes = [
 	{
@@ -28,6 +29,10 @@ const appRoutes: Routes = [
   {
     path: 'viewProduct/:id',
     component: ViewProductComponent
+  },
+  {
+    path: 'editProduct/:id',
+    component: EditProductComponent
   }
 
 ];

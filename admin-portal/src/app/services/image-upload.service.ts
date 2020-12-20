@@ -11,13 +11,28 @@ export class ImageUploadService {
 
   //we will have productId when product has been successfully saved to DB
   upload(productId: number) {
-    this.makeFileRequest("http://localhost:8080/product/add/image?id="+productId, [], this.filesToUpload).then
+    this.makeFileRequest("http://localhost:8080/product/add/image?id="+productId, [], this.filesToUpload).
+    then
     ((result) => {
       console.log(result);
     }, (error) => {
       console.log(error);
     });
   }
+
+  modify(productId: number) {
+    console.log(this.filesToUpload);
+    //check if there are files to upload if yes then upload the image, else there is no image to upload the image
+    if (this.filesToUpload.length>0) {
+      this.makeFileRequest("http://localhost:8080/product/update/image?id="+productId, [], this.filesToUpload).
+      then((result) => {
+        console.log(result);
+      }, (error) => {
+        console.log(error);
+      });
+    }
+  }
+
 
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>> fileInput.target.files;
