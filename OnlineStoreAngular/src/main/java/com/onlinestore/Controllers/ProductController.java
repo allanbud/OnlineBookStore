@@ -86,6 +86,16 @@ import java.util.List;
     }
 
 
+    @RequestMapping(value="/remove", method=RequestMethod.POST)
+    public ResponseEntity remove(
+            @RequestBody String id
+    ) {
+//TODO Request processing failed; nested exception is org.springframework.dao.EmptyResultDataAccessException: No class com.onlinestore.domain.Product entity with id 11 exists
+        System.out.println("id to remove: " + id);
+        productService.removeOneProduct(Long.parseLong(id));
+
+        return new ResponseEntity("Successfully Removed!", HttpStatus.OK);
+    }
 
 
     @RequestMapping("/productList")
