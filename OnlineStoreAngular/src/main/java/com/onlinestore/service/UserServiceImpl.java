@@ -52,4 +52,25 @@ in case of error (system ot connection down) data sending will be rolled back an
 		
 		return localUser;
 	}
+
+	@Override
+	public User save(User user)  {
+		return userRepository.save(user);
+	}
+
+	@Override
+	public User findById(Long id) {
+		return userRepository.findOne(id);
+	}
+
+	@Override
+	public User findByUs ername(String username) {
+		return userRepository.findByUsername(username);
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+
 }

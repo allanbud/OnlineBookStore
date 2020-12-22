@@ -32,19 +32,20 @@ export class MyAccountComponent implements OnInit {
     public router: Router
   ) { }
 
-  onLogin() {
+  onSubmit() {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
       response => {
-        console.log("My Account OnInit: " + response);
-        //TODO .token
         localStorage.setItem("xAuthToken", JSON.stringify(response));
         this.loggedIn = true;
         location.reload();
-        this.router.navigate(['/home']);
+        const encodedCredentials = btoa(this.credential.username + ':' + this.credential.password);
+        localStorage.setItem('credentials', encodedCredentials);
+        //TODO delete
+        console.log("onSubmit setItem " + localStorage.getItem('xAuthToken'));
+        console.log("onSubmit JSON " + JSON.stringify(response));
       },
       error => {
-        this.loggedIn = false;
-        this.loginError = true;
+        console.log("onSubmit error:" + error);
       }
     );
   }
@@ -90,10 +91,12 @@ export class MyAccountComponent implements OnInit {
   ngOnInit() {
     this.loginService.checkSession().subscribe(
       response => {
-        this.loggedIn = true;
+        this.loggedIn=true;
+        console.log("Life cicle OKEY");
       },
       error => {
-        this.loggedIn = false;
+        this.loggedIn=false;
+        console.log("Life cicle error: " + error);
       }
     );
   }
