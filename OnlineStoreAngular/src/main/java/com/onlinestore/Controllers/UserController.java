@@ -4,6 +4,7 @@ import com.onlinestore.config.SecurityUtility;
 import com.onlinestore.domain.User;
 import com.onlinestore.domain.security.Role;
 import com.onlinestore.domain.security.UserRole;
+import com.onlinestore.service.MailContructerService;
 import com.onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private MailConstructor mailConstructor;
+    private MailContructerService mailConstructor;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -59,6 +60,8 @@ public class UserController {
         user.setPassword(encryptedPassword);
 
         Role role = new Role();
+
+        //id 1 = normal user
         role.setRoleId(1);
         role.setName("ROLE_USER");
         Set<UserRole> userRoles = new HashSet<>();
@@ -68,7 +71,7 @@ public class UserController {
         SimpleMailMessage email = mailConstructor.constructNewUserEmail(user, password);
         mailSender.send(email);
 
-        return new ResponseEntity("User Added Successfully!", HttpStatus.OK);
+        return new ResponseEntity("User Successfully Added!", HttpStatus.OK);
 
     }
 
