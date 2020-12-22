@@ -1,14 +1,13 @@
+import { Injectable } from '@angular/core';
+import {AppConst} from '../constants/app-const';
+import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-
 
 @Injectable()
 export class LoginService {
+  private serverPath : string = AppConst.serverPath;
 
-  constructor(private http: HttpClient) { }
-
-
-
+  constructor(private http : HttpClient, private router : Router) { }
 
   sendCredential(username: string, password: string) {
     const url = 'http://localhost:8080/token';
@@ -21,6 +20,7 @@ export class LoginService {
     console.log("sendCredential Authorization: " + basicHeader);
     return this.http.get(url, {headers: headers});
   }
+
 
   checkSession() {
     const url = 'http://localhost:8080/checkSession';
@@ -45,4 +45,5 @@ export class LoginService {
 
     return this.http.post(url, '', {headers: headers});
   }
+
 }

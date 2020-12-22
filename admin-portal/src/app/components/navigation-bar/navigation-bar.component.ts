@@ -21,7 +21,7 @@ export class NavigationBarComponent implements OnInit {
  logout() {
     this.loginService.logout().subscribe(
       response => {
-        //TODO delete
+        //TODO delete check localStorage.clear();
         localStorage.clear();
         location.reload();
         console.log("Navigation Bar localStorage: " + localStorage.getItem('xAuthToken'));
