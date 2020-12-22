@@ -10,7 +10,7 @@ export class UserService {
   constructor(private http : HttpClient) { }
 
   newUser(username: string, email:string) {
-    let url = this.serverPath+'/user/newUser';
+    const url = 'http://localhost:8080/user/newUser';
     let userInfo = {
       "username" : username,
       "email" : email
@@ -25,7 +25,7 @@ export class UserService {
   }
 
   retrievePassword(email:string) {
-    let url = this.serverPath+'/user/forgetPassword';
+    const url = 'http://localhost:8080/user/forgetPassword';
     let userInfo = {
       "email" : email
     }

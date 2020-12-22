@@ -1,0 +1,53 @@
+
+X
+java:S1854C";Remove this useless assignment to local variable "product".(–ïŒ8”˜Èıç.
+|
+java:S1488u"_Immediately return this expression instead of assigning it to the temporary variable "product".(–ïŒ8”˜Èıç.
+I
+java:S1481C",Remove this unused "product" local variable.(–ïŒ8”˜Èıç.
+[
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(Ûø‚÷ÿÿÿÿÿ
+L
+java:S3740U"/Provide the parametrized type for this generic.(æ£®§8”˜Èıç.
+J
+java:S37405"/Provide the parametrized type for this generic.(¡×Œ¬üÿÿÿÿ
+Q
+java:S3740["/Provide the parametrized type for this generic.(ó’Ú•øÿÿÿÿ8”˜Èıç.
+Z	java:S106_"9Replace this use of System.out or System.err by a logger.(¿ÏæÏÿÿÿÿÿ8ñû³ÿç.
+L
+java:S3740d"/Provide the parametrized type for this generic.(Ûç€Í8”˜Èıç.
+g
+java:S4488="JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(º ¢8”˜Èıç.
+b
+java:S4684o"@Replace this persistent entity with a simple POJO or DTO object.(ØšÈÿÿÿÿÿÿ8”˜Èıç.
+`
+java:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+Q
+java:S37408"/Provide the parametrized type for this generic.(Öå‚˜ùÿÿÿÿ8”˜Èıç.
+t
+java:S20951"RUse try-with-resources or close this "BufferedOutputStream" in a "finally" clause.(ùõ‚øÿÿÿÿ8”˜Èıç.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦ÙºÃ
+t
+java:S2095M"RUse try-with-resources or close this "BufferedOutputStream" in a "finally" clause.(ßÌ ¸ÿÿÿÿÿ8”˜Èıç.
+‹
+java:S11921"iDefine a constant instead of duplicating this literal "src/main/resources/static/image/product/" 4 times.(ùõ‚øÿÿÿÿ8”˜Èıç.
+Q
+java:S3740>"/Provide the parametrized type for this generic.(²È“üÿÿÿÿ8”˜Èıç.
+Q
+java:S1854)";Remove this useless assignment to local variable "product".(–ïŒ
+e
+java:S4488#"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(±ëìèÿÿÿÿÿ
+T
+java:S1135^"2Complete the task associated to this TODO comment.(¨éõşıÿÿÿÿ8‘ÊËÿç.
+J
+java:S3740$"/Provide the parametrized type for this generic.(ŞÎìşÿÿÿÿ
+Q
+java:S3740R"/Provide the parametrized type for this generic.(ô­Ğÿÿÿÿÿ8”˜Èıç.
+f
+java:S4488n"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦8”˜Èıç.
+T
+java:S1135<"2Complete the task associated to this TODO comment.(€Äè©ıÿÿÿÿ8”˜Èıç.
+B
+java:S1481)",Remove this unused "product" local variable.(–ïŒ
+g
+java:S4488Z"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÖëÕ8”˜Èıç.

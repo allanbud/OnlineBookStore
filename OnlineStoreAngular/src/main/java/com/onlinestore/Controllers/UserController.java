@@ -4,7 +4,7 @@ import com.onlinestore.config.SecurityUtility;
 import com.onlinestore.domain.User;
 import com.onlinestore.domain.security.Role;
 import com.onlinestore.domain.security.UserRole;
-import com.onlinestore.service.MailContructerService;
+import com.onlinestore.service.MailContructorService;
 import com.onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +29,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private MailContructerService mailConstructor;
+    private MailContructorService mailConstructor;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -69,10 +69,36 @@ public class UserController {
         userService.createUser(user, userRoles);
 
         SimpleMailMessage email = mailConstructor.constructNewUserEmail(user, password);
+
         mailSender.send(email);
 
-        return new ResponseEntity("User Successfully Added!", HttpStatus.OK);
+        return new ResponseEntity("User Added!", HttpStatus.OK);
 
     }
+
+    @RequestMapping(value="/forgetPassword", method=RequestMethod.POST)
+    public ResponseEntity forgetPasswordPost(
+            HttpServletRequest request,
+            @RequestBody HashMap<String, String> mapper
+    ) throws Exception {
+
+        User user = userService.findByEmail(mapper.get("email"));
+
+        if(user == null) {
+            return new ResponseEntity("Email not found", HttpStatus.BAD_REQUEST);
+        }
+        String password = SecurityUtility.randomPassword();
+
+        String encryptedPassword = SecurityUtility.passwordEncoder().encode(password);
+        user.setPassword(encryptedPassword);
+        userService.save(user);
+
+        SimpleMailMessage newEmail = mailConstructor.constructNewUserEmail(user, password);
+        mailSender.send(newEmail);
+
+        return new ResponseEntity("Email sent!", HttpStatus.OK);
+
+    }
+
 
 }

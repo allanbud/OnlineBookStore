@@ -37,11 +37,13 @@ m
 =src/main/java/com/onlinestore/service/ProductServiceImpl.java,7\f\7f58ae85ef702389522b27abc8c1b9a4114f793e
 o
 ?src/main/java/com/onlinestore/repository/ProductRepository.java,a\8\a8120e8948de7af78a5c3081a14f86ad7084804b
-Y
-)src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284
 U
 %target/classes/application.properties,b\b\bb173f9557479135e0f1bcd9c6c5f7b4ae5f77e8
 i
 9src/main/java/com/onlinestore/service/ProductService.java,0\e\0ed818c9392b067a95b15c808bdb11b9ba2b38af
 p
 @src/main/java/com/onlinestore/Controllers/ProductController.java,3\3\334237d6c27e62037fdcc2de5eef135fb1149191
+p
+@src/main/java/com/onlinestore/service/MailContructorService.java,2\b\2bbfc01d8f58b956c516b613ccfcce7403f30e6b
+m
+=src/main/java/com/onlinestore/Controllers/UserController.java,b\5\b546f9ff386124a077d2dccd2e5bf0b94c0b43d6

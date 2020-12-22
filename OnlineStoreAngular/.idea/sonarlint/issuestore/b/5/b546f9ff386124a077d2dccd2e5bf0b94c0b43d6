@@ -1,0 +1,26 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦ÙºÃ
+L
+java:S3740P"/Provide the parametrized type for this generic.(µ·Ï8Ø¥Ôè.
+L
+java:S3740."/Provide the parametrized type for this generic.(§èÿ‹8³òêÑè.
+g	java:S112)"FDefine and throw a dedicated exception instead of using a generic one.(»ÃÑ³øÿÿÿÿ8³òêÑè.
+g	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(»ÃÑ³øÿÿÿÿ8Ø¥Ôè.
+Q
+java:S3740&"/Provide the parametrized type for this generic.(ÃÁÎ»úÿÿÿÿ8³òêÑè.
+
+java:S1319R"nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(ë×ßËúÿÿÿÿ8Ø¥Ôè.
+Q
+java:S37402"/Provide the parametrized type for this generic.(„ñå‰úÿÿÿÿ8³òêÑè.
+l
+java:S4488%"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…™Ìøÿÿÿÿ8³òêÑè.
+
+java:S1319("nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(ë×ßËúÿÿÿÿ8³òêÑè.
+L
+java:S3740K"/Provide the parametrized type for this generic.(­£â¾8³òêÑè.
+l
+java:S4488O"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°¼£Íÿÿÿÿÿ8Ø¥Ôè.
+Q
+java:S3740X"/Provide the parametrized type for this generic.( ÿÏñúÿÿÿÿ8Ø¥Ôè.
+Q
+java:S3740c"/Provide the parametrized type for this generic.(ÏËÂúÿÿÿÿ8Ø¥Ôè.

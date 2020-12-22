@@ -64,7 +64,7 @@ in case of error (system ot connection down) data sending will be rolled back an
 	}
 
 	@Override
-	public User findByUs ername(String username) {
+	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
 
