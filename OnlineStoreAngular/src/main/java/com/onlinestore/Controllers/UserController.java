@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -60,16 +62,13 @@ public class UserController {
         user.setPassword(encryptedPassword);
 
         Role role = new Role();
-
-        //id 1 = normal user
-        role.setRoleId(1);
+        role.setRoleId(1); //id 1 = normal user
         role.setName("ROLE_USER");
         Set<UserRole> userRoles = new HashSet<>();
         userRoles.add(new UserRole(user, role));
         userService.createUser(user, userRoles);
 
         SimpleMailMessage email = mailConstructor.constructNewUserEmail(user, password);
-
         mailSender.send(email);
 
         return new ResponseEntity("User Added!", HttpStatus.OK);
@@ -77,11 +76,17 @@ public class UserController {
     }
 
     @RequestMapping(value="/forgetPassword", method=RequestMethod.POST)
-    public ResponseEntity forgetPasswordPost(
-            HttpServletRequest request,
-            @RequestBody HashMap<String, String> mapper
-    ) throws Exception {
+    public ResponseEntity forgetPasswordPost(HttpServletRequest request, @RequestBody HashMap<String, String> mapper)
+            throws Exception {
 
+        //TODO delete
+        //System.out.println(email);
+
+
+        /*.findByEmail by string "email" is wrong because as inspect page shows on line 87 there is an object NOT string!!!!
+        also printout gives object format {"email":"some@some.com"} - NOT string
+        To fix this issue copy @RequestBody HashMap<String, String> mapper from newUserPost method
+         */
         User user = userService.findByEmail(mapper.get("email"));
 
         if(user == null) {
@@ -91,6 +96,9 @@ public class UserController {
 
         String encryptedPassword = SecurityUtility.passwordEncoder().encode(password);
         user.setPassword(encryptedPassword);
+        //SAVE to DB after generate and set
+
+        //if modify or create DO NOT FORGET TO SAVE (in this case to DB :)))
         userService.save(user);
 
         SimpleMailMessage newEmail = mailConstructor.constructNewUserEmail(user, password);
