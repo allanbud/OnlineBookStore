@@ -9,7 +9,7 @@ public interface UserService {
 	
 	User createUser(User user, Set<UserRole> userRoles);
 
-	//Next for store-front
+	//store-front:
 
 	User findByUsername(String username);
 

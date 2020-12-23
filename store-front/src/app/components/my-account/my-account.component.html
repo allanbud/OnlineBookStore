@@ -21,7 +21,7 @@
                             Incorrect username or password.
                           </div>
 
-                          <form (ngSubmit)="onSubmit()">
+                          <form (ngSubmit)="onLogin()">
                             <div class="form-group">
                               <label for ="username">Username</label>
                               <input type="text" class="form-control" id="username" name="username" [(ngModel)]="credential.username" required="required" autofocus="autofocus">

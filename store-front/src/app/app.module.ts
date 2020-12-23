@@ -30,11 +30,15 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+
+
+
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HomeComponent,
     NavBarComponent,
     MyAccountComponent,
+    MyProfileComponent,
   ],
   entryComponents: [
   ],
@@ -50,6 +55,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSlideToggleModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MatProgressSpinnerModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatButtonModule,

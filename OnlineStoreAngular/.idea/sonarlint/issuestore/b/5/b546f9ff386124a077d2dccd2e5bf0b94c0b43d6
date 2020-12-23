@@ -1,26 +1,59 @@
 
+
+java:S1319R"nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(—éşİûÿÿÿÿ8ŞË•Ûè.
+Q
+java:S3740n"/Provide the parametrized type for this generic.(ÏËÂúÿÿÿÿ8ŞË•Ûè.
+X	java:S125V"<This block of commented-out lines of code should be removed.(§ŠÓ‰8ŞË•Ûè.
+R
+java:S1066Œ"/Merge this if statement with the enclosing one.(…¥¯†şÿÿÿÿ8³¨¾İè.
+R
+java:S3740™"/Provide the parametrized type for this generic.(ù¾úÆşÿÿÿÿ8³¨¾İè.
+\
+java:S4973†"9Use the "equals" method if value comparison was intended.(—ÀÜ®şÿÿÿÿ8³¨¾İè.
+L
+java:S3740M"/Provide the parametrized type for this generic.(­£â¾8ŞË•Ûè.
+R
+java:S1066†"/Merge this if statement with the enclosing one.(—ÀÜ®şÿÿÿÿ8³¨¾İè.
+l
+java:S4488Q"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°¼£Íÿÿÿÿÿ8ŞË•Ûè.
+Q
+java:S3740R"/Provide the parametrized type for this generic.(—éşİûÿÿÿÿ8ŞË•Ûè.
+
+java:S1319-"nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(ë×ßËúÿÿÿÿ8³òêÑè.
+Q
+java:S3740+"/Provide the parametrized type for this generic.(ÃÁÎ»úÿÿÿÿ8³òêÑè.
+Q
+java:S3740`"/Provide the parametrized type for this generic.( ÿÏñúÿÿÿÿ8ŞË•Ûè.
+l
+java:S4488*"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…™Ìøÿÿÿÿ8³òêÑè.
+g	java:S112u"FDefine and throw a dedicated exception instead of using a generic one.(»ÃÑ³øÿÿÿÿ8³¨¾İè.
+M
+java:S3740¤"/Provide the parametrized type for this generic.(ÿŒÉ8³¨¾İè.
+Q
+java:S1481‘"3Remove this unused "securityConfig" local variable.(Öª‡ 8³¨¾İè.
+`
+java:S1854‘"BRemove this useless assignment to local variable "securityConfig".(Öª‡ 8³¨¾İè.
+c
+java:S11920"FDefine a constant instead of duplicating this literal "email" 3 times.(‰·•û8³¨¾İè.
+R
+java:S3740‡"/Provide the parametrized type for this generic.(„Ñíıÿÿÿÿ8³¨¾İè.
+Q
+java:S37407"/Provide the parametrized type for this generic.(„ñå‰úÿÿÿÿ8³òêÑè.
+R
+java:S3740"/Provide the parametrized type for this generic.(ÙœÉÁøÿÿÿÿ8³¨¾İè.
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦ÙºÃ
-L
-java:S3740P"/Provide the parametrized type for this generic.(µ·Ï8Ø¥Ôè.
-L
-java:S3740."/Provide the parametrized type for this generic.(§èÿ‹8³òêÑè.
-g	java:S112)"FDefine and throw a dedicated exception instead of using a generic one.(»ÃÑ³øÿÿÿÿ8³òêÑè.
-g	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(»ÃÑ³øÿÿÿÿ8Ø¥Ôè.
-Q
-java:S3740&"/Provide the parametrized type for this generic.(ÃÁÎ»úÿÿÿÿ8³òêÑè.
-
-java:S1319R"nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(ë×ßËúÿÿÿÿ8Ø¥Ôè.
-Q
-java:S37402"/Provide the parametrized type for this generic.(„ñå‰úÿÿÿÿ8³òêÑè.
+Š
+java:S1319t"nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(éÑp8³¨¾İè.
+\
+java:S4973Œ"9Use the "equals" method if value comparison was intended.(…¥¯†şÿÿÿÿ8³¨¾İè.
+g	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ8ŞË•Ûè.
 l
-java:S4488%"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…™Ìøÿÿÿÿ8³òêÑè.
-
-java:S1319("nThe type of the "mapper" object should be an interface such as "Map" rather than the implementation "HashMap".(ë×ßËúÿÿÿÿ8³òêÑè.
+java:S4488r"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ùàßûÿÿÿÿ8³¨¾İè.
 L
-java:S3740K"/Provide the parametrized type for this generic.(­£â¾8³òêÑè.
-l
-java:S4488O"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°¼£Íÿÿÿÿÿ8Ø¥Ôè.
-Q
-java:S3740X"/Provide the parametrized type for this generic.( ÿÏñúÿÿÿÿ8Ø¥Ôè.
-Q
-java:S3740c"/Provide the parametrized type for this generic.(ÏËÂúÿÿÿÿ8Ø¥Ôè.
+java:S3740s"/Provide the parametrized type for this generic.(”ş­É8³¨¾İè.
+c	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(Ò‡à§8³¨¾İè.
+L
+java:S37403"/Provide the parametrized type for this generic.(§èÿ‹8³òêÑè.
+g	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(»ÃÑ³øÿÿÿÿ8³òêÑè.
+T
+java:S1135U"2Complete the task associated to this TODO comment.(ÄŞ±Úúÿÿÿÿ8ŞË•Ûè.

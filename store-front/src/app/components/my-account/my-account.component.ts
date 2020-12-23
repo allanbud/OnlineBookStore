@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {UserService} from '../../services/user.service';
-import {AppConst} from '../../constants/app-const';
 
 @Component({
   selector: 'app-my-account',
@@ -10,8 +9,7 @@ import {AppConst} from '../../constants/app-const';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-//TODO private public
-  public serverPath : string = AppConst.serverPath;
+
   public loginError:boolean = false;
   public loggedIn = false;
   public credential = {'username':'', 'password':''};
@@ -31,6 +29,23 @@ export class MyAccountComponent implements OnInit {
     public userService: UserService,
     public router: Router
   ) { }
+
+  onLogin() {
+    this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
+      response => {
+        console.log(response);
+        localStorage.setItem("xAuthToken", JSON.stringify(response));
+        this.loggedIn = true;
+        location.reload();
+        this.router.navigate(['/home']);
+      },
+      error => {
+        this.loggedIn = false;
+        this.loginError = true;
+      }
+    );
+  }
+
 
   onSubmit() {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
@@ -76,7 +91,7 @@ export class MyAccountComponent implements OnInit {
 
     this.userService.retrievePassword(this.recoverEmail).subscribe(
       response => {
-        console.log(response);
+        console.log("onForgetPassword: " + response);
         this.forgetPasswordEmailSent = true;
       },
       error => {
