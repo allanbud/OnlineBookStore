@@ -5,7 +5,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
-  private serverPath : string = AppConst.serverPath;
 
   constructor(private http : HttpClient, private router : Router) { }
 
@@ -24,20 +23,21 @@ export class LoginService {
   checkSession() {
     var url = 'http://localhost:8080/checkSession';
     var Token = localStorage.getItem('xAuthToken');
+    var basicHeader = 'Basic ' + localStorage.getItem('credentials');
     var headers = new HttpHeaders({
-      'x-auth-token' : Token || '{}'
+      'x-auth-token' : JSON.parse(JSON.stringify(Token)),
+      'Authorization' : basicHeader
     });
     console.log(headers);
     return this.http.get(url, {headers: headers});
   }
 
   logout() {
-    const url = 'http://localhost:8080/user/logout';
-    const Token = localStorage.getItem('xAuthToken');
-    const headers = new HttpHeaders  ({
-      'x-auth-token' : Token || '{}'
+    var url = 'http://localhost:8080/user/logout';
+    var Token = localStorage.getItem('xAuthToken');
+    var headers = new HttpHeaders  ({
+      'x-auth-token' : JSON.parse(JSON.stringify(Token)),
     });
-
     return this.http.post(url, '', {headers: headers});
   }
 

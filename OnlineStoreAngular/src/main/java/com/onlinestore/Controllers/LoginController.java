@@ -29,11 +29,9 @@ public class LoginController {
 		return Collections.singletonMap("token", session.getId());
 	}
 
-	//@Transient
 	@RequestMapping(value = "/checkSession")
 	public ResponseEntity checkSession() {
-
-		System.out.println("\u001B[36m" + checkSession().getHeaders(). + "\u001B[0m");
+		System.out.println("\u001B[36m" + "checkSession" + "\u001B[0m");
 
 		return new ResponseEntity("This is Active Session!", HttpStatus.OK);
 	}
