@@ -33,8 +33,8 @@ export class MyAccountComponent implements OnInit {
   onLogin() {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
       response => {
-        console.log(response);
-        localStorage.setItem("xAuthToken", JSON.stringify(response));
+        var Token = JSON.parse(JSON.stringify(response)).token;
+        localStorage.setItem("xAuthToken", Token);
         this.loggedIn = true;
         location.reload();
         this.router.navigate(['/home']);
@@ -46,24 +46,6 @@ export class MyAccountComponent implements OnInit {
     );
   }
 
-
-  onSubmit() {
-    this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
-      response => {
-        localStorage.setItem("xAuthToken", JSON.stringify(response));
-        this.loggedIn = true;
-        location.reload();
-        const encodedCredentials = btoa(this.credential.username + ':' + this.credential.password);
-        localStorage.setItem('credentials', encodedCredentials);
-        //TODO delete
-        console.log("onSubmit setItem " + localStorage.getItem('xAuthToken'));
-        console.log("onSubmit JSON " + JSON.stringify(response));
-      },
-      error => {
-        console.log("onSubmit error:" + error);
-      }
-    );
-  }
 
 
   onNewAccount() {
@@ -78,7 +60,7 @@ export class MyAccountComponent implements OnInit {
       },
       error => {
         console.log(error.text());
-        let errorMessage = error.text();
+        var errorMessage = error.text();
         if(errorMessage==="usernameExists") this.usernameExists=true;
         if(errorMessage==="emailExists") this.emailExists=true;
       }
@@ -96,7 +78,7 @@ export class MyAccountComponent implements OnInit {
       },
       error => {
         console.log(error.text());
-        let errorMessage = error.text();
+        var errorMessage = error.text();
         if(errorMessage==="Email not found") this.emailNotExists=true;
       }
     );
@@ -104,16 +86,16 @@ export class MyAccountComponent implements OnInit {
 
 
   ngOnInit() {
-    this.loginService.checkSession().subscribe(
-      response => {
-        this.loggedIn=true;
-        console.log("Life cicle OKEY");
-      },
-      error => {
-        this.loggedIn=false;
-        console.log("Life cicle error: " + error);
-      }
-    );
-  }
+      this.loginService.checkSession().subscribe(
+        response => {
+          this.loggedIn = true;
+          console.log("Life cicle OKEY");
+        },
+        error => {
+          this.loggedIn = false;
+          console.log("Life cicle error: " + error);
+        }
+      );
+    }
 
 }

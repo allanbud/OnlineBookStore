@@ -12,12 +12,12 @@ export class UserService {
 
   newUser(username: string, email:string) {
     const url = 'http://localhost:8080/user/newUser';
-    let userInfo = {
+    var userInfo = {
       "username" : username,
       "email" : email
     }
     const xToken = localStorage.getItem('xAuthToken');
-    let Header = new HttpHeaders({
+    var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : xToken || '{}'
     });
@@ -27,16 +27,16 @@ export class UserService {
 
   retrievePassword(email:string) {
     const url = 'http://localhost:8080/user/forgetPassword';
-    let userInfo = {
+    var userInfo = {
       "email" : email
     }
     const xToken = localStorage.getItem('xAuthToken');
-    let Header = new HttpHeaders({
+    var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : xToken || '{}'
     });
 
-    let body = JSON.stringify(userInfo);
+    var body = JSON.stringify(userInfo);
 
     return this.http.post(url, body, {headers : Header, responseType: 'text'});
   }
@@ -44,7 +44,7 @@ export class UserService {
   //need CURRENT password not just user password
   updateUserInfo(user: User, newPassword: string, currentPassword: string) {
     const url = 'http://localhost:8080/user/updateUserInfo';
-    let userInfo = {
+    var userInfo = {
       "id" : user.id,
       "firstName" : user.firstName,
       "lastName" : user.lastName,
@@ -55,7 +55,7 @@ export class UserService {
       "newPassword" : newPassword
     };
     const xToken = localStorage.getItem('xAuthToken');
-    let Header = new HttpHeaders({
+    var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : xToken || '{}'
     });
@@ -64,9 +64,9 @@ export class UserService {
 
 
   getCurrentUser() {
-    let url = 'http://localhost:8080/user/getCurrentUser';
+    var url = 'http://localhost:8080/user/getCurrentUser';
     const xToken = localStorage.getItem('xAuthToken');
-    let Header = new HttpHeaders({
+    var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : xToken || '{}'
     });

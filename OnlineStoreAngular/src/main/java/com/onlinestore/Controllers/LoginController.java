@@ -20,27 +20,28 @@ public class LoginController {
 
 	@RequestMapping("/token")
 	public Map<String, String> token(HttpSession session, HttpServletRequest request) {
-		System.out.println(request.getRemoteHost());
 
 		String remoteHost = request.getRemoteHost();
 		int portNumber = request.getRemotePort();
 
-		System.out.println("\u001B[31m" + remoteHost + ":" + portNumber + "\u001B[0m");
-		System.out.println(request.getRemoteAddr());
-		System.out.println("Session ID: " + session.getId());
+		System.out.println("\u001B[34m" + "Session ID: " + session.getId() + "\u001B[0m");
+
 		return Collections.singletonMap("token", session.getId());
 	}
-//TODO Handler dispatch failed; nested exception is java.lang.StackOverflow Error recursive call!! Remove ugly recursion
-	@RequestMapping(value = "/checkSession", method = RequestMethod.GET)
-	public ResponseEntity checkSession(Long limitRecusion) {
-		if (limitRecusion < 1) checkSession(limitRecusion).toString();
-		limitRecusion++;
+
+	//@Transient
+	@RequestMapping(value = "/checkSession")
+	public ResponseEntity checkSession() {
+
+		System.out.println("\u001B[36m" + checkSession().getHeaders(). + "\u001B[0m");
+
 		return new ResponseEntity("This is Active Session!", HttpStatus.OK);
 	}
 
+
+
 	@RequestMapping(value = "/user/logout", method = RequestMethod.POST)
 	public ResponseEntity logout() {
-		logout().toString();
 		SecurityContextHolder.clearContext();
 		return new ResponseEntity("Have logged out", HttpStatus.OK);
 	}
