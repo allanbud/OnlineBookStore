@@ -39,7 +39,7 @@ export class UserService {
 
     var body = JSON.stringify(userInfo);
 
-    return this.http.post(url, body, {headers : Header/*, responseType: 'text'*/});
+    return this.http.post(url, body, {headers : Header, responseType: 'text'});
   }
 
   //need CURRENT password not just user password
