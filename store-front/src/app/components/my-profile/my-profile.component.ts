@@ -50,7 +50,7 @@ import {UserService} from '../../services/user.service';
   getCurrentUserStatus() {
     this.userService.getCurrentUser().subscribe(
       response => {
-        this.user = JSON.parse(JSON.stringify(response));
+        this.user = JSON.parse(response);
         this.dataFetched = true;
       },
       error => {
