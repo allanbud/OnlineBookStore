@@ -78,8 +78,8 @@ export class MyAccountComponent implements OnInit {
         this.forgetPasswordEmailSent = true;
       },
       error => {
-        console.log(error.text());
-        var errorMessage = error.text();
+        console.log(error.error);
+        var errorMessage = error.error;
         if(errorMessage==="Email not found") this.emailNotExists=true;
       }
     );

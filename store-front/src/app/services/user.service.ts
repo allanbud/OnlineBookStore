@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AppConst} from '../constants/app-const';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../models/user';
+import {JavaScriptEmitter} from '@angular/compiler/src/output/js_emitter';
 
 @Injectable()
 export class UserService {
@@ -16,10 +17,10 @@ export class UserService {
       "username" : username,
       "email" : email
     }
-    const xToken = localStorage.getItem('xAuthToken');
+    const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : xToken || '{}'
+      'x-auth-token' : Token!
     });
 
     return this.http.post(url, JSON.stringify(userInfo), {headers : Header});
@@ -30,15 +31,15 @@ export class UserService {
     var userInfo = {
       "email" : email
     }
-    const xToken = localStorage.getItem('xAuthToken');
+    const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : xToken || '{}'
+      'x-auth-token' : JSON.stringify(Token)
     });
 
     var body = JSON.stringify(userInfo);
 
-    return this.http.post(url, body, {headers : Header, responseType: 'text'});
+    return this.http.post(url, body, {headers : Header/*, responseType: 'text'*/});
   }
 
   //need CURRENT password not just user password
@@ -54,24 +55,24 @@ export class UserService {
       "email" : user.email,
       "newPassword" : newPassword
     };
-    const xToken = localStorage.getItem('xAuthToken');
+    const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : xToken || '{}'
+      'x-auth-token' : Token!
     });
-    return this.http.post(url, JSON.stringify(userInfo), {headers : Header});
+    return this.http.post(url, JSON.stringify(userInfo), {headers : Header , responseType: 'text'});
   }
 
 
   getCurrentUser() {
     var url = 'http://localhost:8080/user/getCurrentUser';
-    const xToken = localStorage.getItem('xAuthToken');
+    const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : xToken || '{}'
+      'x-auth-token' : Token!
     });
 
-    return this.http.get(url, {headers : Header});
+    return this.http.get(url, {headers : Header, responseType: 'text'});
   }
 
 }
