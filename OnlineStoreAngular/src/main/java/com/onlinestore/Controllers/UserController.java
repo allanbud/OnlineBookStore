@@ -141,15 +141,19 @@ public class UserController {
 
         SecurityConfig securityConfig = new SecurityConfig();
 
-        if(newPassword != null && !newPassword.isEmpty() && !newPassword.equals("")) {
-            BCryptPasswordEncoder passwordEncoder = SecurityUtility.passwordEncoder();
-            String dbPassword = currentUser.getPassword();
-            if(currentPassword.equals(dbPassword)) {
-                currentUser.setPassword(passwordEncoder.encode(newPassword));
+
+        BCryptPasswordEncoder passwordEncoder = SecurityUtility.passwordEncoder();
+        String dbPassword = currentUser.getPassword();
+
+        if(null != currentPassword)
+            if(passwordEncoder.matches(currentPassword, dbPassword)) {
+                if(newPassword != null && !newPassword.isEmpty() && !newPassword.equals("")) {
+                    currentUser.setPassword(passwordEncoder.encode(newPassword));
+                }
+                currentUser.setEmail(email);
             } else {
                 return new ResponseEntity("Incorrect current password!", HttpStatus.BAD_REQUEST);
             }
-        }
 
         currentUser.setFirstName(firstName);
         currentUser.setLastName(lastName);

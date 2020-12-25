@@ -12,7 +12,7 @@ public class MailContructorService {
     private Environment environment;
 
     public SimpleMailMessage constructNewUserEmail(User user, String password) {
-        String message="\nPlease use the following credentials to log in or edit your personal information and password."
+        String message="\nThese are SDA FINAL Online Store credentials to log in or \nedit your personal information and password."
                 + "\nUsername:   "+user.getUsername()+"\nPassword:   "+password;
 
         SimpleMailMessage email = new SimpleMailMessage();
