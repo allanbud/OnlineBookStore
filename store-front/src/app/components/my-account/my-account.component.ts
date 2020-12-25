@@ -60,8 +60,8 @@ export class MyAccountComponent implements OnInit {
         this.emailSent = true;
       },
       error => {
-        console.log(error.text());
-        var errorMessage = error.text();
+        console.log(error.error);
+        var errorMessage = error.error;
         if(errorMessage==="usernameExists") this.usernameExists=true;
         if(errorMessage==="emailExists") this.emailExists=true;
       }

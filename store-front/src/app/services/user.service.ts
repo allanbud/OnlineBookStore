@@ -20,10 +20,10 @@ export class UserService {
     const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : Token!
+      'x-auth-token' : JSON.stringify(Token)
     });
 
-    return this.http.post(url, JSON.stringify(userInfo), {headers : Header});
+    return this.http.post(url, JSON.stringify(userInfo), {headers : Header, responseType: 'text'});
   }
 
   retrievePassword(email:string) {
@@ -58,7 +58,7 @@ export class UserService {
     const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : Token!
+      'x-auth-token' : JSON.stringify(Token)
     });
     return this.http.post(url, JSON.stringify(userInfo), {headers : Header , responseType: 'text'});
   }
@@ -69,7 +69,7 @@ export class UserService {
     const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'x-auth-token' : Token!
+      'x-auth-token' : JSON.stringify(Token)
     });
 
     return this.http.get(url, {headers : Header, responseType: 'text'});
