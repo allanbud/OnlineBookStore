@@ -23,22 +23,20 @@ export class LoginService {
   checkSession() {
     var url = 'http://localhost:8080/checkSession';
     var Token = localStorage.getItem('xAuthToken');
-    var basicHeader = 'Basic ' + localStorage.getItem('credentials');
     var headers = new HttpHeaders({
-      'x-auth-token' : JSON.parse(JSON.stringify(Token)),
-      'Authorization' : basicHeader
+      'x-auth-token' : Token!
     });
     console.log(headers);
-    return this.http.get(url, {headers: headers});
+    return this.http.get(url, {headers: headers, responseType: 'text'});
   }
 
   logout() {
     var url = 'http://localhost:8080/user/logout';
     var Token = localStorage.getItem('xAuthToken');
     var headers = new HttpHeaders  ({
-      'x-auth-token' : JSON.parse(JSON.stringify(Token)),
+      'x-auth-token' : Token!,
     });
-    return this.http.post(url, '', {headers: headers});
+    return this.http.post(url, '', {headers: headers, responseType: 'text'});
   }
 
 }

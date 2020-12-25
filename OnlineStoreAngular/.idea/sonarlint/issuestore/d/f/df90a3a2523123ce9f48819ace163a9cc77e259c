@@ -1,22 +1,18 @@
 
-Q
-java:S1481"/Remove this unused "portNumber" local variable.(Ü»Ğãùÿÿÿÿ8é¹É®é.
-`
-java:S1854">Remove this useless assignment to local variable "portNumber".(Ü»Ğãùÿÿÿÿ8é¹É®é.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦ÙºÃ
 K
 java:S1481"/Remove this unused "remoteHost" local variable.(ŸèŞ18é¹É®é.
-Q
-java:S3740,"/Provide the parametrized type for this generic.(Ó·æÿÿÿÿÿ8ƒÂ¯é.
-U	java:S106$"9Replace this use of System.out or System.err by a logger.(†ÓÜ¬8Èßó¯é.
+`
+java:S1854">Remove this useless assignment to local variable "portNumber".(Ü»Ğãùÿÿÿÿ8é¹É®é.
 L
-java:S3740""/Provide the parametrized type for this generic.(†²í8øòë«é.
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦ÙºÃ
+java:S3740,"/Provide the parametrized type for this generic.(ôÕÙ¥8ƒÂ¯é.
+g
+java:S4488)"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(˜µ‡8ƒÂ¯é.
+Q
+java:S3740*"/Provide the parametrized type for this generic.(Ó·æÿÿÿÿÿ8ƒÂ¯é.
+U	java:S106""9Replace this use of System.out or System.err by a logger.(†ÓÜ¬8„ªÒ°é.
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÑŠÏƒ
+Q
+java:S1481"/Remove this unused "portNumber" local variable.(Ü»Ğãùÿÿÿÿ8é¹É®é.
 Z
 java:S1854">Remove this useless assignment to local variable "remoteHost".(ŸèŞ18é¹É®é.
-Q
-java:S3740&"/Provide the parametrized type for this generic.(‡÷‡†şÿÿÿÿ8ƒÂ¯é.
-g
-java:S4488+"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(˜µ‡8ƒÂ¯é.
-L
-java:S3740."/Provide the parametrized type for this generic.(ôÕÙ¥8ƒÂ¯é.
-N	java:S106"9Replace this use of System.out or System.err by a logger.(ÑŠÏƒ

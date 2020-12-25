@@ -30,10 +30,10 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/checkSession")
-	public ResponseEntity checkSession() {
+	public ResponseEntity<String> checkSession() {
 		System.out.println("\u001B[36m" + "checkSession" + "\u001B[0m");
 
-		return new ResponseEntity("This is Active Session!", HttpStatus.OK);
+		return new ResponseEntity<>("This is Active Session!", HttpStatus.OK);
 	}
 
 

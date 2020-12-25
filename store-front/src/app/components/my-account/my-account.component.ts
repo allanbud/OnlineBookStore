@@ -34,6 +34,7 @@ export class MyAccountComponent implements OnInit {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
       response => {
         var Token = JSON.parse(JSON.stringify(response)).token;
+        //var Token = JSON.stringify(response);
         localStorage.setItem("xAuthToken", Token);
         this.loggedIn = true;
         location.reload();
