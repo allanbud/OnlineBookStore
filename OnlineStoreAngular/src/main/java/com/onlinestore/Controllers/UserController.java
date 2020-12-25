@@ -169,12 +169,19 @@ public class UserController {
     @RequestMapping("/getCurrentUser")
     //Java security: Principal gets current user logged in
     public User getCurrentUser(Principal principal) {
+
+        //!!!! Principal exists ONLY if user is logged in, not good
+        //if not logged in NULL-Pointer-Exeption happens :(((((
         String username = principal.getName();
         User user = new User();
+        /*
         if (null != username) {
             user = userService.findByUsername(username);
         }
-
+         */
+        if (null != principal) {
+            user = userService.findByUsername(principal.getName());
+        }
         return user;
     }
 
