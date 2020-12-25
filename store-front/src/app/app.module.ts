@@ -30,6 +30,7 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -39,6 +40,7 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     MatListModule,
     MatTabsModule,
+    MatExpansionModule,
     RouterModule,
     routing,
     MatGridListModule,

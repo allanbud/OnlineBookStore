@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import {AppConst} from '../constants/app-const';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../models/user';
-import {JavaScriptEmitter} from '@angular/compiler/src/output/js_emitter';
+
 
 @Injectable()
 export class UserService {
 
-  private serverPath: string = AppConst.serverPath;
 
   constructor(private http : HttpClient) { }
 
@@ -68,8 +67,7 @@ export class UserService {
     var url = 'http://localhost:8080/user/getCurrentUser';
     const Token = localStorage.getItem('xAuthToken');
     var Header = new HttpHeaders({
-      'Content-Type' : 'application/json',
-      'x-auth-token' : JSON.stringify(Token)
+      'x-auth-token' : Token || '{}'
     });
 
     return this.http.get(url, {headers : Header, responseType: 'text'});

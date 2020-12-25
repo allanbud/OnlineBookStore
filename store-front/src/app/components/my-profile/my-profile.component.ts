@@ -6,7 +6,6 @@ import {LoginService} from '../../services/login.service';
 import { Router } from '@angular/router';
 import {UserService} from '../../services/user.service';
 
-
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
@@ -15,6 +14,7 @@ import {UserService} from '../../services/user.service';
 
   export class MyProfileComponent implements OnInit {
 
+  panelOpenState = false;
 
   public dataFetched = false;
   public loginError:boolean;
@@ -30,7 +30,7 @@ import {UserService} from '../../services/user.service';
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private userService: UserService
+    public userService: UserService
   ) { }
 
   onUpdateUserInfo () {
@@ -40,21 +40,21 @@ import {UserService} from '../../services/user.service';
         this.updateSuccess=true;
       },
       error => {
-        console.log(error.text());
-        let errorMessage = error.text();
+        console.log(error.error);
+        let errorMessage = error.error;
         if(errorMessage==="Incorrect current password!") this.incorrectPassword=true;
       }
     );
   }
 
-  getCurrentUser() {
+  getCurrentUserStatus() {
     this.userService.getCurrentUser().subscribe(
       response => {
         this.user = JSON.parse(JSON.stringify(response));
         this.dataFetched = true;
       },
       error => {
-        console.log(error);
+        console.log(error.error);
       }
     );
   }
@@ -72,7 +72,8 @@ import {UserService} from '../../services/user.service';
         this.router.navigate(['/myAccount']);
       }
     );
-    this.getCurrentUser();
+
+    this.getCurrentUserStatus();
   }
 
 }

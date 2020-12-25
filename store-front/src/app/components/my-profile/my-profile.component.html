@@ -4,7 +4,9 @@
       <h2 class="section-headline"><span>My Profile</span></h2>
     </div>
   </div>
-<!--
+
+
+  <!-- Material spinner while fetching data -->
   <div *ngIf = "!dataFetched" style="margin-top: 50px;">
     <div class="row">
       <div class="col-mat-2 col-mat-offset-5">
@@ -15,16 +17,21 @@
 
   <div class="row" style="margin-top:30px;">
     <div class="col-xs-3"></div>
+
+    <!-- When data fetched: -->
     <div *ngIf="dataFetched">
       <div class="col-xs-9">
 
 
         <div class="panel-group">
-          <div class="panel panel-default" style="border:5px;">
-            <div class="panel-body" style="background-color: #bad7af; margin-top: 20px;">
-              <mat-tab-group [selectedIndex]="selectedProfileTab">
+          <div class="mat-expansion-panel panel-default" style="border:5px;">
+            <div class="panel-body" style="background-color: #bad7af; width=100%; margin-top: 20px;">
+
+              <!-- !!!!! -->
+              <mat-tab-group>
 
                 <mat-tab label="Edit">
+
                   <div style="margin-top: 20px;">
                     <div class="alert alert-danger" *ngIf="incorrectPassword">
                       <strong>Incorrect Password!</strong> Please enter the correct password for the current user.
@@ -36,7 +43,9 @@
 
                   <form (ngSubmit)="onUpdateUserInfo()">
                     <input type="hidden" name="id" [(ngModel)]="user.id" />
-                    <div class="bg-info" *ngIf="updateUserInfo" >User info updated.</div>
+
+                    <!-- !!!!! -->
+                    <div class="bg-info" *ngIf="" >User info updated.</div>
                     <div class="form-group">
                       <div class="row">
                         <div class="col-xs-6">
@@ -51,12 +60,12 @@
                     </div>
                     <div class="form-group">
                       <label for="username">
-                        Username *
-                      </label>&nbsp;<span *ngIf="usernameExists" style="color:red">Username already exists. Choose a different one.</span>
+                        Username
+                      </label>&nbsp;<span *ngIf="" style="color:red">Username already exists. Choose a different one.</span>
                       <input required="required" type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" />
                     </div>
                     <div class="form-group">
-                      <label for="currentPassword">
+                      <label for="">
                         Current Password
                       </label>
                       <input type="password" class="form-control" id="password" name="password" [(ngModel)]="currentPassword" />
@@ -64,8 +73,8 @@
                     </div>
                     <div class="form-group">
                       <label for="email">
-                        Email Address *
-                      </label>&nbsp;<span *ngIf="emailExists" style="color:red">Email already exists. Choose a different one.</span>
+                        Email Address
+                      </label>&nbsp;<span *ngIf="" style="color:red">Email already exists. Choose a different one.</span>
                       <input required="required" type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" />
                       <p style="color:#828282;">A valid e-mail address. All e-mails from the system will be sent to this address.</p>
                     </div>
@@ -94,4 +103,4 @@
 </div>
 
 
-  -->
+
