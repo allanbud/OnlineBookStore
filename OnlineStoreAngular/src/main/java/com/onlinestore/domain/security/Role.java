@@ -18,7 +18,7 @@ public class Role implements Serializable {
 
     private String name;
 
-    @Transient
+    //@Transient
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
 

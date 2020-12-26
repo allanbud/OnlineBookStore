@@ -7,16 +7,14 @@ import java.io.Serializable;
 
 @Entity
 public class UserBilling implements Serializable{
-	private static final long serialVersionUID = 79872894528934L;
+	private static final long serialVersionUID = 4444111528934L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String userBillingName;
-	private String userBillingStreet1;
-	private String userBillingStreet2;
+	private String userBillingStreet;
 	private String userBillingCity;
-	private String userBillingState;
 	private String userBillingCountry;
 	private String userBillingZipcode;
 	
@@ -41,20 +39,13 @@ public class UserBilling implements Serializable{
 	}
 
 	public String getUserBillingStreet1() {
-		return userBillingStreet1;
+		return userBillingStreet;
 	}
 
 	public void setUserBillingStreet1(String userBillingStreet1) {
-		this.userBillingStreet1 = userBillingStreet1;
+		this.userBillingStreet = userBillingStreet1;
 	}
 
-	public String getUserBillingStreet2() {
-		return userBillingStreet2;
-	}
-
-	public void setUserBillingStreet2(String userBillingStreet2) {
-		this.userBillingStreet2 = userBillingStreet2;
-	}
 
 	public String getUserBillingCity() {
 		return userBillingCity;
@@ -62,14 +53,6 @@ public class UserBilling implements Serializable{
 
 	public void setUserBillingCity(String userBillingCity) {
 		this.userBillingCity = userBillingCity;
-	}
-
-	public String getUserBillingState() {
-		return userBillingState;
-	}
-
-	public void setUserBillingState(String userBillingState) {
-		this.userBillingState = userBillingState;
 	}
 
 	public String getUserBillingCountry() {

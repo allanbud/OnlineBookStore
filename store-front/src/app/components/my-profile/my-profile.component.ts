@@ -6,6 +6,10 @@ import {UserService} from '../../services/user.service';
 import {Payment} from '../../models/payment';
 import {Billing} from '../../models/billing';
 import {PaymentServiceService} from '../../services/payment-service.service';
+import {Shipping} from '../../models/shipping';
+import {ShippingService} from '../../services/shipping.service';
+
+
 
 @Component({
   selector: 'app-my-profile',
@@ -14,8 +18,6 @@ import {PaymentServiceService} from '../../services/payment-service.service';
 })
 
   export class MyProfileComponent implements OnInit {
-
-  panelOpenState = false;
 
   public dataFetched = false;
   public loginError:boolean;
@@ -30,24 +32,32 @@ import {PaymentServiceService} from '../../services/payment-service.service';
 
   public selectedProfileTab: number = 0;
   public selectedBillingTab : number = 0
+  public selectedShippingTab : number =0;
+
   public userPayment: Payment = new Payment();
   public userBilling: Billing = new Billing();
   public userPaymentList: Payment[] =[];
   public defaultPaymentSet: boolean;
   public defaultUserPaymentId: number;
 
+  public userShipping: Shipping = new Shipping();
+  public userShippingList: Shipping[] = [];
+
+  public defaultUserShippingId: number;
+  public defaultShippingSet: boolean;
+
 
   constructor(
-    private router: Router,
-    private paymentService: PaymentServiceService,
-    private loginService: LoginService,
-    public userService: UserService
+    public router: Router,
+    public paymentService: PaymentServiceService,
+    public loginService: LoginService,
+    public userService: UserService,
+    public shippingService: ShippingService,
   ) { }
 
-  selectedBillingChange(value: number) {
-    this.selectedBillingTab = value;
+  selectedBillingChange(val: number) {
+    this.selectedBillingTab = val;
   }
-
 
   onUpdateUserInfo () {
     this.userService.updateUserInfo(this.user, this.newPassword, this.currentPassword).subscribe(
@@ -63,10 +73,28 @@ import {PaymentServiceService} from '../../services/payment-service.service';
     );
   }
 
+
   getCurrentUserStatus() {
     this.userService.getCurrentUser().subscribe(
       response => {
         this.user = JSON.parse(response);
+        this.userPaymentList = this.user.userPaymentList;
+        this.userShippingList = this.user.userShippingList;
+
+        for (let index in this.userPaymentList) {
+          if(this.userPaymentList[index].defaultPayment) {
+            this.defaultUserPaymentId=this.userPaymentList[index].id;
+            break;
+          }
+        }
+
+        for (let index in this.userShippingList) {
+          if(this.userShippingList[index].userShippingDefault) {
+            this.defaultUserShippingId=this.userShippingList[index].id;
+            break;
+          }
+        }
+
         this.dataFetched = true;
       },
       error => {
@@ -74,7 +102,6 @@ import {PaymentServiceService} from '../../services/payment-service.service';
       }
     );
   }
-
 
 
   //Billing and Payments
@@ -120,6 +147,50 @@ import {PaymentServiceService} from '../../services/payment-service.service';
     );
   }
 
+  onNewShipping() {
+    this.shippingService.newShipping(this.userShipping).subscribe(
+      response => {
+        this.getCurrentUserStatus();
+        this.selectedShippingTab=0;
+        this.userShipping = new Shipping();
+      },
+      error => {
+        console.log(error.error);
+      }
+    );
+  }
+
+  onUpdateShipping(shipping: Shipping) {
+    this.userShipping = shipping;
+    this.selectedShippingTab = 1;
+  }
+
+  onRemoveShipping(id: number) {
+    this.shippingService.removeShipping(id).subscribe(
+      response => {
+        this.getCurrentUserStatus();
+      },
+      error => {
+        console.log(error.error);
+      }
+    );
+  }
+
+  setDefaultShipping() {
+    this.defaultShippingSet = false;
+    this.shippingService.setDefaultShipping(this.defaultUserShippingId).subscribe(
+      response => {
+        this.getCurrentUserStatus();
+        this.defaultShippingSet = true;
+      },
+      error => {
+        console.log(error.error);
+      }
+    );
+  }
+
+
+
   //initializing
   ngOnInit() {
     this.loginService.checkSession().subscribe(
@@ -141,6 +212,9 @@ import {PaymentServiceService} from '../../services/payment-service.service';
     this.userPayment.expiryYear="";
     this.userPayment.userBilling = this.userBilling;
     this.defaultPaymentSet = false;
+
+    this.defaultShippingSet=false;
+
 
   }
 

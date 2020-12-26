@@ -2,17 +2,11 @@
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import 'hammerjs';
 
 
 import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
-
-import {LoginService} from './services/login.service';
-import {UserService} from './services/user.service';
-import {PaymentServiceService} from './services/payment-service.service';
-
 
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http";
@@ -30,15 +24,19 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
-
-
-
-import { HomeComponent } from './components/home/home.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { MyAccountComponent } from './components/my-account/my-account.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+import {LoginService} from './services/login.service';
+import {UserService} from './services/user.service';
+import {PaymentServiceService} from './services/payment-service.service';
+import { ShippingService } from './services/shipping.service';
+
+import {HomeComponent} from './components/home/home.component';
+import {NavBarComponent} from './components/nav-bar/nav-bar.component';
+import {MyAccountComponent } from './components/my-account/my-account.component';
+import {MyProfileComponent} from './components/my-profile/my-profile.component';
+import {AppComponent} from './app.component';
 
 
 @NgModule({
@@ -76,7 +74,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDialog,
     LoginService,
     UserService,
-    PaymentServiceService
+    PaymentServiceService,
+    ShippingService
   ],
   bootstrap: [AppComponent]
 })

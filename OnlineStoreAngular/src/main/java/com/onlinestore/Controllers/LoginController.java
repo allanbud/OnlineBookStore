@@ -1,4 +1,4 @@
-package com.onlinestore.Controllers;
+package com.onlinestore.controllers;
 
 
 import com.onlinestore.service.UserService;
@@ -41,6 +41,6 @@ public class LoginController {
 	@RequestMapping(value = "/user/logout", method = RequestMethod.POST)
 	public ResponseEntity logout() {
 		SecurityContextHolder.clearContext();
-		return new ResponseEntity("Have logged out", HttpStatus.OK);
+		return new ResponseEntity("You have logged out", HttpStatus.OK);
 	}
 }

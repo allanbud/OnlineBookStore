@@ -1,4 +1,4 @@
-package com.onlinestore.Controllers;
+package com.onlinestore.controllers;
 
 import com.onlinestore.config.SecurityConfig;
 import com.onlinestore.config.SecurityUtility;
@@ -158,7 +158,8 @@ public class UserController {
         currentUser.setFirstName(firstName);
         currentUser.setLastName(lastName);
         currentUser.setUsername(username);
-        currentUser.setEmail(email);
+        //TODO setEmail?
+        //currentUser.setEmail(email);
 
         userService.save(currentUser);
 

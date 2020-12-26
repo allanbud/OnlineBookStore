@@ -42,13 +42,13 @@ public class UserRole implements Serializable {
 
      any role and any user connect to one UserRole
      */
-    @Transient
+    //@Transient
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
 //any role and any user connect to one UserRole
-    @Transient
+    //@Transient
     @ManyToOne(fetch = FetchType.EAGER)
     private Role role;
 

@@ -1,4 +1,4 @@
-package com.onlinestore.Controllers;
+package com.onlinestore.controllers;
 
 import com.onlinestore.domain.Product;
 import com.onlinestore.service.ProductService;

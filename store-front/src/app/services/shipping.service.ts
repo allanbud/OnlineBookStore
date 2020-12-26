@@ -1,46 +1,47 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Payment} from '../models/payment';
+import {Shipping} from '../models/shipping';
 
 @Injectable()
-export class PaymentServiceService {
+export class ShippingService {
+
 
   constructor(private http : HttpClient) { }
 
-  newPayment(payment: Payment) {
-    const url = 'http://localhost:8080/payment/add';
+  newShipping(shipping: Shipping) {
+    const url = 'http://localhost:8080/shipping/add';
     const Token = localStorage.getItem('xAuthToken');
-    var Header = new HttpHeaders({
+    let Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : Token!
     });
-    return this.http.post(url, JSON.stringify(payment), {headers: Header, responseType: 'text'});
+    return this.http.post(url, JSON.stringify(shipping), {headers: Header, responseType: 'text'});
   }
 
-  getUserPaymentList() {
-    const url = 'http://localhost:8080/payment/getUserPaymentList';
+  getUserShippingList() {
+    const url = 'http://localhost:8080/shipping/getUserShippingList';
     const Token = localStorage.getItem('xAuthToken');
-    var Header = new HttpHeaders({
+    let Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : Token!
     });
-    return this.http.get(url,  {headers: Header, responseType: 'text'});
+    return this.http.get(url, {headers: Header, responseType: 'text'});
   }
 
-  removePayment(id: number) {
-    const url = 'http://localhost:8080/payment/remove';
+  removeShipping(id:number){
+    const url = 'http://localhost:8080/shipping/remove';
     const Token = localStorage.getItem('xAuthToken');
-    var Header = new HttpHeaders({
+    let Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : Token!
     });
     return this.http.post(url, id, {headers: Header, responseType: 'text'});
   }
 
-  setDefaultPayment (id: number) {
-    const url = 'http://localhost:8080/payment/setDefault';
+  setDefaultShipping(id:number){
+    const url = 'http://localhost:8080/shipping/setDefault';
     const Token = localStorage.getItem('xAuthToken');
-    var Header = new HttpHeaders({
+    let Header = new HttpHeaders({
       'Content-Type' : 'application/json',
       'x-auth-token' : Token!
     });

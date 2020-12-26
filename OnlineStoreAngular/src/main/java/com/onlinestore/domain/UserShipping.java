@@ -7,16 +7,14 @@ import java.io.Serializable;
 
 @Entity
 public class UserShipping implements Serializable{
-	private static final long serialVersionUID = 498745987L;
+	private static final long serialVersionUID = 544546154987L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String userShippingName;
-	private String userShippingStreet1;
-	private String userShippingStreet2;
+	private String userShippingStreet;
 	private String userShippingCity;
-	private String userShippingState;
 	private String userShippingCountry;
 	private String userShippingZipcode;
 	private Boolean userShippingDefault;
@@ -49,22 +47,12 @@ public class UserShipping implements Serializable{
 
 
 	public String getUserShippingStreet1() {
-		return userShippingStreet1;
+		return userShippingStreet;
 	}
 
 
 	public void setUserShippingStreet1(String userShippingStreet1) {
-		this.userShippingStreet1 = userShippingStreet1;
-	}
-
-
-	public String getUserShippingStreet2() {
-		return userShippingStreet2;
-	}
-
-
-	public void setUserShippingStreet2(String userShippingStreet2) {
-		this.userShippingStreet2 = userShippingStreet2;
+		this.userShippingStreet = userShippingStreet1;
 	}
 
 
@@ -75,16 +63,6 @@ public class UserShipping implements Serializable{
 
 	public void setUserShippingCity(String userShippingCity) {
 		this.userShippingCity = userShippingCity;
-	}
-
-
-	public String getUserShippingState() {
-		return userShippingState;
-	}
-
-
-	public void setUserShippingState(String userShippingState) {
-		this.userShippingState = userShippingState;
 	}
 
 
