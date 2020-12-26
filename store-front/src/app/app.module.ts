@@ -11,8 +11,7 @@ import { RouterModule } from '@angular/router';
 
 import {LoginService} from './services/login.service';
 import {UserService} from './services/user.service';
-
-
+import {PaymentServiceService} from './services/payment-service.service';
 
 
 import {FormsModule} from '@angular/forms';
@@ -76,7 +75,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   providers: [
     MatDialog,
     LoginService,
-    UserService
+    UserService,
+    PaymentServiceService
   ],
   bootstrap: [AppComponent]
 })
