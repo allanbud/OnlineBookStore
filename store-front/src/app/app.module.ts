@@ -12,6 +12,9 @@ import {FormsModule} from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { DataTablesModule } from 'angular-datatables';
+
+import { DataFilterPipe } from './components/product-list/data-lodash-filter.pipe';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -26,17 +29,26 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
+
 
 import {LoginService} from './services/login.service';
 import {UserService} from './services/user.service';
 import {PaymentServiceService} from './services/payment-service.service';
 import { ShippingService } from './services/shipping.service';
+import { ProductService } from './services/product.service';
+import { CartService } from './services/cart.service';
+
 
 import {HomeComponent} from './components/home/home.component';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {MyAccountComponent } from './components/my-account/my-account.component';
 import {MyProfileComponent} from './components/my-profile/my-profile.component';
 import {AppComponent} from './app.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+
 
 
 @NgModule({
@@ -46,15 +58,21 @@ import {AppComponent} from './app.component';
     NavBarComponent,
     MyAccountComponent,
     MyProfileComponent,
+    ProductListComponent,
+    DataFilterPipe,
+    ProductDetailComponent,
+    ShoppingCartComponent
   ],
   entryComponents: [
   ],
   imports: [
     BrowserModule,
+    DataTablesModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
+    MatTableModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatButtonModule,
@@ -75,7 +93,9 @@ import {AppComponent} from './app.component';
     LoginService,
     UserService,
     PaymentServiceService,
-    ShippingService
+    ShippingService,
+    ProductService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

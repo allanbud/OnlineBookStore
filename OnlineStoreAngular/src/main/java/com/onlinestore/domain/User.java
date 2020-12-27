@@ -73,6 +73,9 @@ so this side goes @OneToMany
 
 
 
+	@OneToOne(cascade=CascadeType.ALL, mappedBy = "user")
+	private ShoppingCart shoppingCart;
+
 
 
 	public Long getId() {
@@ -131,7 +134,7 @@ so this side goes @OneToMany
 		this.phone = phone;
 	}
 
-	
+
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
@@ -145,7 +148,6 @@ so this side goes @OneToMany
 		this.userRoles = userRoles;
 	}
 
-	//Payment & Shipping
 
 
 	public List<UserPayment> getUserPaymentList() {
@@ -167,8 +169,23 @@ so this side goes @OneToMany
 	}
 
 
-/////////////////////
 
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
+
+		return authorities;
+	}
 
 	/**
 	 * define new authority hashset
@@ -177,21 +194,12 @@ so this side goes @OneToMany
 	 *
 	 * userRoles is a Set then take each one of them
 	 * tempUserRole as an instance of userRole in the userRole set
-	*/
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
+	 */
+
 //Authority class line 26, takes String as authority which is a roleName .getName()
 //authorty with roleName is added to Set and get returned
-		Set<GrantedAuthority> authorities = new HashSet<>();
-		userRoles.forEach(tempUserRole -> authorities.add(new Authority(tempUserRole.getRole().getName())));
-
-		return authorities;
-	}
 
 
-
-
-	//not used
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
@@ -209,13 +217,16 @@ so this side goes @OneToMany
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
+
 	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
-	
-	
-	
-	
+
+
+
+
 }
+
+
+

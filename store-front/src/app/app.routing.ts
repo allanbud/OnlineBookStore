@@ -4,6 +4,9 @@ import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './components/home/home.component';
 import {MyAccountComponent} from './components/my-account/my-account.component';
 import {MyProfileComponent} from './components/my-profile/my-profile.component';
+import {ProductListComponent} from './components/product-list/product-list.component';
+import {ProductDetailComponent} from './components/product-detail/product-detail.component';
+import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
 
 const appRoutes: Routes = [
   {
@@ -22,8 +25,19 @@ const appRoutes: Routes = [
   {
     path: 'myProfile',
     component: MyProfileComponent
+  },
+  {
+    path: 'productList',
+    component: ProductListComponent
+  },
+  {
+    path: 'productDetail/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'shoppingCart',
+    component: ShoppingCartComponent
   }
-
 ];
 
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);

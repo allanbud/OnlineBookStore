@@ -16,17 +16,15 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
       response => {
-        localStorage.setItem("xAuthToken", JSON.stringify(response));
+        var Token = JSON.parse(JSON.stringify(response)).token;
+        localStorage.setItem("xAuthToken", Token);
         this.loggedIn = true;
         location.reload();
-        const encodedCredentials = btoa(this.credential.username + ':' + this.credential.password);
-        localStorage.setItem('credentials', encodedCredentials);
-        //TODO delete
-        console.log("onSubmit setItem " + localStorage.getItem('xAuthToken'));
-        console.log("onSubmit JSON " + JSON.stringify(response));
+        //const encodedCredentials = btoa(this.credential.username + ':' + this.credential.password);
+        //localStorage.setItem('credentials', encodedCredentials);
       },
       error => {
-        console.log("onSubmit error:" + error);
+        console.log("onSubmit error:" + error.error);
       }
     );
   }
@@ -39,7 +37,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.loggedIn=false;
-        console.log("Life cicle error: " + error);
+        console.log("Life cicle error: " + error.error);
       }
     );
   }

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h2 class="section-headline"><span>Products Available</span></h2>
+    </div>
+  </div>
+</div>
+
+
+<table id="productListTable" class="table bordered highlight">
+  <thead>
+  <tr>
+    <th>
+      <!input type="checkbox"  (change)="updateSelected($event.target.checked)" />
+    </th>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Category</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Active?</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let product of productList">
+    <td>
+      <input hidden="hidden" name="id" />
+      <!input type="checkbox" [checked]="allChecked"  (change)="updateRemoveProductList($event.target.checked, product)" />
+    </td>
+    <td><a (click)="onSelect(product)" style="cursor:pointer">
+      {{product.productTitle}}</a></td>
+    <td>{{product.productType}}</td>
+    <td>{{product.productCategory}}</td>
+    <td>{{product.productAuthor}}</td>
+    <td>{{product.listPrice}}</td>
+    <td>{{product.active}}</td>
+  </tr>
+  </tbody>
+</table>
+
+

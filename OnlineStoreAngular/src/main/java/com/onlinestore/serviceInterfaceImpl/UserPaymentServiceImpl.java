@@ -1,12 +1,13 @@
-package com.onlinestore.service;
+package com.onlinestore.serviceInterfaceImpl;
 
 import com.onlinestore.domain.UserPayment;
 import com.onlinestore.repository.UserPaymentRepository;
+import com.onlinestore.service.UserPaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserPaymentServiceImpl implements UserPaymentService{
+public class UserPaymentServiceImpl implements UserPaymentService {
 	@Autowired
 	private UserPaymentRepository userPaymentRepository;
 	

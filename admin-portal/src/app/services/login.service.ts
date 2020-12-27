@@ -23,17 +23,13 @@ export class LoginService {
   }
 
   checkSession() {
-    const url = 'http://localhost:8080/checkSession';
-    const xToken = localStorage.getItem('xAuthToken');
-    const basicHeader = 'Basic ' + localStorage.getItem('credentials');
-    const headers = new HttpHeaders({
-      'x-auth-token' : xToken || '{}',
-      'Authorization' : basicHeader
+    var url = 'http://localhost:8080/checkSession';
+    var Token = localStorage.getItem('xAuthToken');
+    var headers = new HttpHeaders({
+      'x-auth-token' : Token!
     });
-    //TODO delete
-    console.log("checkSession Token: " + xToken);
-    console.log("checkSession Authorization: " + basicHeader);
-    return this.http.get(url, {headers: headers});
+    console.log(headers);
+    return this.http.get(url, {headers: headers, responseType: 'text'});
   }
 
   logout() {

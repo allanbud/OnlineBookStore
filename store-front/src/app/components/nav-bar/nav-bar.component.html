@@ -9,14 +9,14 @@
     <div id="navbar">
       <ul class="nav navbar-nav navbar-left">
         <li><a mat-button routerLink="/productList">PRODUCT</a></li>
-        <!--
-        <form (ngSubmit)="onSearcyByTitle()" class="navbar-form">
+
+        <form  class="navbar-form">
           <div class="form-group">
-            <input type="text" name="searchByTitle" [(ngModel)]="keyboard" class="form-control" placeholder="Product Title" />
+            <input type="text" name="searchByTitle" class="form-control" placeholder="Product Title" />
           </div>
           <button type="submit" class="mat-flat-button">Search</button>
         </form>
-        -->
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!loggedIn">

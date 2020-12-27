@@ -94,7 +94,7 @@ export class MyAccountComponent implements OnInit {
         },
         error => {
           this.loggedIn = false;
-          console.log("Life cicle error: " + error);
+          console.log("Life cicle error: " + error.error);
         }
       );
     }

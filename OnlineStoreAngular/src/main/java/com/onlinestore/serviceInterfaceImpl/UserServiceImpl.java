@@ -1,4 +1,4 @@
-package com.onlinestore.service;
+package com.onlinestore.serviceInterfaceImpl;
 
 import com.onlinestore.domain.User;
 import com.onlinestore.domain.UserBilling;
@@ -6,6 +6,7 @@ import com.onlinestore.domain.UserPayment;
 import com.onlinestore.domain.UserShipping;
 import com.onlinestore.domain.security.UserRole;
 import com.onlinestore.repository.*;
+import com.onlinestore.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 

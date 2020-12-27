@@ -1,7 +1,8 @@
-package com.onlinestore.service;
+package com.onlinestore.serviceInterfaceImpl;
 
 import com.onlinestore.domain.Product;
 import com.onlinestore.repository.ProductRepository;
+import com.onlinestore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
