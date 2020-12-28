@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class ShoppingCart implements Serializable{
 	
-	private static final long serialVersionUID = -891273432L;
+	private static final long serialVersionUID = 6516156532L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +18,7 @@ public class ShoppingCart implements Serializable{
 	private BigDecimal GrandTotal; //Check decimal vars
 	
 	@OneToMany(mappedBy = "shoppingCart", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	//TODO :
 	@JsonIgnore
 	private List<CartItem> cartItemList;
 	

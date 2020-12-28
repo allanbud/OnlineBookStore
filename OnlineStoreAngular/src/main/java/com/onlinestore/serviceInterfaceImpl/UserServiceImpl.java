@@ -1,9 +1,6 @@
 package com.onlinestore.serviceInterfaceImpl;
 
-import com.onlinestore.domain.User;
-import com.onlinestore.domain.UserBilling;
-import com.onlinestore.domain.UserPayment;
-import com.onlinestore.domain.UserShipping;
+import com.onlinestore.domain.*;
 import com.onlinestore.domain.security.UserRole;
 import com.onlinestore.repository.*;
 import com.onlinestore.service.UserService;
@@ -63,8 +60,12 @@ in case of error (system ot connection down) data sending will be rolled back an
 //add all user roles to user
 			user.getUserRoles().addAll(userRoles);
 
-			user.setUserPaymentList(new ArrayList<UserPayment>());
+			ShoppingCart shoppingCart = new ShoppingCart();
+			shoppingCart.setUser(user);
+			user.setShoppingCart(shoppingCart);
 
+			user.setUserPaymentList(new ArrayList<UserPayment>());
+			user.setUserShippingList(new ArrayList<UserShipping>());
 
 			localUser = userRepository.save(user);
 		}
