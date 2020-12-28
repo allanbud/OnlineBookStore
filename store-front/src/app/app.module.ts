@@ -48,6 +48,7 @@ import {AppComponent} from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 
@@ -61,7 +62,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     ProductListComponent,
     DataFilterPipe,
     ProductDetailComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    OrderComponent
   ],
   entryComponents: [
   ],

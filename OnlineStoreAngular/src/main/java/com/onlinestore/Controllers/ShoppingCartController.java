@@ -49,7 +49,7 @@ public class ShoppingCartController {
 		}
 //qty not int
 		CartItem cartItem = cartItemService.addProductToCartItem(product, user, Integer.parseInt(qty));
-
+		System.out.println("Product Added..." + cartItem);
 		return new ResponseEntity("Product Added!", HttpStatus.OK);
 	}
 
@@ -61,7 +61,7 @@ public class ShoppingCartController {
 		List<CartItem> cartItemList = cartItemService.findByShoppingCart(shoppingCart);
 
 		shoppingCartService.updateShoppingCart(shoppingCart);
-
+		System.out.println("GetCartItemList" + shoppingCart);
 		return cartItemList;
 	}
 

@@ -101,7 +101,7 @@ import java.util.List;
     }
 
 
-    @RequestMapping("/productList")
+        @RequestMapping("/productList")
         public List<Product> getProductList() {
             return productService.findAllProduct();
         }

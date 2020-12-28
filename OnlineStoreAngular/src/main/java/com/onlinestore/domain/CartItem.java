@@ -16,11 +16,12 @@ public class CartItem implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private int qty;
+	//https://www.geeksforgeeks.org/bigdecimal-class-java/
 	private BigDecimal subtotal;
 	
 	@OneToOne
 	private Product product;
-	
+	//TODO
 	@OneToMany(mappedBy ="cartItem")
 	@JsonIgnore
 	private List<ProductToCartItem> productToCartItemList;
