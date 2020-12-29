@@ -35,6 +35,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 import {LoginService} from './services/login.service';
@@ -105,7 +106,8 @@ import {EditProductComponent} from './components/edit-product/edit-product.compo
     HttpClientModule,
     FormsModule,
     MatOptionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [
     MatDialog,
