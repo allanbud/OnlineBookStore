@@ -22,6 +22,9 @@
         <li *ngIf="!loggedIn">
           <a mat-button routerLink="/myAccount">MY ACCOUNT</a>
         </li>
+        <li *ngIf="isAdmin">
+          <a mat-button routerLink="/addNewProduct">ADD NEW PRODUCT</a>
+        </li>
         <li *ngIf="loggedIn">
           <a mat-button routerLink="/shoppingCart">SHOPPING CART</a>
         </li>

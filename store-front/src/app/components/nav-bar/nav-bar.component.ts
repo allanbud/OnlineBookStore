@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../services/login.service';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/user';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,8 +13,12 @@ import {Router} from '@angular/router';
 export class NavBarComponent implements OnInit {
 
   public loggedIn = false;
+  public isAdmin = false;
+  public user: User = new User();
 
-  constructor(private router : Router, private loginService : LoginService) { }
+  constructor(private router : Router,
+              private loginService : LoginService,
+              public userService: UserService) { }
 
   logout() {
     this.loginService.logout().subscribe(
@@ -30,11 +37,24 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  getCurrentUserStatus() {
+    this.userService.getCurrentUser().subscribe(
+      response => {
+        if (response.includes("ROLE_ADMIN"))
+        {this.isAdmin = true}
+      },
+      error => {
+        console.log(error.error);
+      }
+    );
+  }
 
 
   ngOnInit(): void {
     this.loginService.checkSession().subscribe(
-      response => {this.loggedIn = true;},
+      response => {
+        this.getCurrentUserStatus();
+        this.loggedIn = true;},
       error => {this.loggedIn = false}
     )
   }

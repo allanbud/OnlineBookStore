@@ -1,6 +1,7 @@
 package com.onlinestore.controllers;
 
 
+import com.onlinestore.domain.User;
 import com.onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,6 @@ public class LoginController {
 
 		String remoteHost = request.getRemoteHost();
 		int portNumber = request.getRemotePort();
-
-		System.out.println("\u001B[34m" + "Session ID: " + session.getId() + "\u001B[0m");
-
 		return Collections.singletonMap("token", session.getId());
 	}
 

@@ -10,7 +10,7 @@
 <table id="productListTable" class="table bordered highlight">
   <thead>
   <tr>
-    <th>
+    <th *ngIf="isAdmin">
       <!input type="checkbox"  (change)="updateSelected($event.target.checked)" />
     </th>
     <th>Title</th>
@@ -19,23 +19,40 @@
     <th>Author</th>
     <th>Price</th>
     <th>Active?</th>
+    <th *ngIf="isAdmin">Operation</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor = "let product of productList">
-    <td>
+    <td *ngIf="isAdmin">
       <input hidden="hidden" name="id" />
       <!input type="checkbox" [checked]="allChecked"  (change)="updateRemoveProductList($event.target.checked, product)" />
     </td>
     <td><a (click)="onSelect(product)" style="cursor:pointer">
-      {{product.productTitle}}</a></td>
+      {{product.productTitle}}</a>
+      <input hidden="hidden" name="id" />
+      <button *ngIf="isAdmin" mat-button (click)="onEdit(product)" value="edit"><span class="fa fa-pencil"></span> edit</button>
+
+
+    </td>
+
+
+
     <td>{{product.productType}}</td>
     <td>{{product.productCategory}}</td>
     <td>{{product.productAuthor}}</td>
     <td>{{product.listPrice}}</td>
     <td>{{product.active}}</td>
+
+    <td *ngIf="isAdmin">
+      <input hidden="hidden" name="id" />
+      <button mat-button (click)="openDialog(product)" value="delete"><span class="fa fa-times"></span> delete</button>
+    </td>
+
   </tr>
   </tbody>
 </table>
+
+<button *ngIf="isAdmin" mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
 
 

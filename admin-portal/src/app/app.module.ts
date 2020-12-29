@@ -16,7 +16,7 @@ import {GetProductService} from './services/get-product.service';
 import {EditProductService} from './services/edit-product.service';
 import {RemoveProductService} from './services/remove-product.service';
 
-import { ProductListComponent, DialogResult } from './components/product-list/product-list.component';
+//import { ProductListComponent, DialogResult } from './components/product-list/product-list.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -40,6 +40,7 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {DialogResult} from './components/product-list/product-list.component';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
     NavigationBarComponent,
     LoginComponent,
     AddNewProductComponent,
-    ProductListComponent,
+  //  ProductListComponent,
     ViewProductComponent,
     EditProductComponent,
     DialogResult

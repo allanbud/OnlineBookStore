@@ -7,6 +7,10 @@ import {MyProfileComponent} from './components/my-profile/my-profile.component';
 import {ProductListComponent} from './components/product-list/product-list.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
 import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
+import {AddNewProductComponent} from './components/add-new-product/add-new-product.component';
+import {ViewProductComponent} from './components/view-product/view-product.component';
+import {EditProductComponent} from './components/edit-product/edit-product.component';
+import {OrderComponent} from './components/order/order.component';
 
 const appRoutes: Routes = [
   {
@@ -35,8 +39,24 @@ const appRoutes: Routes = [
     component: ProductDetailComponent
   },
   {
+    path: 'addNewProduct',
+    component: AddNewProductComponent
+  },
+  {
+    path: 'viewProduct/:id',
+    component: ViewProductComponent
+  },
+  {
     path: 'shoppingCart',
     component: ShoppingCartComponent
+  },
+  {
+    path: 'editProduct/:id',
+    component: EditProductComponent
+  },
+  {
+    path: 'checkout',
+    component: OrderComponent
   }
 ];
 

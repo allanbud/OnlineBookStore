@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Payment} from '../models/payment';
-//import {ShippingAddress} from '../models/shipping-address';
-//import {BillingAddress} from '../models/billing-address';
+import {ShippingAddress} from '../models/shipping-address';
+import {BillingAddress} from '../models/billing-address';
+
 
 @Injectable()
 export class CheckoutService {
@@ -10,15 +11,15 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
 
   checkout(
-//    shippingAddress: ShippingAddress,
-//    billingAddress: BillingAddress,
+   shippingAddress: ShippingAddress,
+    billingAddress: BillingAddress,
     payment: Payment,
     shippingMethod: string
   ){
     let url = 'localhost:8080/checkout/checkout';
     let order ={
-//      "shippingAddress" : shippingAddress,
-//      "billingAddress" : billingAddress,
+      "shippingAddress" : shippingAddress,
+      "billingAddress" : billingAddress,
       "payment" : payment,
       "shippingMethod" : shippingMethod
     }

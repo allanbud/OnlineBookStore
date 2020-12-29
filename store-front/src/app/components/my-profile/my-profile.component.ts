@@ -8,6 +8,8 @@ import {Billing} from '../../models/billing';
 import {PaymentServiceService} from '../../services/payment-service.service';
 import {Shipping} from '../../models/shipping';
 import {ShippingService} from '../../services/shipping.service';
+import {OrderService} from '../../services/order.service';
+import {Order} from '../../models/order';
 
 
 
@@ -30,6 +32,8 @@ import {ShippingService} from '../../services/shipping.service';
   public currentPassword: string;
   public incorrectPassword: boolean;
 
+  public isAdmin: boolean = false;
+
   public selectedProfileTab: number = 0;
   public selectedBillingTab : number = 0
   public selectedShippingTab : number =0;
@@ -46,6 +50,11 @@ import {ShippingService} from '../../services/shipping.service';
   public defaultUserShippingId: number;
   public defaultShippingSet: boolean;
 
+  private orderList: Order[] = [];
+  private order:Order = new Order();
+  private displayOrderDetail:boolean;
+
+
 
   constructor(
     public router: Router,
@@ -53,6 +62,7 @@ import {ShippingService} from '../../services/shipping.service';
     public loginService: LoginService,
     public userService: UserService,
     public shippingService: ShippingService,
+    private orderService: OrderService
   ) { }
 
   selectedBillingChange(val: number) {
@@ -94,6 +104,9 @@ import {ShippingService} from '../../services/shipping.service';
             break;
           }
         }
+
+        if (this.user.authorities = "ROLE_ADMIN") {this.isAdmin = true}
+
 
         this.dataFetched = true;
       },
@@ -189,6 +202,12 @@ import {ShippingService} from '../../services/shipping.service';
     );
   }
 
+  onDisplayOrder(order: Order) {
+    console.log(order);
+    this.order=order;
+    this.displayOrderDetail=true;
+  }
+
 
 
   //initializing
@@ -206,6 +225,15 @@ import {ShippingService} from '../../services/shipping.service';
     );
 
     this.getCurrentUserStatus();
+
+    this.orderService.getOrderList().subscribe(
+      response => {
+        this.orderList = JSON.parse(response);
+      },
+      error => {
+        console.log(error.error);
+      }
+    );
 
     this.userPayment.type="";
     this.userPayment.expiryMonth="";

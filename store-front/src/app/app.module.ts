@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import 'hammerjs';
 
 
+import {AddProductService} from './services/add-product-service.service';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
+
+
+
 import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
 
@@ -46,10 +51,16 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {MyAccountComponent } from './components/my-account/my-account.component';
 import {MyProfileComponent} from './components/my-profile/my-profile.component';
 import {AppComponent} from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import {DialogResult, ProductListComponent} from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { OrderComponent } from './components/order/order.component';
+import {RemoveProductService} from './services/remove-product.service';
+import {ImageUploadService} from './services/image-upload.service';
+import {ViewProductComponent} from './components/view-product/view-product.component';
+import {GetProductService} from './services/get-product.service';
+import {EditProductService} from './services/edit-product.service';
+import {EditProductComponent} from './components/edit-product/edit-product.component';
 
 
 
@@ -61,12 +72,17 @@ import { OrderComponent } from './components/order/order.component';
     MyAccountComponent,
     MyProfileComponent,
     ProductListComponent,
+    AddNewProductComponent,
+    EditProductComponent,
     DataFilterPipe,
     ProductDetailComponent,
     ShoppingCartComponent,
-    OrderComponent
+    ViewProductComponent,
+    OrderComponent,
+    DialogResult
   ],
   entryComponents: [
+    DialogResult,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +109,9 @@ import { OrderComponent } from './components/order/order.component';
   ],
   providers: [
     MatDialog,
+    GetProductService,
+    AddProductService,
+    ImageUploadService,
     LoginService,
     UserService,
     PaymentServiceService,
@@ -100,8 +119,10 @@ import { OrderComponent } from './components/order/order.component';
     ProductService,
     CartService,
     CheckoutService,
-    OrderService
+    OrderService,
+    EditProductService,
+    RemoveProductService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DialogResult]
 })
 export class AppModule { }
