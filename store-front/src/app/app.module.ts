@@ -38,7 +38,8 @@ import {PaymentServiceService} from './services/payment-service.service';
 import { ShippingService } from './services/shipping.service';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
-
+import { CheckoutService } from './services/checkout.service';
+import { OrderService } from './services/order.service';
 
 import {HomeComponent} from './components/home/home.component';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
@@ -97,7 +98,9 @@ import { OrderComponent } from './components/order/order.component';
     PaymentServiceService,
     ShippingService,
     ProductService,
-    CartService
+    CartService,
+    CheckoutService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

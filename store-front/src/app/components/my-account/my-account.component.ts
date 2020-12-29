@@ -37,8 +37,9 @@ export class MyAccountComponent implements OnInit {
         //var Token = JSON.stringify(response);
         localStorage.setItem("xAuthToken", Token);
         this.loggedIn = true;
-        location.reload();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       },
       error => {
         this.loggedIn = false;
