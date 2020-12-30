@@ -17,6 +17,8 @@ export class ProductService {
     return this.http.get(url, {headers: tokenHeader, responseType: 'text'});
   }
 
+
+
   getProduct(id: number) {
     const url = 'http://localhost:8080/product/' + id;
     const Token = localStorage.getItem('xAuthToken');

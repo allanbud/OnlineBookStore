@@ -11,7 +11,7 @@
   <thead>
   <tr>
     <th *ngIf="isAdmin">
-      <!input type="checkbox"  (change)="updateSelected($event.target.checked)" />
+      <input type="checkbox"  (change)="updateSelected($event.target.checked)" />
     </th>
     <th>Title</th>
     <th>Type</th>
@@ -26,7 +26,7 @@
   <tr *ngFor = "let product of productList">
     <td *ngIf="isAdmin">
       <input hidden="hidden" name="id" />
-      <!input type="checkbox" [checked]="allChecked"  (change)="updateRemoveProductList($event.target.checked, product)" />
+      <input type="checkbox" [checked]="allChecked"  (change)="updateRemoveProductList($event.target.checked, product)" />
     </td>
     <td><a (click)="onSelect(product)" style="cursor:pointer">
       {{product.productTitle}}</a>
@@ -54,5 +54,7 @@
 </table>
 
 <button *ngIf="isAdmin" mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
+
+
 
 
