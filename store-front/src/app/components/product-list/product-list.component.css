@@ -10,8 +10,8 @@ td {
   vertical-align: middle;
 }
 thead {
-  background: #395870;
-  color: #fff;
+  background: #bad7af;
+  color: #ffffff;
 }
 th {
   font-weight: bold;
@@ -20,17 +20,17 @@ th:first-child {
   text-align: left;
 }
 tbody tr:nth-child(even) {
-  background: #f0f0f2;
+  background: #dde3dc;
 }
 td {
-  border-bottom: 1px solid #cecfd5;
-  border-right: 1px solid #cecfd5;
+  border-bottom: 1px solid #bad7af;
+  border-right: 1px solid #c3d5ba;
 }
 td:first-child {
-  border-left: 1px solid #cecfd5;
+  border-left: 1px solid #bdcbbd;
 }
 .product-title {
-  color: #395870;
+  color: #bad7af;
   display: block;
 }
 .item-stock,
@@ -47,5 +47,5 @@ tfoot {
   text-align: right;
 }
 tfoot tr:last-child {
-  background: #f0f0f2;
+  background: #bad7af;
 }

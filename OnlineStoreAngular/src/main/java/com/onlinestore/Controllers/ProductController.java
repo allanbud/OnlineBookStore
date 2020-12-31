@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -103,6 +104,7 @@ import java.util.List;
 
         @RequestMapping("/productList")
         public List<Product> getProductList() {
+            System.out.println("Getting product list");
             return productService.findAllProduct();
         }
 
@@ -117,9 +119,6 @@ import java.util.List;
             Product product = productService.findOneProduct(id);
             return product;
     }
-
-
-
 
 
 }

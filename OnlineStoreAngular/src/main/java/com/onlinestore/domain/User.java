@@ -77,6 +77,9 @@ so this side goes @OneToMany
 	private ShoppingCart shoppingCart;
 
 
+	@OneToMany(mappedBy="user")
+	private List<Order> orderList;
+
 
 	public Long getId() {
 		return id;
@@ -172,6 +175,10 @@ so this side goes @OneToMany
 
 	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
+	}
+
+	public List<Order> getOrderList() {
+		return orderList;
 	}
 
 	public void setShoppingCart(ShoppingCart shoppingCart) {

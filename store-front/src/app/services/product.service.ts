@@ -9,24 +9,20 @@ export class ProductService {
 
   getProductList() {
     const url = 'http://localhost:8080/product/productList';
-    const Token = localStorage.getItem('xAuthToken');
-    let tokenHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-auth-token': Token!
+    let Header = new HttpHeaders({
+      'Content-Type': 'application/json'
     });
-    return this.http.get(url, {headers: tokenHeader, responseType: 'text'});
+    return this.http.get(url, {headers: Header, responseType: 'text'});
   }
 
 
 
   getProduct(id: number) {
     const url = 'http://localhost:8080/product/' + id;
-    const Token = localStorage.getItem('xAuthToken');
-    let tokenHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-auth-token': Token!
+    let Header = new HttpHeaders({
+      'Content-Type': 'application/json'
     });
-    return this.http.get(url, {headers: tokenHeader, responseType: 'text'});
+    return this.http.get(url, {headers:Header, responseType: 'text'});
   }
 
   searchProduct(keyword: string) {

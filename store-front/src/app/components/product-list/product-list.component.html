@@ -6,6 +6,14 @@
   </div>
 </div>
 
+<div *ngIf = "!dataFetched" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col-mat-2 col-mat-offset-5">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+</div>
+
 
 <table id="productListTable" class="table bordered highlight">
   <thead>
@@ -13,6 +21,7 @@
     <th *ngIf="isAdmin">
       <input type="checkbox"  (change)="updateSelected($event.target.checked)" />
     </th>
+    <th>Image</th>
     <th>Title</th>
     <th>Type</th>
     <th>Category</th>
@@ -22,28 +31,25 @@
     <th *ngIf="isAdmin">Operation</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="dataFetched">
   <tr *ngFor = "let product of productList">
     <td *ngIf="isAdmin">
       <input hidden="hidden" name="id" />
       <input type="checkbox" [checked]="allChecked"  (change)="updateRemoveProductList($event.target.checked, product)" />
     </td>
+
+    <td><img class="img-responsive" src="http://localhost:8080/image/product/{{product.id}}.png" style="width:60px" /></td>
+
     <td><a (click)="onSelect(product)" style="cursor:pointer">
       {{product.productTitle}}</a>
       <input hidden="hidden" name="id" />
       <button *ngIf="isAdmin" mat-button (click)="onEdit(product)" value="edit"><span class="fa fa-pencil"></span> edit</button>
-
-
     </td>
-
-
-
     <td>{{product.productType}}</td>
     <td>{{product.productCategory}}</td>
     <td>{{product.productAuthor}}</td>
     <td>{{product.listPrice}}</td>
     <td>{{product.active}}</td>
-
     <td *ngIf="isAdmin">
       <input hidden="hidden" name="id" />
       <button mat-button (click)="openDialog(product)" value="delete"><span class="fa fa-times"></span> delete</button>
@@ -55,6 +61,6 @@
 
 <button *ngIf="isAdmin" mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
 
-
+z
 
 

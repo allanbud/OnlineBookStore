@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="table-responsive" style="margin-top: 30px;">
+    <table id="productListTable" class="table bordered highlight">
+      <thead>
+      <tr>
+        <th>
+          <!input type="checkbox"  (change)="updateSelected($event.target.checked)" />
+        </th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Active?</th>
+        <th>Operation</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor = "let product of productList">
+        <td><a (click)="onSelect(product)" style="cursor:pointer">
+            {{product.productTitle}}</a></td>
+        <td>{{product.productType}}</td>
+        <td>{{product.productCategory}}</td>
+        <td>{{product.productAuthor}}</td>
+        <td>{{product.listPrice}}</td>
+        <td>{{product.active}}</td>
+        <td>
+          <input hidden="hidden" name="id" />
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
+</div>

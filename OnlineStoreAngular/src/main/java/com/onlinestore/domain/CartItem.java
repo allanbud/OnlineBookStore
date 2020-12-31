@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class CartItem implements Serializable{
 
-	private static final long serialVersionUID = 4545647471L;
+	private static final long serialVersionUID = 45445547471L;
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +30,14 @@ public class CartItem implements Serializable{
 	@JoinColumn(name="shopping_cart_id")
 	@JsonIgnore
 	private ShoppingCart shoppingCart;
+
+	@ManyToOne
+	@JoinColumn(name = "order_id")
+	@JsonIgnore
+	private Order order;
+
+
+
 
 	public Long getId() {
 		return id;
@@ -78,6 +86,12 @@ public class CartItem implements Serializable{
 	public void setShoppingCart(ShoppingCart shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
-	
-	
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
 }

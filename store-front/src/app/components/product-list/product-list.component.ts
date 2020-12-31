@@ -26,6 +26,8 @@ export class ProductListComponent implements OnInit {
   //checked product placed in this array
   public removeProductList: Product[] = new Array();
   public allChecked: boolean;
+  public dataFetched = false;
+
 
   constructor(
     public productService: ProductService,
@@ -136,8 +138,11 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    //TODO Principal not exist when user not loged in
     this.getCurrentUserStatus();
     this.getProductListProductsAvailable();
+    this.dataFetched = true;
+
   }
 
 
