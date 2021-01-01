@@ -46,6 +46,8 @@ import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
 import { CheckoutService } from './services/checkout.service';
 import { OrderService } from './services/order.service';
+import { WidgetService } from './services/widget.service';
+import { LocationService } from './services/location.service';
 
 import {HomeComponent} from './components/home/home.component';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
@@ -116,11 +118,13 @@ import {EditProductComponent} from './components/edit-product/edit-product.compo
     LoginService,
     UserService,
     PaymentServiceService,
+    LocationService,
     ShippingService,
     ProductService,
     CartService,
     CheckoutService,
     OrderService,
+    WidgetService,
     EditProductService,
     RemoveProductService
   ],

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-8">
+    <div>
       <h2 class="section-headline"><span>Products Available</span></h2>
     </div>
   </div>
@@ -15,7 +15,7 @@
 </div>
 
 
-<table id="productListTable" class="table bordered highlight">
+<table [class.mat-elevation-z18]=true  id="productListTable" class="table bordered highlight">
   <thead>
   <tr>
     <th *ngIf="isAdmin">
@@ -58,9 +58,9 @@
   </tr>
   </tbody>
 </table>
+<tbody *ngIf="dataFetched">
+<button *ngIf="isAdmin" mat-raised-button [class.mat-elevation-z18]=true  class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
 
-<button *ngIf="isAdmin" mat-raised-button class="mat-warn" id="deleteSelected" (click)="removeSelectedProducts()">Delete Selected</button>
 
-z
 
 

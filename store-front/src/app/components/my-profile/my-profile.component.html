@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-8">
+    <div>
       <h2 class="section-headline"><span>My Profile</span></h2>
     </div>
   </div>
@@ -16,12 +16,11 @@
   </div>
 
   <div class="row" style="margin-top:30px;">
-    <div class="col-xs-3"></div>
     <div *ngIf="dataFetched">
-      <div class="col-xs-9">
+      <div>
         <div class="panel-group">
           <div class="panel panel-default" style="border:none;">
-            <div class="panel-body" style="background-color: #ededed; margin-top: 20px;">
+            <div [class.mat-elevation-z18]=true class="panel-body" style="background-color: #bad7af; margin-left:100px; margin-top: 20px; width: auto;">
               <mat-tab-group [selectedIndex]="selectedProfileTab">
                 <mat-tab label="Edit">
                   <div style="margin-top: 20px;">
