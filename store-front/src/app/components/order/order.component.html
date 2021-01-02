@@ -23,7 +23,7 @@
                 Total before VAT:
               </div>
               <div class="col-xs-5 text-right">
-                $
+                €
                 <span>{{shoppingCart.grandTotal}}</span>
               </div>
             </div>
@@ -74,7 +74,7 @@
                   <tbody>
                   <tr *ngFor="let userShipping of userShippingList ">
                     <td>
-                      {{userShipping.userShippingStreet}},  {{userShipping.userShippingCity}}
+                      {{userShipping.userShippingStreet}}  {{userShipping.userShippingCity}}
                     </td>
                     <td>
                       <a class="pointer" (click)="setShippingAddress(userShipping) ">use
@@ -131,7 +131,7 @@
                       {{userPayment.cardName}}
                     </td>
                     <td>
-                      <a class="pointer" (click)="setPaymentMethod(userPayment)">use this address
+                      <a class="pointer" (click)="setPaymentMethod(userPayment)">Use This Card
                       </a>
                     </td>
                   </tr>
@@ -288,7 +288,7 @@
                 <div class="row " *ngFor="let cartItem of cartItemList ">
                   <hr/>
                   <div class="col-xs-2 ">
-                    <a mat-button (click)="onSelect(cartItem.product)"><img class="img-responsive shelf-product" src="localhost:8080/image/product/{{cartItem.product.id}}.png" style="width:70px;" /></a>
+                    <a mat-button (click)="onSelect(cartItem.product)"><img class="img-responsive shelf-product" src="http://localhost:8080/image/product/{{cartItem.product.id}}.png" style="width:70px;" /></a>
                   </div>
                   <div class="col-xs-6 ">
                     <a class="pointer" (click)="onSelect(cartItem.product)"><h4>{{cartItem.product.productTitle}}</h4></a>
@@ -298,7 +298,7 @@
                     <p style="color: darkred;" *ngIf="cartItem.product.inStockNumber==0">Product Unavailable</p>
                   </div>
                   <div class="col-xs-2 ">
-                    <h5 style="color: #db3208; font-size: large;">$<span [ngClass]="{'text-strike': cartItem.product.inStockNumber == 0 }"
+                    <h5 style="color: #db3208; font-size: large;">€<span [ngClass]="{'text-strike': cartItem.product.inStockNumber == 0 }"
                     >{{cartItem.product.listPrice}}</span>
                     </h5>
                   </div>
@@ -309,7 +309,7 @@
                 <hr/>
                 <h4 class="col-xs-12 text-right"><Strong style="font-size: large">Total Price (<span
                 >{{cartItemNumber}}</span> items): </Strong><span
-                  style="color: #db3208; font-size: large;">$<span
+                  style="color: #db3208; font-size: large;">€<span
                 ></span>{{shoppingCart.grandTotal}}</span></h4>
                 <br/>
                 <br/>

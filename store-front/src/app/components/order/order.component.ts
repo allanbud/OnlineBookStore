@@ -205,6 +205,7 @@ export class OrderComponent implements OnInit {
     this.payment.expiryMonth="";
     this.payment.expiryYear="";
     this.shippingMethod="AutoTransport";
+
   }
 
 
