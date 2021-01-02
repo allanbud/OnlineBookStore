@@ -59,7 +59,7 @@ public class OnlinestoreAngularApplication implements CommandLineRunner {
         user2.setLastName("Budarin");
         user2.setUsername("admin");
         user2.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
-        user2.setEmail("Admin@gmail.com");
+        user2.setEmail("allanbudarin@gmail.com");
         user2.setPhone("+372 4637293");
         Role role2 = new Role();
         role2.setRoleId(0);

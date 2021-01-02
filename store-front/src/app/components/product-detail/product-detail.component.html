@@ -39,7 +39,8 @@
                     <h4 *ngIf="product.inStockNumber>10" style="color:green;">In Stock</h4>
                     <h4 *ngIf="product.inStockNumber<10 && product.inStockNumber>0" style="color:green;">Only <span>{{product.inStockNumber}}</span> In Stock</h4>
                     <h4 *ngIf="product.inStockNumber==0" style="color:darkred;">Unavailable</h4>
-                    <button md-raised-button [disabled]="product.inStockNumber==0" (click)="onAddToCart()" class="mat-primary">Add to Cart</button>
+                    <button md-raised-button [disabled]="product.inStockNumber==0 || !loggedIn" (click)="onAddToCart()" class="mat-primary">Add to Cart</button>
+                    <h3 style="color: crimson" *ngIf="!loggedIn">You have to be logged in!</h3>
                   </div>
                 </div>
 

@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../../services/product.service';
 import {CartService} from '../../services/cart.service';
+import {LoggedInService} from '../../services/logged-in.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,6 +16,7 @@ export class ProductDetailComponent implements OnInit {
   public product: Product = new Product();
   public numberList: number[] = [1,2,3,4,5,6,7,8,9];
   public qty: number;
+  public loggedIn: boolean = this.globalLoggedIn.loggedIn;
 
   public addProductSuccess: boolean = false;
   public notEnoughStock:boolean = false;
@@ -25,6 +27,7 @@ export class ProductDetailComponent implements OnInit {
     public http:HttpClient,
     public route:ActivatedRoute,
     private cartService: CartService,
+    private globalLoggedIn: LoggedInService
   ) { }
 
   onAddToCart() {
@@ -43,6 +46,7 @@ export class ProductDetailComponent implements OnInit {
 
 
   ngOnInit() {
+    //this.loggedIn = this.navBarComponent.loggedIn;
     this.route.params.forEach((params: Params) => {
       this.productId = Number.parseInt(params['id']);
     });

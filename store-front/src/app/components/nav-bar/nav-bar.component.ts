@@ -5,6 +5,7 @@ import {UserService} from '../../services/user.service';
 import {User} from '../../models/user';
 import {WidgetService} from '../../services/widget.service';
 import {LocationService} from '../../services/location.service';
+import {LoggedInService} from '../../services/logged-in.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class NavBarComponent implements OnInit {
               public widgetService: WidgetService,
               public locationService: LocationService,
               private loginService : LoginService,
+              public globalLoggedIn: LoggedInService,
               public userService: UserService) { }
 
   logout() {
@@ -30,8 +32,6 @@ export class NavBarComponent implements OnInit {
         //TODO delete check localStorage.clear();
         localStorage.clear();
         location.reload();
-        console.log("Navigation Bar localStorage: " + localStorage.getItem('xAuthToken'));
-        console.log("Navigation Bar Login State: " + this.loggedIn);
       },
       error => {
         console.log(error);
@@ -58,8 +58,12 @@ export class NavBarComponent implements OnInit {
     this.loginService.checkSession().subscribe(
       response => {
         this.getCurrentUserStatus();
-        this.loggedIn = true;},
-      error => {this.loggedIn = false}
+        this.loggedIn = true;
+        this.globalLoggedIn.loggedIn = this.loggedIn},
+      error => {
+        this.loggedIn = false;
+        this.globalLoggedIn.loggedIn = false;
+      }
     );
     this.locationService.getCityName();
   }
