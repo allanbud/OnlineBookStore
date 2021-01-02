@@ -3,6 +3,8 @@ import {LoginService} from '../../services/login.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/user';
+import {WidgetService} from '../../services/widget.service';
+import {LocationService} from '../../services/location.service';
 
 
 @Component({
@@ -17,6 +19,8 @@ export class NavBarComponent implements OnInit {
   public user: User = new User();
 
   constructor(private router : Router,
+              public widgetService: WidgetService,
+              public locationService: LocationService,
               private loginService : LoginService,
               public userService: UserService) { }
 
@@ -56,7 +60,8 @@ export class NavBarComponent implements OnInit {
         this.getCurrentUserStatus();
         this.loggedIn = true;},
       error => {this.loggedIn = false}
-    )
+    );
+    this.locationService.getCityName();
   }
 
 
