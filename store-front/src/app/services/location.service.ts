@@ -4,13 +4,13 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable()
 export class LocationService {
 
-  public getCity: object;
-  public url = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=PointAddress&preferredLabelValues=localCity&location=';
-  public Lng: string;
-  public Lat: string;
-
-  constructor(public http: HttpClient) {
-  }
+  private getCity: object;
+  private url = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=PointAddress&preferredLabelValues=localCity&location=';
+  private Lng: string;
+  private Lat: string;
+  public currentCity: string;
+  public dataFetched = false;
+  constructor(public http: HttpClient) {  }
 
   getCityName(): void {
     this.getPosition().then(pos => {
@@ -19,9 +19,11 @@ export class LocationService {
       this.http.get(this.url + this.Lng + '%2C' + this.Lat).subscribe(response => {
         // @ts-ignore
         this.getCity = response.address.Subregion;
-        console.log(this.getCity);
+        this.currentCity = (JSON.stringify(this.getCity)).toLocaleLowerCase().slice(1, -1);
+        this.dataFetched = true;
       });
     });
+
   }
 
   getPosition(): Promise<any> {

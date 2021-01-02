@@ -6,17 +6,27 @@
   </div>
 
 
+  <div *ngIf = "!dataFetched" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-mat-2 col-mat-offset-5">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
 
 
-
-  <a class="weatherwidget-io" href="https://forecast7.com/en/59d4424d75/tallinn/" data-label_1="TALLINN" data-label_2="WEATHER" data-days="3" data-theme="weather_one" >TALLINN WEATHER</a>
-  {{widgetService.testFunction()}}
+  <h2>{{locationService.currentCity}}</h2>
 
 
-
-
-
-
+  <div class="container" *ngIf="dataFetched">
+  </div>
+    <a class="weatherwidget-io"
+       [href]="'https://forecast7.com/en/' + '59d44' + '24d75' +'/' + locationService.currentCity + '/'"
+       data-label_1="TALLINN"
+       data-label_2="WEATHER"
+       data-days="5"
+       data-theme="weather_one">{{locationService.currentCity}} WEATHER</a>
+    {{widgetService.testFunction()}}
 
 
 </div>

@@ -7,6 +7,7 @@ import {ajaxGetJSON} from 'rxjs/internal-compatibility';
 
 declare function widget() : any;
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,6 +16,8 @@ declare function widget() : any;
 })
 export class HomeComponent implements OnInit {
 
+  public dataFetched = false;
+
   constructor(public widgetService: WidgetService, public locationService: LocationService) { }
 
 
@@ -22,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.locationService.getCityName();
+    this.dataFetched = this.locationService.dataFetched;
     widget();
   }
 }
