@@ -11,11 +11,11 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
 
   checkout(
-   shippingAddress: ShippingAddress,
+    shippingAddress: ShippingAddress,
     billingAddress: BillingAddress,
     payment: Payment,
     shippingMethod: string
-  ){
+  ) {
     let url = 'localhost:8080/checkout/checkout';
     let order ={
       "shippingAddress" : shippingAddress,

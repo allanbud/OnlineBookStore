@@ -43,7 +43,7 @@
     <td><a (click)="onSelect(product)" style="cursor:pointer">
       {{product.productTitle}}</a>
       <input hidden="hidden" name="id" />
-      <button *ngIf="isAdmin" mat-button (click)="onEdit(product)" value="edit"><span class="fa fa-pencil"></span> edit</button>
+      <button *ngIf="isAdmin" mat-button (click)="onEdit(product)" value="View/Edit"><span class="fa fa-pencil"></span> View/Edit</button>
     </td>
     <td>{{product.productType}}</td>
     <td>{{product.productCategory}}</td>

@@ -100,9 +100,11 @@
       <mat-grid-list cols="1" rowHeight="10:1">
         <mat-grid-tile>
           <button class="mat-primary" mat-raised-button type="submit">Update Product</button>
-          <button class="mat-warn" mat-raised-button routerLink="/">Cancel</button>
+          <button class="mat-warn" mat-raised-button routerLink="/productList">Cancel</button>
         </mat-grid-tile>
       </mat-grid-list>
+
+
     </form>
   </div>
 
@@ -110,6 +112,7 @@
 
   <div class="row" [hidden]="!productUpdated">
     <h3>Product updated successfully!</h3>
+    <button class="mat-background-primary" mat-raised-button routerLink="/productList">Back to Productlist</button>
   </div>
 
 
