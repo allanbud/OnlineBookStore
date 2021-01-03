@@ -1,4 +1,4 @@
-import { CartItems } from './cart-items';
+import { CartItems } from './cart-item';
 
 describe('CartItems', () => {
   it('should create an instance', () => {

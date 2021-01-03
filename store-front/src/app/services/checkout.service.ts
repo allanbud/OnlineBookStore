@@ -16,7 +16,7 @@ export class CheckoutService {
     payment: Payment,
     shippingMethod: string
   ) {
-    let url = 'localhost:8080/checkout/checkout';
+    let url = 'http://localhost:8080/checkout/checkout';
     let order ={
       "shippingAddress" : shippingAddress,
       "billingAddress" : billingAddress,
@@ -32,7 +32,7 @@ export class CheckoutService {
   }
 
   getUserOrder() {
-    let url = 'localhost:8080/checkout/getUserOrder';
+    let url = 'http://localhost:8080/checkout/getUserOrder';
     const Token = localStorage.getItem('xAuthToken');
     let Header = new HttpHeaders({
       'Content-Type' : 'application/json',

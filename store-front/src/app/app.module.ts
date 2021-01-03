@@ -65,6 +65,7 @@ import {ViewProductComponent} from './components/view-product/view-product.compo
 import {GetProductService} from './services/get-product.service';
 import {EditProductService} from './services/edit-product.service';
 import {EditProductComponent} from './components/edit-product/edit-product.component';
+import {OrderSummaryComponent} from './components/order-summary/order-summary.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import {EditProductComponent} from './components/edit-product/edit-product.compo
     ShoppingCartComponent,
     ViewProductComponent,
     OrderComponent,
-    DialogResult
+    DialogResult,
+    OrderSummaryComponent
   ],
   entryComponents: [
     DialogResult,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ShoppingCart} from '../../models/shopping-cart';
-import {CartItem} from '../../models/cart-items';
+import {CartItem} from '../../models/cart-item';
 import {Product} from '../../models/product';
 import {ShippingAddress} from '../../models/shipping-address';
 import {BillingAddress} from '../../models/billing-address';
@@ -129,6 +129,9 @@ export class OrderComponent implements OnInit {
       response=>{
         this.order=JSON.parse(response);
         console.log(this.order);
+//interface NavigationExtras extends UrlCreationOptions, NavigationBehaviorOptions
+//replaceUrl?: boolean
+//TODO CORS policy??
 
         let navigationExtras: NavigationExtras = {
           queryParams: {

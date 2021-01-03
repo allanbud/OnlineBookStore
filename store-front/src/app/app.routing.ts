@@ -11,6 +11,7 @@ import {AddNewProductComponent} from './components/add-new-product/add-new-produ
 import {ViewProductComponent} from './components/view-product/view-product.component';
 import {EditProductComponent} from './components/edit-product/edit-product.component';
 import {OrderComponent} from './components/order/order.component';
+import {OrderSummaryComponent} from './components/order-summary/order-summary.component';
 
 const appRoutes: Routes = [
   {
@@ -57,6 +58,10 @@ const appRoutes: Routes = [
   {
     path: 'checkout',
     component: OrderComponent
+  },
+  {
+    path: 'orderSummary',
+    component: OrderSummaryComponent
   }
 ];
 
