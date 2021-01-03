@@ -1,7 +1,8 @@
 
 <div class="page-top" style="width: 100%; height: 95px; background-color: #bad7af">
 
-  <div *ngIf = "!locationService.dataFetched" style="margin-top: 5px;">
+  <div *ngIf = "!locationService.dataFetched" align="center">
+    <h2>Weather for {{locationService.currentCity}} will appear here:</h2>
     <div class="row">
       <div class="col-mat-2 col-mat-offset-5">
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>

@@ -12,7 +12,13 @@ export class LocationService {
   public dataFetched = false;
   public gotLat: string;
   public gotLng: string;
+
+
   constructor(public http: HttpClient) {  }
+
+
+
+
 //TODO check timing
   getCityName(): void {
     this.getPosition().then(pos => {
@@ -21,8 +27,8 @@ export class LocationService {
           // @ts-ignore
           this.getCity = response.address.Subregion;
           this.currentCity = (JSON.stringify(this.getCity)).toLocaleLowerCase().slice(1, -1);
-          this.dataFetched = true;
           this.getPlaceCoordinates();
+          setTimeout(()=>this.dataFetched=true, 1500);
         },
         error => {
           console.log(error.error);
