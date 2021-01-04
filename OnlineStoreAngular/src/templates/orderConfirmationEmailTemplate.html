@@ -25,9 +25,9 @@
 <body>
 <p>Dear <span th:text="€{user.firstName}"></span>,</p>
 <br/>
-<p>Thank you for shopping from our book store. We hope you had a good time with our service!</p>
-<p>Your order number is: <strong>#<span th:text="€{order.id}"></span></strong>. Here is your order detail:</p>
-<h2>Order Detail for purchase #<span th:text="€{order.id}"></span></h2>
+<p>Thank you for shopping from SDA FINAL Online Store.</p>
+<p>Your order number is: <strong>Nr<span th:text="€{order.id}"></span></strong>. Here is your order detail:</p>
+<h2>Order Detail for purchase Nr<span th:text="€{order.id}"></span></h2>
 <hr/>
 
 <table>
@@ -40,8 +40,7 @@
         <td>
             <span th:text="€ {order.billingAddress.billingAddressName}"></span><br/>
             <span th:text="€ {order.billingAddress.billingAddressStreet}></span><br/>
-            <span th:text="€ {order.billingAddress.billingAddressCity}"></span><br/>
-            <span th:text="€ {order.billingAddress.billingAddressState}"></span><br/>
+            <span th:text="€ {order.billingAddress.billingAddressCity}></span><br/>
             <span th:text="€ {order.billingAddress.billingAddressZipcode}"></span><br/>
         </td>
         <td>
@@ -56,7 +55,6 @@
             <span th:text="€ {order.shippingAddress.shippingAddressName}">Allan Budarin:</span><br/>
             <span th:text="€ {order.shippingAddress.shippingAddressStreet}}"></span><br/>
             <span th:text="€ {order.shippingAddress.shippingAddressCity}"></span><br/>
-            <span th:text="€ {order.shippingAddress.shippingAddressState}"></span><br/>
             <span th:text="€ {order.shippingAddress.shippingAddressZipcode}"></span><br/>
         </td>
     </tr>
@@ -77,7 +75,7 @@
     <tr th:each="cartItem : €{cartItemList}">
         <td><span data-th-text="€{cartItem.product.title}"></span>
         </td>
-        <td data-th-text="€ {cartItem.product.ourPrice}"
+        <td data-th-text="€ {cartItem.product.listPrice}"
             class="text-center">
         </td>
         <td data-th-text="€ {cartItem.qty}" class="text-center">
