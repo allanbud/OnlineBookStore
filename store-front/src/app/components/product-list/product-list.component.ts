@@ -17,6 +17,8 @@ export class ProductListComponent implements OnInit {
 
 //https://www.itsolutionstuff.com/post/angular-9-8-datatable-example-with-pagination-sorting-filteringexample.html
 
+  public filterQuery = "";
+
   public selectedProduct: Product;
   public productList: Product[];
 

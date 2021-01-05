@@ -87,6 +87,14 @@ import java.util.List;
         }
     }
 
+    //No principal user as no logIn required
+    @RequestMapping(value="/searchProduct", method=RequestMethod.POST)
+    public List<Product> searchProduct (@RequestBody String keyword) {
+        List<Product> productList = productService.blurrySearch(keyword);
+
+        return productList;
+    }
+
 
     @RequestMapping(value="/remove", method=RequestMethod.POST)
     public ResponseEntity remove(

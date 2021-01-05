@@ -15,7 +15,9 @@
 </div>
 
 
-<table [class.mat-elevation-z18]=true id="productListTable" class="table bordered highlight">
+<table class="table" [mfData]="productList | dataFilter : filterQuery"
+       [class.mat-elevation-z18]=true id="productListTable"
+       class="table bordered highlight">
   <thead>
   <tr>
     <th *ngIf="isAdmin">

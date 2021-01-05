@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit {
   public user: User = new User();
 
   private keyword: string;
-  private bookList:Product[] =[];
+  private productList:Product[] =[];
 
   constructor(private router : Router,
               public widgetService: WidgetService,
