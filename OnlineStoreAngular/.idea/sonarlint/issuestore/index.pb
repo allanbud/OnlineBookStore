@@ -119,9 +119,11 @@ g
 7src/main/java/com/onlinestore/service/OrderService.java,6\1\615c4d9dc12a41cfb5123af0dcf2b261df7736ab
 n
 >src/main/java/com/onlinestore/controllers/OrderController.java,b\1\b1e16a2561151803e51223ef38dd1281dbab883c
-p
-@src/main/java/com/onlinestore/config/ThymeleafConfiguration.java,3\b\3bb80db4dd351dbf82e775426f897f6ea4fa2356
 i
 9src/main/java/com/onlinestore/domain/ShippingAddress.java,e\8\e892ff19f9fe86f398462a9d228d5c43798d7b9c
 x
 Hsrc/main/java/com/onlinestore/serviceInterfaceImpl/OrderServiceImpl.java,0\9\09da3d40d08805cbe74f645d15ea29f79d2002ca
+w
+Gsrc/main/java/com/onlinestore/config/OnlinestoreAngularApplication.java,f\5\f55d211c13fd9218e9d6110c3f59b2f6adf945af
+p
+@src/main/resources/templates/orderConfirmationEmailTemplate.html,2\0\20bf2c94098f358b8454758f3461f688791348ab

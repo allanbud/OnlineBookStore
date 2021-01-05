@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../services/login.service';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/user';
 import {WidgetService} from '../../services/widget.service';
 import {LocationService} from '../../services/location.service';
 import {LoggedInService} from '../../services/logged-in.service';
-
+import {Product} from '../../models/product';
+import {ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,12 +20,16 @@ export class NavBarComponent implements OnInit {
   public isAdmin = false;
   public user: User = new User();
 
+  private keyword: string;
+  private bookList:Product[] =[];
+
   constructor(private router : Router,
               public widgetService: WidgetService,
               public locationService: LocationService,
               private loginService : LoginService,
               public globalLoggedIn: LoggedInService,
-              public userService: UserService) { }
+              public userService: UserService,
+              public productService: ProductService) { }
 
   logout() {
     this.loginService.logout().subscribe(
@@ -53,6 +58,24 @@ export class NavBarComponent implements OnInit {
     );
   }
 
+  onSearchByTitle() {
+    this.productService.searchProduct(this.keyword).subscribe(
+      response=> {
+        this.productList = JSON.parse(response);
+        console.log(this.productList);
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+            "productList" : JSON.stringify(this.productList)
+          }
+        };
+
+        this.router.navigate(['/productList'], navigationExtras);
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.loginService.checkSession().subscribe(

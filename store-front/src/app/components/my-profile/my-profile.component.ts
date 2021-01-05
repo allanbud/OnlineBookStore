@@ -50,9 +50,9 @@ import {Order} from '../../models/order';
   public defaultUserShippingId: number;
   public defaultShippingSet: boolean;
 
-  private orderList: Order[] = [];
-  private order:Order = new Order();
-  private displayOrderDetail:boolean;
+  public orderList: Order[] = [];
+  public order: Order = new Order();
+  public displayOrderDetail  :boolean;
 
 
 

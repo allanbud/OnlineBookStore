@@ -32,10 +32,9 @@ data-label_2="WEATHER" -->
     <div id="navbar">
       <ul class="nav navbar-nav navbar-left">
         <li><a mat-button routerLink="/productList">PRODUCT</a></li>
-
-        <form  class="navbar-form">
+        <form  (ngSubmit)="onSearchByTitle()" class="navbar-form">
           <div class="form-group">
-            <input type="text" name="searchByTitle" class="form-control" placeholder="Product Title" />
+            <input type="text" name="searchByTitle" [(ngModel)]="keyword" class="form-control" placeholder="Product Title" />
           </div>
           <button type="submit" class="mat-flat-button">Search</button>
         </form>

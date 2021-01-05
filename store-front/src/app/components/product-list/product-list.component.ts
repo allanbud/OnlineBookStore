@@ -55,6 +55,8 @@ export class ProductListComponent implements OnInit {
       response => {
         console.log(JSON.stringify(response));
         this.productList = JSON.parse(response);
+        this.dataFetched = true;
+
       },
       error => {
         console.log(error.error);
@@ -141,8 +143,6 @@ export class ProductListComponent implements OnInit {
     //TODO Principal not exist when user not loged in
     this.getCurrentUserStatus();
     this.getProductListProductsAvailable();
-    this.dataFetched = true;
-
   }
 
 
