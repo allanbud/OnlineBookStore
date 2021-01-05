@@ -13,16 +13,14 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.StringTemplateResolver;
 
 
 @Component
 public class MailContructorService {
     @Autowired
     private Environment environment;
-
-    @Autowired
-    private TemplateEngine templateEngine;
 
     public SimpleMailMessage constructNewUserEmail(User user, String password) {
         String message="\nThese are SDA FINAL Online Store credentials to log in or \nedit your personal information and password."
@@ -35,12 +33,19 @@ public class MailContructorService {
         email.setFrom(environment.getProperty("support.email"));
         return email;
     }
+//Thymeleeaf + spring boot needs no conf
+
+//https://www.programcreek.com/java-api-examples/?class=org.thymeleaf.TemplateEngine&method=process
+    TemplateEngine templateEngine = new TemplateEngine();
+    StringTemplateResolver templateResolver = new StringTemplateResolver();
 
     public MimeMessagePreparator constructOrderConfirmationEmail (User user, Order order, Locale locale) {
         Context context = new Context();
         context.setVariable("order", order);
         context.setVariable("user", user);
         context.setVariable("cartItemList", order.getCartItemList());
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateEngine.setTemplateResolver(templateResolver);
         String text = templateEngine.process("orderConfirmationEmailTemplate", context);
 
         MimeMessagePreparator messagePreparator = new MimeMessagePreparator() {
@@ -49,7 +54,7 @@ public class MailContructorService {
                 MimeMessageHelper email = new MimeMessageHelper(mimeMessage);
                 email.setTo(user.getEmail());
                 email.setSubject("Order Confirmation - "+order.getId());
-                //TODO email.setText(text,true);
+                email.setText(text,true);
                 email.setFrom(new InternetAddress("allanbudarin@gmail.com"));
             }
         };
