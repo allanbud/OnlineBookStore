@@ -14,15 +14,18 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.templatemode.TemplateMode;
+//import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-import org.thymeleaf.templateresolver.StringTemplateResolver;
+//import org.thymeleaf.templateresolver.StringTemplateResolver;
 
 
 @Component
 public class MailContructorService {
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private TemplateEngine templateEngine;
 
 
 
@@ -42,8 +45,8 @@ public class MailContructorService {
 //https://www.programcreek.com/java-api-examples/?class=org.thymeleaf.TemplateEngine&method=process
 
 //https://www.thymeleaf.org/doc/articles/springmail.html
-    TemplateEngine templateEngine = new TemplateEngine();
-    final ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+    //TemplateEngine templateEngine = new TemplateEngine();
+    //final ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
 
     public MimeMessagePreparator constructOrderConfirmationEmail (User user, Order order, Locale locale) {
         Context context = new Context();
@@ -51,19 +54,18 @@ public class MailContructorService {
         context.setVariable("user", user);
         context.setVariable("cartItemList", order.getCartItemList());
 
-        templateResolver.setOrder(Integer.valueOf(2));
-        templateResolver.setResolvablePatterns(Collections.singleton("html/*"));
-        templateResolver.setPrefix("/resources/templates/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode(TemplateMode.HTML);
-        templateResolver.setCharacterEncoding("UTF-8");
-        templateResolver.setCacheable(false);
+        //templateResolver.setOrder(Integer.valueOf(2));
+        //templateResolver.setResolvablePatterns(Collections.singleton("html/*"));
+        //templateResolver.setPrefix("src/main/resources/templates");
+        //templateResolver.setSuffix(".html");
+        //templateResolver.setTemplateMode(TemplateMode.HTML);
+        //templateResolver.setCharacterEncoding("UTF-8");
+        //templateResolver.setCacheable(false);
+//TODO
+        //templateEngine.setTemplateResolver(templateResolver);
 
-
-
-        templateEngine.setTemplateResolver(templateResolver);
-
-        String text = templateEngine.process("orderConfirmationEmailTemplate", context);
+        String text =
+                templateEngine.process("orderConfirmationEmailTemplate", context);
 
         MimeMessagePreparator messagePreparator = new MimeMessagePreparator() {
             @Override
