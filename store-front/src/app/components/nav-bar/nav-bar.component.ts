@@ -20,8 +20,8 @@ export class NavBarComponent implements OnInit {
   public isAdmin = false;
   public user: User = new User();
 
-  private keyword: string;
-  private productList:Product[] =[];
+  public keyword: string;
+  public productList:Product[] =[];
 
   constructor(private router : Router,
               public widgetService: WidgetService,

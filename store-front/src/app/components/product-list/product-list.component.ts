@@ -140,34 +140,39 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
-
-  ngOnInit() {
-    //TODO Principal not exist when user not loged in
-    this.getCurrentUserStatus();
-    this.getProductListProductsAvailable();
-  }
-
-
-/*
+  /*
     ngOnInit() {
-      this.route.queryParams.subscribe(params => {
-        if(params['productList']) {
-          console.log("filtered product list");
-          this.productList = JSON.parse(params['productList']);
-        } else {
-          this.productService.getProductList().subscribe(
-            response => {
-              console.log(JSON.stringify(JSON));
-              this.productList = JSON.parse(response);
-            },
-            error => {
-              console.log(error.error);
-            }
-          );
-        }
-      });
+      //TODO Principal not exist when user not loged in
+      this.getCurrentUserStatus();
+      this.getProductListProductsAvailable();
     }
-*/
+
+  */
+
+      ngOnInit() {
+
+          //TODO Principal not exist when user not loged in
+      this.getCurrentUserStatus();
+      this.getProductListProductsAvailable();
+
+        this.route.queryParams.subscribe(params => {
+          if(params['productList']) {
+            console.log("filtered product list");
+            this.productList = JSON.parse(params['productList']);
+          } else {
+            this.productService.getProductList().subscribe(
+              response => {
+                console.log(JSON.stringify(JSON));
+                this.productList = JSON.parse(response);
+              },
+              error => {
+                console.log(error.error);
+              }
+            );
+          }
+        });
+      }
+
 
 }
 

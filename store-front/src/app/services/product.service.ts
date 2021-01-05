@@ -28,11 +28,10 @@ export class ProductService {
   searchProduct(keyword: string) {
     const url = 'http://localhost:8080/product/searchProduct';
     const Token = localStorage.getItem('xAuthToken');
-    let tokenHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-auth-token': Token!
+    let Header = new HttpHeaders({
+      'Content-Type': 'application/json'
     });
-    return this.http.post(url, keyword, {headers: tokenHeader, responseType: 'text'});
+    return this.http.post(url, keyword, {headers: Header, responseType: 'text'});
   }
 
 }
