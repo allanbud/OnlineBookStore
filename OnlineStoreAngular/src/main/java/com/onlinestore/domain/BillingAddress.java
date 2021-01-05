@@ -38,11 +38,11 @@ public class BillingAddress implements Serializable{
 		this.billingAddressName = billingAddressName;
 	}
 
-	public String getBillingAddressStreet1() {
+	public String getBillingAddressStreet() {
 		return billingAddressStreet;
 	}
 
-	public void setBillingAddressStreet1(String billingAddressStreet) {
+	public void setBillingAddressStreet(String billingAddressStreet) {
 		this.billingAddressStreet = billingAddressStreet;
 	}
 

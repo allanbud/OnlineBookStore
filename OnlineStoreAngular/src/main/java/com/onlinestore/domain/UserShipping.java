@@ -46,13 +46,13 @@ public class UserShipping implements Serializable{
 	}
 
 
-	public String getUserShippingStreet1() {
+	public String getUserShippingStreet() {
 		return userShippingStreet;
 	}
 
 
-	public void setUserShippingStreet1(String userShippingStreet1) {
-		this.userShippingStreet = userShippingStreet1;
+	public void setUserShippingStreet(String userShippingStreet) {
+		this.userShippingStreet = userShippingStreet;
 	}
 
 

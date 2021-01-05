@@ -32,7 +32,7 @@
                 VAT 20%:
               </div>
               <div class="col-xs-5 text-right ">
-                $<span>{{shoppingCart.grandTotal*0.2 | number : '1.2-2'}}</span>
+                € <span>{{shoppingCart.grandTotal*0.2 | number : '1.2-2'}}</span>
               </div>
             </div>
             <hr />
@@ -41,7 +41,7 @@
                 <h3 style="color:darkred; "><strong>Order total:</strong></h3>
               </div>
               <div class="col-xs-5 text-right ">
-                <h3><strong style="color:darkred; ">$<span
+                <h3><strong style="color:darkred; ">€ <span
                 >{{shoppingCart.grandTotal*1.2 | number : '1.2-2'}}</span>
                 </strong></h3>
               </div>
@@ -267,12 +267,12 @@
                 <h4>Choose your shipping method:</h4>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="shippingMethod" value="groundShipping" [(ngModel)]="shippingMethod" /> Tesla Shipping
+                    <input type="radio" name="shippingMethod" value="teslaShipping" [(ngModel)]="shippingMethod" /> Tesla Shipping
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="shippingMethod" value="premiumShipping" [(ngModel)]="shippingMethod" /> SpaceX Shipping
+                    <input type="radio" name="shippingMethod" value="spaceXShipping" [(ngModel)]="shippingMethod" /> SpaceX Shipping
                   </label>
                 </div>
 

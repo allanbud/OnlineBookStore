@@ -38,12 +38,12 @@ public class UserBilling implements Serializable{
 		this.userBillingName = userBillingName;
 	}
 
-	public String getUserBillingStreet1() {
+	public String getUserBillingStreet() {
 		return userBillingStreet;
 	}
 
-	public void setUserBillingStreet1(String userBillingStreet1) {
-		this.userBillingStreet = userBillingStreet1;
+	public void setUserBillingStreet(String userBillingStreet) {
+		this.userBillingStreet = userBillingStreet;
 	}
 
 

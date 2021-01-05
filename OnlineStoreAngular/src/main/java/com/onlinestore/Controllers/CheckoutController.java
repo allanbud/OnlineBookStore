@@ -47,7 +47,8 @@ public class CheckoutController {
 				Principal principal
 			){
 		ObjectMapper om = new ObjectMapper();
-		
+		// https://www.baeldung.com/jackson-object-mapper-tutorial
+
 		ShippingAddress shippingAddress = om.convertValue(mapper.get("shippingAddress"), ShippingAddress.class);
 		BillingAddress billingAddress = om.convertValue(mapper.get("billingAddress"), BillingAddress.class);
 		Payment payment = om.convertValue(mapper.get("payment"), Payment.class);
@@ -58,13 +59,13 @@ public class CheckoutController {
 		User user = userService.findByUsername(principal.getName());
 		Order order = orderService.createOrder(shoppingCart, shippingAddress, billingAddress, payment, shippingMethod, user);
 		
-		//TODO mailSender.send(mailConstructor.constructOrderConfirmationEmail(user, order, Locale.ENGLISH));
+		mailSender.send(mailConstructor.constructOrderConfirmationEmail(user, order, Locale.ENGLISH));
 		
 		shoppingCartService.clearShoppingCart(shoppingCart);
 		
 		LocalDate today = LocalDate.now();
 		LocalDate estimatedDeliveryDate;
-		if (shippingMethod.equals("groundShipping")) {
+		if (shippingMethod.equals("teslaShipping")) {
 			estimatedDeliveryDate=today.plusDays(5);
 		} else {
 			estimatedDeliveryDate=today.plusDays(3);

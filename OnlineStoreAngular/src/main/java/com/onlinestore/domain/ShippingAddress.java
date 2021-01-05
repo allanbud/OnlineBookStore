@@ -16,7 +16,6 @@ public class ShippingAddress implements Serializable{
 	private String shippingAddressName;
 	private String shippingAddressStreet;
 	private String shippingAddressCity;
-	private String shippingAddressState;
 	private String shippingAddressCountry;
 	private String shippingAddressZipcode;
 	
@@ -40,11 +39,11 @@ public class ShippingAddress implements Serializable{
 		this.shippingAddressName = shippingAddressName;
 	}
 
-	public String getShippingAddressStreet1() {
+	public String getShippingAddressStreet() {
 		return shippingAddressStreet;
 	}
 
-	public void setShippingAddressStreet1(String shippingAddressStreet) {
+	public void setShippingAddressStreet(String shippingAddressStreet) {
 		this.shippingAddressStreet = shippingAddressStreet;
 	}
 
