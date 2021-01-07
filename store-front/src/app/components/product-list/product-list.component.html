@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div>
-      <h2 class="section-headline" (click)="cardTable=!cardTable"><span>Products Available (Swith View)</span></h2>
+      <h2 class="section-headline" (click)="cardTable=!cardTable"><span>Products Available (Switch View)</span></h2>
 
     </div>
   </div>
@@ -31,12 +31,13 @@
       <th>Category</th>
       <th>Author</th>
       <th>Price</th>
-      <th>Active?</th>
       <th *ngIf="isAdmin">Operation</th>
     </tr>
     </thead>
     <tbody *ngIf="dataFetched">
-    <tr *ngFor="let inTable of productList">
+
+    <ng-container  *ngFor="let inTable of productList">
+    <tr *ngIf="inTable.active">
       <td *ngIf="isAdmin">
         <input hidden="hidden" name="id"/>
         <input type="checkbox" [checked]="allChecked"
@@ -59,15 +60,15 @@
       <td>{{inTable.productCategory}}</td>
       <td>{{inTable.productAuthor}}</td>
       <td>{{inTable.listPrice}}</td>
-      <td>{{inTable.active}}</td>
       <td *ngIf="isAdmin">
         <input hidden="hidden" name="id"/>
         <button mat-button (click)="openDialog(inTable)" value="delete"><span class="fa fa-times"></span> delete
         </button>
       </td>
-
-
     </tr>
+    </ng-container>
+
+
     </tbody>
   </table>
   <tbody *ngIf="dataFetched">
@@ -82,29 +83,35 @@
 <div *ngIf="!cardTable" class="container">
   <div class="row">
     <div class="card">
-      <div class="col-md-5 mx-auto my-50" style="width: 25rem; margin-bottom: 50px;" *ngFor="let inCard of productList">
-        <img src="http://localhost:8080/image/product/{{inCard.id}}.png" style="width:120px" class="card-img-top">
-        <div class="card-body">
-          <h2><a (click)="onSelect(inCard)" style="cursor:pointer">
-            {{inCard.productTitle}}</a>
-            <input hidden="hidden" name="id"/>
-            <button *ngIf="isAdmin" mat-button (click)="onEdit(inCard)" value="View/Edit"><span
-              class="fa fa-pencil"></span>
-              View/Edit
-            </button>
-          </h2>
-          <h4>{{inCard.inStockNumber}}</h4>
-          <h4>{{inCard.productType}}</h4>
-          <h4>{{inCard.productCategory}}</h4>
-          <h4>{{inCard.productAuthor}}</h4>
-          <h4>{{inCard.listPrice}}</h4>
-          <h4>{{inCard.active}}</h4>
+      <ng-container *ngFor="let inCard of productList">
+        <div class="col-md-5 mx-auto my-50" style="width: 25rem; margin-bottom: 50px;"
+             *ngIf="inCard.active">
+          <img class="card-img-top" src="http://localhost:8080/image/product/{{inCard.id}}.png" style="width:120px"
+               alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title"><a (click)="onSelect(inCard)" style="cursor:pointer">
+              {{inCard.productTitle}}</a>
 
+              <input hidden="hidden" name="id"/>
+              <button *ngIf="isAdmin" mat-button (click)="onEdit(inCard)" value="View/Edit"><span
+                class="fa fa-pencil"></span>
+                View/Edit
+              </button>
+            </h4>
 
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Price: {{inCard.listPrice}} Euros</li>
+              <li class="list-group-item">We have in stock {{inCard.inStockNumber}} units</li>
+              <li class="list-group-item">Product category: {{inCard.productCategory}}</li>
+              <li class="list-group-item">Product author: {{inCard.productAuthor}}</li>
+              <li class="list-group-item">Product is {{inCard.active}}</li>
 
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+            </ul>
+
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>

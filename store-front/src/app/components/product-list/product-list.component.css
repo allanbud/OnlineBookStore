@@ -10,7 +10,7 @@ td {
   vertical-align: middle;
 }
 thead {
-  background: #bad7af;
+  background: #cececa;
   color: #ffffff;
 }
 th {
@@ -23,14 +23,14 @@ tbody tr:nth-child(even) {
   background: #dde3dc;
 }
 td {
-  border-bottom: 1px solid #bad7af;
+  border-bottom: 1px solid #cececa;
   border-right: 1px solid #c3d5ba;
 }
 td:first-child {
   border-left: 1px solid #bdcbbd;
 }
 .product-title {
-  color: #bad7af;
+  color: #cececa;
   display: block;
 }
 .item-stock,
@@ -47,7 +47,7 @@ tfoot {
   text-align: right;
 }
 tfoot tr:last-child {
-  background: #bad7af;
+  background: #cececa;
 }
 
 
