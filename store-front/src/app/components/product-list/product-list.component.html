@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<table class="table" [mfData]="productList | dataFilter : filterQuery"
+<table class="table table-hover" [mfData]="productList | dataFilter : filterQuery"
        [class.mat-elevation-z18]=true id="productListTable"
        class="table bordered highlight">
   <thead>
@@ -34,31 +34,31 @@
   </tr>
   </thead>
   <tbody *ngIf="dataFetched">
-  <tr *ngFor="let product of productList">
+  <tr *ngFor="let inTable of productList">
     <td *ngIf="isAdmin">
       <input hidden="hidden" name="id"/>
-      <input type="checkbox" [checked]="allChecked" (change)="updateRemoveProductList($event.target.checked, product)"/>
+      <input type="checkbox" [checked]="allChecked" (change)="updateRemoveProductList($event.target.checked, inTable)"/>
     </td>
 
-    <td><img class="img-responsive" src="http://localhost:8080/image/product/{{product.id}}.png" style="width:60px"/>
+    <td><img class="img-responsive" src="http://localhost:8080/image/product/{{inTable.id}}.png" style="width:60px"/>
     </td>
 
-    <td><a (click)="onSelect(product)" style="cursor:pointer">
-      {{product.productTitle}}</a>
+    <td><a (click)="onSelect(inTable)" style="cursor:pointer">
+      {{inTable.productTitle}}</a>
       <input hidden="hidden" name="id"/>
-      <button *ngIf="isAdmin" mat-button (click)="onEdit(product)" value="View/Edit"><span class="fa fa-pencil"></span>
+      <button *ngIf="isAdmin" mat-button (click)="onEdit(inTable)" value="View/Edit"><span class="fa fa-pencil"></span>
         View/Edit
       </button>
     </td>
-    <td>{{product.inStockNumber}}</td>
-    <td>{{product.productType}}</td>
-    <td>{{product.productCategory}}</td>
-    <td>{{product.productAuthor}}</td>
-    <td>{{product.listPrice}}</td>
-    <td>{{product.active}}</td>
+    <td>{{inTable.inStockNumber}}</td>
+    <td>{{inTable.productType}}</td>
+    <td>{{inTable.productCategory}}</td>
+    <td>{{inTable.productAuthor}}</td>
+    <td>{{inTable.listPrice}}</td>
+    <td>{{inTable.active}}</td>
     <td *ngIf="isAdmin">
       <input hidden="hidden" name="id"/>
-      <button mat-button (click)="openDialog(product)" value="delete"><span class="fa fa-times"></span> delete</button>
+      <button mat-button (click)="openDialog(inTable)" value="delete"><span class="fa fa-times"></span> delete</button>
     </td>
 
   </tr>
@@ -69,6 +69,25 @@
         (click)="removeSelectedProducts()">Delete Selected
 </button>
 
+<br><br>
 
-
-
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="col-md-5 mx-auto my-50" style="width: 25rem; margin-bottom: 50px;" *ngFor="let inCard of productList">
+        <img src="http://localhost:8080/image/product/{{inCard.id}}.png" style="width:120px" class="card-img-top">
+        <div class="card-body">
+          <td><a (click)="onSelect(inCard)" style="cursor:pointer">
+            {{inCard.productTitle}}</a>
+            <input hidden="hidden" name="id"/>
+            <button *ngIf="isAdmin" mat-button (click)="onEdit(inCard)" value="View/Edit"><span
+              class="fa fa-pencil"></span>
+              View/Edit
+            </button>
+          </td>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

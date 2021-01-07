@@ -174,6 +174,7 @@ export class ProductListComponent implements OnInit {
       }
 
 
+
 }
 
 //Close related components better be in one component file

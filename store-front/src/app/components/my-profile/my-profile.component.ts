@@ -229,6 +229,7 @@ import {Order} from '../../models/order';
     this.orderService.getOrderList().subscribe(
       response => {
         this.orderList = JSON.parse(response);
+
       },
       error => {
         console.log(error.error);

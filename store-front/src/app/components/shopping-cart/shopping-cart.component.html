@@ -51,7 +51,7 @@
           <a class="pointer" (click)="onRemoveCartItem(cartItem)">delete</a>
         </div>
         <div class="col-xs-2">
-          <h5 style="color:#db3208; font-size:large;">$<span [ngClass]="{'text-strike': cartItem.product.inStockNumber == 0}">{{cartItem.product.listPrice}}</span>
+          <h5 style="color:#db3208; font-size:large;">€<span [ngClass]="{'text-strike': cartItem.product.inStockNumber == 0}">{{cartItem.product.listPrice}}</span>
           </h5>
         </div>
         <div class="col-xs-2">
@@ -62,7 +62,7 @@
       </div>
       <div class="row">
         <hr />
-        <h4 class="col-xs-12 text-right"><strong style="font-size: large">Total Price (<span>{{cartItemNumber}}</span> items): </strong><span style="color:#db3208;font-size: large">$ <span>{{shoppingCart.grandTotal}}</span></span></h4>
+        <h4 class="col-xs-12 text-right"><strong style="font-size: large">Total Price (<span>{{cartItemNumber}}</span> items): </strong><span style="color:#db3208;font-size: large">€<span>{{shoppingCart.grandTotal}}</span></span></h4>
       </div>
     </div>
   </div>

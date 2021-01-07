@@ -131,7 +131,7 @@ export class OrderComponent implements OnInit {
         console.log(this.order);
 //interface NavigationExtras extends UrlCreationOptions, NavigationBehaviorOptions
 //replaceUrl?: boolean
-//TODO CORS policy??
+
 
         let navigationExtras: NavigationExtras = {
           queryParams: {
@@ -207,7 +207,7 @@ export class OrderComponent implements OnInit {
     this.payment.type="";
     this.payment.expiryMonth="";
     this.payment.expiryYear="";
-    this.shippingMethod="AutoTransport";
+    this.shippingMethod="TeslaTransport";
 
   }
 

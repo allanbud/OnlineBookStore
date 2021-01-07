@@ -104,8 +104,8 @@ body,
 .navbar .navbar-nav .open .dropdown-menu {
   position: absolute;
   float: left;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, .15);
   border-width: 0 1px 1px;
   border-radius: 0 0 4px 4px;
@@ -126,7 +126,7 @@ body,
 .navbar .navbar-nav .open .dropdown-menu > .disabled > a,
 .navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,
 .navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-  color: #999 !important;
+  color: #999999 !important;
   background-color: transparent !important;
 }
 
