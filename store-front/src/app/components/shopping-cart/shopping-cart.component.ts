@@ -19,10 +19,13 @@ export class ShoppingCartComponent implements OnInit {
   public emptyCart: boolean;
   public notEnoughStock: boolean;
 
+
   constructor(
     public router:Router,
     public cartService: CartService
   ) { }
+
+
 
   onSelect(product: Product) {
     this.selectedProduct = product;

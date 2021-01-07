@@ -30,6 +30,8 @@ export class ProductListComponent implements OnInit {
   public allChecked: boolean;
   public dataFetched = false;
 
+  public cardTable: boolean;
+
 
   constructor(
     public productService: ProductService,
@@ -148,6 +150,7 @@ export class ProductListComponent implements OnInit {
     }
 
   */
+
 
       ngOnInit() {
 
