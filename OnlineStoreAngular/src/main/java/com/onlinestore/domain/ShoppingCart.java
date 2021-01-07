@@ -15,10 +15,9 @@ public class ShoppingCart implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private BigDecimal GrandTotal; //Check decimal vars
+	private BigDecimal GrandTotal; //To avoid arithmetic catastrophe use Bigdecimal
 	
 	@OneToMany(mappedBy = "shoppingCart", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	//TODO :
 	@JsonIgnore
 	private List<CartItem> cartItemList;
 	

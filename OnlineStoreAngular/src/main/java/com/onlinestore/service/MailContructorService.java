@@ -61,7 +61,6 @@ public class MailContructorService {
         //templateResolver.setTemplateMode(TemplateMode.HTML);
         //templateResolver.setCharacterEncoding("UTF-8");
         //templateResolver.setCacheable(false);
-//TODO
         //templateEngine.setTemplateResolver(templateResolver);
 
         String text =

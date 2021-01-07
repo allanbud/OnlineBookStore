@@ -16,7 +16,7 @@ public class RequestFilter implements Filter {
 //requests coming from http
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
-//TODO * temp star mark because any origin could not be safe
+//DONE * temp star mark because any origin could not be safe
 		response.setHeader("Access-Control-Allow-Origin", "*");
 //methods to be used
 		response.setHeader("Access-control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");

@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-//TODO to have records in the tables temporarely use
+//DONE to have records in the tables temporarely use
 //CommandLineRunner is a simple Spring Boot interface with a run method.
 // Spring Boot will automatically call the run method of all beans implementing
 //this interface after the application context has been loaded.

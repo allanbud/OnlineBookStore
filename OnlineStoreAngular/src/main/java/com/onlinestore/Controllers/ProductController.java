@@ -58,7 +58,7 @@ import java.util.List;
             }
         }
 
-//TODO not really updating image
+//DONE not really updating image
     @RequestMapping(value="/update/image", method=RequestMethod.POST)
     public ResponseEntity updateImage(
             @RequestParam("id") Long id,
@@ -100,7 +100,7 @@ import java.util.List;
     public ResponseEntity remove(
             @RequestBody String id
     )throws IOException {
-//TODO Request processing failed; nested exception is org.springframework.dao.EmptyResultDataAccessException: No class com.onlinestore.domain.Product entity with id 11 exists
+//DONE Request processing failed; nested exception is org.springframework.dao.EmptyResultDataAccessException: No class com.onlinestore.domain.Product entity with id 11 exists
         System.out.println("id to remove: " + id);
         productService.removeOneProduct(Long.parseLong(id));
         String fileName = id+".png";

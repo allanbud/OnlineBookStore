@@ -83,7 +83,7 @@ public class ShoppingCartController {
 	}
 
 
-	//TODO Not gonna upadate
+	//DONE Not gonna upadate
 	@RequestMapping("/updateCartItem")
 	public ResponseEntity updateCartItem(
 			@RequestBody HashMap<String, String> mapper

@@ -21,7 +21,7 @@ public class CartItem implements Serializable{
 	
 	@OneToOne
 	private Product product;
-	//TODO
+	//DONE
 	@OneToMany(mappedBy ="cartItem")
 	@JsonIgnore
 	private List<ProductToCartItem> productToCartItemList;
