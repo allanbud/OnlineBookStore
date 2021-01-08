@@ -9,4 +9,7 @@ export class Order {
   public orderStatus: string;
   public orderTotal: number;
   public cartItemList: CartItem[];
+  billingAddress: any;
+  payment: any;
+  shippingAddress: any;
 }

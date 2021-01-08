@@ -211,6 +211,12 @@ import {Order} from '../../models/order';
 
 
   //initializing
+  cartItemList: any;
+  updateUserInfo: any;
+  usernameExists: any;
+  emailExists: any;
+  updateUserShippingInfo: any;
+  updateUserPaymentInfo: any;
   ngOnInit() {
     this.loginService.checkSession().subscribe(
       response => {

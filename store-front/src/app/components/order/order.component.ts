@@ -40,6 +40,7 @@ export class OrderComponent implements OnInit {
   public stateList: string[] = [];
   public shippingMethod:string;
   public order:Order = new Order();
+  missingRequiredField: any;
 
   constructor(
     public router:Router,

@@ -31,13 +31,14 @@
       <th>Category</th>
       <th>Author</th>
       <th>Price</th>
+      <th *ngIf="isAdmin">Active?</th>
       <th *ngIf="isAdmin">Operation</th>
     </tr>
     </thead>
     <tbody *ngIf="dataFetched">
 
     <ng-container  *ngFor="let inTable of productList">
-    <tr *ngIf="inTable.active">
+    <tr>
       <td *ngIf="isAdmin">
         <input hidden="hidden" name="id"/>
         <input type="checkbox" [checked]="allChecked"
@@ -60,6 +61,7 @@
       <td>{{inTable.productCategory}}</td>
       <td>{{inTable.productAuthor}}</td>
       <td>{{inTable.listPrice}}</td>
+      <td *ngIf="isAdmin">{{inTable.active}}</td>
       <td *ngIf="isAdmin">
         <input hidden="hidden" name="id"/>
         <button mat-button (click)="openDialog(inTable)" value="delete"><span class="fa fa-times"></span> delete

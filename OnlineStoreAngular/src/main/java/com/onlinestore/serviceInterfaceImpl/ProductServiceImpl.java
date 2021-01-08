@@ -1,9 +1,14 @@
 package com.onlinestore.serviceInterfaceImpl;
 
 import com.onlinestore.domain.Product;
+import com.onlinestore.domain.User;
+import com.onlinestore.domain.security.Authority;
 import com.onlinestore.repository.ProductRepository;
 import com.onlinestore.service.ProductService;
+import com.onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,8 +16,14 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+
+    @Autowired
+    private UserService userService;
+
     @Autowired
     private ProductRepository productRepository;
+
 
     //find all product
     public List<Product> findAllProduct() {
@@ -28,8 +39,13 @@ public class ProductServiceImpl implements ProductService {
             }
         }
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        System.out.println("Current user:  " + currentPrincipalName);
+
         return activeProductList;
-    }
+        }
+
 
     public Product findOneProduct(Long id) {
         return productRepository.findOne(id);
@@ -49,7 +65,6 @@ public class ProductServiceImpl implements ProductService {
                 activeProductList.add(product);
             }
         }
-
         return activeProductList;
     }
 
