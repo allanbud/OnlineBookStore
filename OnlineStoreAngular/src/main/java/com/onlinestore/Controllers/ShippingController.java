@@ -36,8 +36,7 @@ public class ShippingController {
 	
 	@RequestMapping("/getUserShippingList")
 	public List<UserShipping> getUserShippingList(
-			Principal principal
-			){
+			Principal principal){
 		User user = userService.findByUsername(principal.getName());
 		List<UserShipping> userShippingList = user.getUserShippingList();
 		

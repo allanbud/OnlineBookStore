@@ -7,6 +7,7 @@ import com.onlinestore.domain.security.Role;
 import com.onlinestore.domain.security.UserRole;
 import com.onlinestore.service.MailContructorService;
 import com.onlinestore.service.UserService;
+import com.onlinestore.serviceInterfaceImpl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -66,6 +67,7 @@ public class UserController {
 
         Role role = new Role();
         role.setRoleId(1); //id 1 = normal user
+        //TODO
         role.setName("ROLE_USER");
         Set<UserRole> userRoles = new HashSet<>();
         userRoles.add(new UserRole(user, role));
@@ -171,7 +173,8 @@ public class UserController {
     //Java security: Principal gets current user logged in
     public User getCurrentUser(Principal principal) {
         try {
-        String username = principal.getName();}
+            String username = principal.getName();
+        }
         catch (Exception e) {
             System.out.println("No user logged in");
         }

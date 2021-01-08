@@ -9,8 +9,10 @@ export class ProductService {
 
   getProductList() {
     const url = 'http://localhost:8080/product/productList';
+    const Token = localStorage.getItem('xAuthToken');
     let Header = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-auth-token' : Token!
     });
     return this.http.get(url, {headers: Header, responseType: 'text'});
   }

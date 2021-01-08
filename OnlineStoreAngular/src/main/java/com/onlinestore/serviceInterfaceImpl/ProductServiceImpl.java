@@ -3,6 +3,8 @@ package com.onlinestore.serviceInterfaceImpl;
 import com.onlinestore.domain.Product;
 import com.onlinestore.domain.User;
 import com.onlinestore.domain.security.Authority;
+import com.onlinestore.domain.security.Role;
+import com.onlinestore.domain.security.UserRole;
 import com.onlinestore.repository.ProductRepository;
 import com.onlinestore.service.ProductService;
 import com.onlinestore.service.UserService;
@@ -17,7 +19,6 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-
     @Autowired
     private UserService userService;
 
@@ -27,6 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
     //find all product
     public List<Product> findAllProduct() {
+
         //casting
         List<Product> productList = (List<Product>) productRepository.findAll();
 
@@ -42,9 +44,17 @@ public class ProductServiceImpl implements ProductService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         System.out.println("Current user:  " + currentPrincipalName);
+//TODO
 
+        User currentUser = userService.findByUsername(currentPrincipalName);
+        long currentRole = (((UserRole)currentUser.userRoles.toArray()[0]).userRoleId);
+
+        if (currentRole == 1) {
         return activeProductList;
+        } else {
+            return productList;
         }
+    }
 
 
     public Product findOneProduct(Long id) {

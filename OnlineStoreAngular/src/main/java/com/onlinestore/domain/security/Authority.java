@@ -28,7 +28,7 @@ You can grant different GrantedAuthoritys (permissions) to users by putting them
 public class Authority implements GrantedAuthority, Serializable {
     private static final long serialVersionUID = 12343445123L;
 
-    private final String authority;
+    public final String authority;
 
     public Authority(String authority) {
         this.authority = authority;

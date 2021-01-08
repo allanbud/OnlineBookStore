@@ -60,7 +60,8 @@ so this side goes @OneToMany
 	//@Transient
 	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
-	private Set<UserRole> userRoles = new HashSet<>();
+	//TODO
+	public Set<UserRole> userRoles = new HashSet<>();
 
 
 

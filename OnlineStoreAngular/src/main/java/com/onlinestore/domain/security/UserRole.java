@@ -11,10 +11,10 @@ import java.io.Serializable;
 //Error: org.springframework.data.redis.serializer.SerializationException: Cannot serialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.onlinestore.domain.security.UserRole
 public class UserRole implements Serializable {
     private static final long serialVersionUID = 858494050L;
-
+//TODO
     @Id//primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userRoleId;
+    public long userRoleId;
 
     public UserRole () {}//default empty constructor
 

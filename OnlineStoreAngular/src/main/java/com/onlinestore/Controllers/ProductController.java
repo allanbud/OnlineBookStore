@@ -1,7 +1,9 @@
 package com.onlinestore.controllers;
 
 import com.onlinestore.domain.Product;
+import com.onlinestore.domain.User;
 import com.onlinestore.service.ProductService;
+import com.onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +20,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.Principal;
 import java.util.Iterator;
 import java.util.List;
 
 @RestController
     @RequestMapping("/product")
     public class ProductController {
+
+    @Autowired
+    private UserService userService;
 
         @Autowired
         private ProductService productService;
@@ -111,8 +117,16 @@ import java.util.List;
 
 
         @RequestMapping("/productList")
-        public List<Product> getProductList() {
+        public List<Product> getProductList(Principal principal) {
             System.out.println("Getting product list");
+
+            //TODO
+            try {
+                User user = userService.findByUsername(principal.getName());
+            } catch (Exception e)
+            {
+                System.out.println("No user logged in");
+            }
             return productService.findAllProduct();
         }
 
