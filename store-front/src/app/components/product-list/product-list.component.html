@@ -24,50 +24,51 @@
       <th *ngIf="isAdmin">
         <input type="checkbox" (change)="updateSelected($event.target.checked)"/>
       </th>
-      <th>Image</th>
-      <th>Title</th>
-      <th>In Stock</th>
-      <th>Type</th>
-      <th>Category</th>
-      <th>Author</th>
-      <th>Price</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>In Stock</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Author</th>
+          <th>Price</th>
       <th *ngIf="isAdmin">Active?</th>
       <th *ngIf="isAdmin">Operation</th>
     </tr>
     </thead>
     <tbody *ngIf="dataFetched">
 
-    <ng-container  *ngFor="let inTable of productList">
-    <tr>
-      <td *ngIf="isAdmin">
-        <input hidden="hidden" name="id"/>
-        <input type="checkbox" [checked]="allChecked"
-               (change)="updateRemoveProductList($event.target.checked, inTable)"/>
-      </td>
+    <ng-container *ngFor="let inTable of productList">
+      <tr>
+        <td *ngIf="isAdmin">
+          <input hidden="hidden" name="id"/>
+          <input type="checkbox" [checked]="allChecked"
+                 (change)="updateRemoveProductList($event.target.checked, inTable)"/>
+        </td>
 
-      <td><img class="img-responsive" src="http://localhost:8080/image/product/{{inTable.id}}.png" style="width:60px"/>
-      </td>
+        <td><img class="img-responsive" src="http://localhost:8080/image/product/{{inTable.id}}.png"
+                 style="width:60px"/>
+        </td>
 
-      <td><a (click)="onSelect(inTable)" style="cursor:pointer">
-        {{inTable.productTitle}}</a>
-        <input hidden="hidden" name="id"/>
-        <button *ngIf="isAdmin" mat-button (click)="onEdit(inTable)" value="View/Edit"><span
-          class="fa fa-pencil"></span>
-          View/Edit
-        </button>
-      </td>
-      <td>{{inTable.inStockNumber}}</td>
-      <td>{{inTable.productType}}</td>
-      <td>{{inTable.productCategory}}</td>
-      <td>{{inTable.productAuthor}}</td>
-      <td>{{inTable.listPrice}}</td>
-      <td *ngIf="isAdmin">{{inTable.active}}</td>
-      <td *ngIf="isAdmin">
-        <input hidden="hidden" name="id"/>
-        <button mat-button (click)="openDialog(inTable)" value="delete"><span class="fa fa-times"></span> delete
-        </button>
-      </td>
-    </tr>
+        <td><a (click)="onSelect(inTable)" style="cursor:pointer">
+          {{inTable.productTitle}}</a>
+          <input hidden="hidden" name="id"/>
+          <button *ngIf="isAdmin" mat-button (click)="onEdit(inTable)" value="View/Edit"><span
+            class="fa fa-pencil"></span>
+            View/Edit
+          </button>
+        </td>
+            <td>{{inTable.inStockNumber}}</td>
+            <td>{{inTable.productType}}</td>
+            <td>{{inTable.productCategory}}</td>
+            <td>{{inTable.productAuthor}}</td>
+            <td>{{inTable.listPrice}}</td>
+            <td *ngIf="isAdmin">{{inTable.active}}</td>
+            <td *ngIf="isAdmin">
+          <input hidden="hidden" name="id"/>
+          <button mat-button (click)="openDialog(inTable)" value="delete"><span class="fa fa-times"></span> delete
+          </button>
+        </td>
+      </tr>
     </ng-container>
 
 
