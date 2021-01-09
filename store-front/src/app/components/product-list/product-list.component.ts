@@ -7,6 +7,7 @@ import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {RemoveProductService} from '../../services/remove-product.service';
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-product-list',
@@ -32,6 +33,9 @@ export class ProductListComponent implements OnInit {
 
   public cardTable: boolean;
 
+  public loggedIn:boolean;
+
+
 
   constructor(
     public productService: ProductService,
@@ -40,6 +44,7 @@ export class ProductListComponent implements OnInit {
     public route:ActivatedRoute,
     public userService: UserService,
     public dialog : MatDialog,
+    public loginService: LoginService,
     public removeProductService: RemoveProductService
   ) { }
 
@@ -55,17 +60,31 @@ export class ProductListComponent implements OnInit {
 
 
   getProductListProductsAvailable() {
-    this.productService.getProductList().subscribe(
-      response => {
-        console.log(JSON.stringify(response));
-        this.productList = JSON.parse(response);
-        this.dataFetched = true;
+    if (this.loggedIn) {
+      this.productService.getProductList().subscribe(
+        response => {
+          console.log(JSON.stringify(response));
+          this.productList = JSON.parse(response);
+          this.dataFetched = true;
 
-      },
-      error => {
-        console.log(error.error);
-      }
-    );
+        },
+        error => {
+          console.log(error.error);
+        }
+      );
+    } else {
+      this.productService.getProductListNoUser().subscribe(
+        response => {
+          console.log(JSON.stringify(response));
+          this.productList = JSON.parse(response);
+          this.dataFetched = true;
+
+        },
+        error => {
+          console.log(error.error);
+        }
+      );
+    }
   }
 
   //TODO To make a checkbox indeterminated
@@ -158,12 +177,33 @@ export class ProductListComponent implements OnInit {
       this.getCurrentUserStatus();
       this.getProductListProductsAvailable();
 
+
+        this.loginService.checkSession().subscribe(
+          response => {
+            this.loggedIn = true;
+            console.log("My Profile Session is Active!");
+          },
+          error => {
+            this.loggedIn = false;
+            console.log("My Profile Session is inactive");
+          }
+        );
         this.route.queryParams.subscribe(params => {
           if(params['productList']) {
             console.log("filtered product list");
             this.productList = JSON.parse(params['productList']);
+          } else { if (this.loggedIn) {
+                                                                          this.productService.getProductList().subscribe(
+                                                                            response => {
+                                                                              console.log(JSON.stringify(JSON));
+                                                                              this.productList = JSON.parse(response);
+                                                                            },
+                                                                            error => {
+                                                                              console.log(error.error);
+                                                                            }
+                                                                          );
           } else {
-            this.productService.getProductList().subscribe(
+            this.productService.getProductListNoUser().subscribe(
               response => {
                 console.log(JSON.stringify(JSON));
                 this.productList = JSON.parse(response);
@@ -172,6 +212,7 @@ export class ProductListComponent implements OnInit {
                 console.log(error.error);
               }
             );
+          }
           }
         });
       }

@@ -17,6 +17,14 @@ export class ProductService {
     return this.http.get(url, {headers: Header, responseType: 'text'});
   }
 
+  getProductListNoUser() {
+    const url = 'http://localhost:8080/product/productList';
+    const Token = localStorage.getItem('xAuthToken');
+    let Header = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.get(url, {headers: Header, responseType: 'text'});
+  }
 
 
   getProduct(id: number) {

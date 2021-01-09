@@ -16,23 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService, GrantedAuthority {
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private UserService userService;
 
     @Autowired
     private ProductRepository productRepository;
-
-                                                                                                    private final String authority;
-                                                                                                    public ProductServiceImpl(String authority) {
-                                                                                                        this.authority = authority;
-                                                                                                    }
-                                                                                                    @Override
-                                                                                                    public String getAuthority() {
-                                                                                                        return authority;
-                                                                                                    }
-
 
     //find all product
     public List<Product> findAllProduct() {
@@ -65,10 +55,6 @@ public class ProductServiceImpl implements ProductService, GrantedAuthority {
         {
             System.out.println("User Role error");
         }
-
-
-
-                                                                                                                        getAuthority();
             return activeProductList;
     }
 
