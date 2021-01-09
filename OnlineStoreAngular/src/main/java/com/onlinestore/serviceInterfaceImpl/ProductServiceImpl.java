@@ -2,14 +2,13 @@ package com.onlinestore.serviceInterfaceImpl;
 
 import com.onlinestore.domain.Product;
 import com.onlinestore.domain.User;
-import com.onlinestore.domain.security.Authority;
-import com.onlinestore.domain.security.Role;
 import com.onlinestore.domain.security.UserRole;
 import com.onlinestore.repository.ProductRepository;
 import com.onlinestore.service.ProductService;
 import com.onlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService, GrantedAuthority {
 
     @Autowired
     private UserService userService;
@@ -25,10 +24,18 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+                                                                                                    private final String authority;
+                                                                                                    public ProductServiceImpl(String authority) {
+                                                                                                        this.authority = authority;
+                                                                                                    }
+                                                                                                    @Override
+                                                                                                    public String getAuthority() {
+                                                                                                        return authority;
+                                                                                                    }
+
 
     //find all product
     public List<Product> findAllProduct() {
-
         //casting
         List<Product> productList = (List<Product>) productRepository.findAll();
 
@@ -47,13 +54,22 @@ public class ProductServiceImpl implements ProductService {
 //TODO
 
         User currentUser = userService.findByUsername(currentPrincipalName);
-        long currentRole = (((UserRole)currentUser.userRoles.toArray()[0]).userRoleId);
-
-        if (currentRole == 1) {
-        return activeProductList;
-        } else {
-            return productList;
+        try {
+            long currentRole = (((UserRole) currentUser.userRoles.toArray()[0]).userRoleId);
+            if (currentRole == 1) {
+                return activeProductList;
+            } else {
+                return productList;
+            }
+        } catch  (Exception e)
+        {
+            System.out.println("User Role error");
         }
+
+
+
+                                                                                                                        getAuthority();
+            return activeProductList;
     }
 
 
@@ -81,4 +97,5 @@ public class ProductServiceImpl implements ProductService {
     public void removeOneProduct(Long id) {
         productRepository.delete(id);
     }
+
 }

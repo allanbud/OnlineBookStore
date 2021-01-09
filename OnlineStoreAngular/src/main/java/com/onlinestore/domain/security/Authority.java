@@ -1,7 +1,5 @@
 package com.onlinestore.domain.security;
 
-import com.onlinestore.serviceInterfaceImpl.ProductServiceImpl;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serializable;
@@ -28,7 +26,7 @@ You can grant different GrantedAuthoritys (permissions) to users by putting them
 public class Authority implements GrantedAuthority, Serializable {
     private static final long serialVersionUID = 12343445123L;
 
-    public final String authority;
+    private final String authority;
 
     public Authority(String authority) {
         this.authority = authority;
