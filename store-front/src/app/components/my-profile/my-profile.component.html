@@ -114,7 +114,7 @@
                             <tr *ngFor="let order of orderList">
                               <td>
                                 <a class="pointer" (click)="onDisplayOrder(order)"><span
-                                >{{order.orderDate}}</span></a>
+                                >{{order.orderDate | date:'dd/MM/yyyy'}}</span></a>
                               </td>
                               <td>{{order.id}}</td>
                               <td>{{order.orderTotal}}</td>
