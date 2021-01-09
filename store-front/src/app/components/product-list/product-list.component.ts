@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
   public allChecked: boolean;
   public dataFetched = false;
 
-  public cardTable: boolean;
+  public cardTable: boolean = true;
 
   public loggedIn:boolean;
 
@@ -66,7 +66,6 @@ export class ProductListComponent implements OnInit {
           console.log(JSON.stringify(response));
           this.productList = JSON.parse(response);
           this.dataFetched = true;
-
         },
         error => {
           console.log(error.error);
@@ -175,16 +174,17 @@ export class ProductListComponent implements OnInit {
 
           //TODO Principal not exist when user not loged in
       this.getCurrentUserStatus();
-      this.getProductListProductsAvailable();
 
 
         this.loginService.checkSession().subscribe(
           response => {
             this.loggedIn = true;
+            this.getProductListProductsAvailable();
             console.log("My Profile Session is Active!");
           },
           error => {
             this.loggedIn = false;
+            this.getProductListProductsAvailable();
             console.log("My Profile Session is inactive");
           }
         );

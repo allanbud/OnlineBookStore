@@ -127,3 +127,5 @@ w
 Gsrc/main/java/com/onlinestore/config/OnlinestoreAngularApplication.java,f\5\f55d211c13fd9218e9d6110c3f59b2f6adf945af
 p
 @src/main/resources/templates/orderConfirmationEmailTemplate.html,2\0\20bf2c94098f358b8454758f3461f688791348ab
+n
+>src/main/java/com/onlinestore/controllers/LoginController.java,f\a\fadae14f533314677699d5b0a2767dbfe29c0f2e
